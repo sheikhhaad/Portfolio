@@ -17,7 +17,7 @@ const PortfolioCard = () => {
     <motion.div
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className={`w-80 h-70 shadow-lg rounded-xl flex items-center justify-center p-6`}
+      className={`w-150 h-100 shadow-lg rounded-[30px] flex items-center justify-center p-6`}
       style={{ backgroundColor: Color }}
     >
       <img src={ReactLogo} alt="React logo" className="w-16 h-16" />

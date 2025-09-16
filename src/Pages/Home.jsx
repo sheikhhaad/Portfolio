@@ -11,10 +11,33 @@ import AboutSec from "../Components/AboutSec";
 import LeftSec from "../Components/LeftSec";
 import PortfolioCard from "../Components/PortfolioCard";
 import Marquee from "../Components/Marquee";
+import AnimatedBtn from "../Components/AnimatedBtn";
+import nexcent from '../assets/nexcent.png'
+import adminpanel from '../assets/adminpanel.png'
+import donation from '../assets/donationweb.png'
+import gemini from '../assets/gemini.png'
+
 
 
 const Home = () => {
-  const [hover, setHover] = useState(false);
+  const projects = [
+  {
+    name: "Nexcent",
+    image: nexcent,
+  },
+  {
+    name: "Admin Panel",
+    image: adminpanel ,
+  },
+  {
+    name: "Donation Web",
+    image: donation,
+  },
+  {
+    name: "Google Gemini",
+    image: gemini,
+  },
+];
 
   return (
     <>
@@ -101,30 +124,32 @@ const Home = () => {
           </motion.a>
         </div>
 
-        <motion.div whileHover={{ scale: 1.1 }}>
-          <button
-            onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)}
-            className="border border-white px-6 py-2 font-bold font-mono rounded-full hover:bg-white hover:text-black transition duration-500"
-          >
-            {hover ? "About me" : "Know me Better"}
-          </button>
-        </motion.div>
+        <div>
+          <AnimatedBtn />
+        </div>
       </motion.div>
 
       {/* Marquee Section */}
-      <Marquee/>
+      <Marquee />
       {/* About Section */}
-      <section className="px-8 md:px-20 py-16 bg-black text-center">
+      <section className="px-8 md:px-20 bg-black text-center">
         <AboutSec
           title={"✧ ABOUT ME ✧"}
           description="I am Haad Sheikh, a self-taught MERN Stack Developer with a strong focus on building clean, responsive, and functional web and mobile applications. Since January 2023, I have been working on real-world projects using React, Node, Firebase, and Tailwind CSS. I enjoy solving problems through code, creating modern UIs, and continuously improving my skills to deliver efficient digital solutions."
         />
       </section>
 
-   <div>
-    <LeftSec />
-   </div>
+      <div>
+        <LeftSec
+          heading="My Work"
+          title="Selected Projects"
+          subheading="Here's a curated selection showcasing my expertise and the achieved results."
+        />
+      </div>
+
+      <div className="grid grid-cols-2 mx-auto">
+        <PortfolioCard name={'dffddf'} />
+      </div>
     </>
   );
 };

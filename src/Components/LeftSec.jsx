@@ -1,16 +1,15 @@
 import React from "react";
 
-const LeftSec = () => {
+const LeftSec = ({ heading, title, subheading }) => {
   return (
     <>
-    <div className="p-10 m-10">
-          <p className="text-white mt-3">✧ My Work</p>
-      <h1 className="text-3xl text-white mt-3">Selected Projects</h1>
-      <p className=" text-white mt-3">
-        Here's a curated selection showcasing my expertise and the achieved
-        results.
-      </p>
-    </div>
+      <div className="p-10 m-10">
+        <p className="text-[rgba(181,2555,109)] text-xl mt-3 ">✧ {heading}</p>
+        <h1 className="text-5xl text-white mt-3 font-bold font-sans">
+          {title}
+        </h1>
+        <p className=" text-white text-xl mt-3">{subheading}</p>
+      </div>
     </>
   );
 };
