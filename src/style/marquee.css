@@ -1,0 +1,53 @@
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 20;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+}
+
+.marquee h1 {
+  display: inline-block;
+  margin: 0;
+  font-size:3.5rem;
+  color: #4b5563; /* tailwind text-gray-600 */
+  font-family: serif;
+  padding-right: 2rem;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes shine-diagonal {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shine-text {
+  background: linear-gradient(
+    75deg,  /* ye angle line ko tedi banata hai */
+    rgba(181,255,109,1) 0%,
+    white 40%,
+    rgba(181,255,109,1) 80%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine-diagonal 3s linear infinite;
+}
+
+
