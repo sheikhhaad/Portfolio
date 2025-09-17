@@ -1,10 +1,6 @@
-import React, { useState } from "react";
-import {
-  AiOutlineInstagram,
-  AiOutlineGithub,
-  AiOutlineLinkedin,
-  AiOutlineMail,
-} from "react-icons/ai";
+// Home.jsx
+import { FaGithub, FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
+import React from "react";
 import { motion } from "framer-motion";
 import "../style/marquee.css";
 import AboutSec from "../Components/AboutSec";
@@ -12,32 +8,45 @@ import LeftSec from "../Components/LeftSec";
 import PortfolioCard from "../Components/PortfolioCard";
 import Marquee from "../Components/Marquee";
 import AnimatedBtn from "../Components/AnimatedBtn";
-import nexcent from '../assets/nexcent.png'
-import adminpanel from '../assets/adminpanel.png'
-import donation from '../assets/donationweb.png'
-import gemini from '../assets/gemini.png'
-
-
+import nexcent from "../assets/nexcent.png";
+import adminpanel from "../assets/adminpanel.png";
+import donation from "../assets/donationweb.png";
+import gemini from "../assets/gemini.png";
+import SocialBtn from "../Components/SocialBtn";
+import ServicebgImg from "../Components/ServicebgImg.jsx";
+import ServiceCard from "../Components/ServiceCard.jsx";
 
 const Home = () => {
   const projects = [
-  {
-    name: "Nexcent",
-    image: nexcent,
-  },
-  {
-    name: "Admin Panel",
-    image: adminpanel ,
-  },
-  {
-    name: "Donation Web",
-    image: donation,
-  },
-  {
-    name: "Google Gemini",
-    image: gemini,
-  },
-];
+    { name: "Nexcent", image: nexcent },
+    { name: "Admin Panel", image: adminpanel },
+    { name: "Donation Web", image: donation },
+    { name: "Google Gemini", image: gemini },
+  ];
+
+  const socials = [
+    { path: "https://github.com/your-username", Icon: FaGithub },
+    { path: "https://linkedin.com/in/your-username", Icon: FaLinkedin },
+    { path: "https://instagram.com/your-username", Icon: FaInstagram },
+    { path: "https://facebook.com/your-username", Icon: FaFacebook },
+  ];
+  const projectData = [
+    {
+      title: "Full-Stack Development",
+      description:
+        "We deliver complete solutions, from design to development and AI/ML, with a proven track record of creating impactful, high-performing websites.",
+    },
+    {
+      title: "Quick Delivery",
+      description:
+        "With over a decade of experience, we deliver innovative, timeless designs with a focus on customer satisfaction and speed.",
+    },
+    {
+      title: "Unlimited Revisions",
+      description:
+        "With unlimited revisions and dedicated support, we ensure your vision and website is brought to life exactly as you imagine.",
+    },
+  ];
 
   return (
     <>
@@ -82,48 +91,24 @@ const Home = () => {
 
       {/* Social Links + Button */}
       <motion.div
-        className="flex flex-col md:flex-row justify-between items-center gap-6 px-8 md:px-20 py-10 bg-black text-white"
+        className="flex justify-between items-center px-8 md:px-20 py-10 text-white"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
       >
-        <div className="flex gap-6 text-gray-400">
-          <motion.a
-            href="https://instagram.com"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-pink-500 transition"
-            whileHover={{ scale: 1.2, rotate: 10 }}
-          >
-            <AiOutlineInstagram size={28} />
-          </motion.a>
-          <motion.a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-blue-500 transition"
-            whileHover={{ scale: 1.2, rotate: -10 }}
-          >
-            <AiOutlineLinkedin size={28} />
-          </motion.a>
-          <motion.a
-            href="https://github.com"
-            target="_blank"
-            rel="noreferrer"
-            className="hover:text-white transition"
-            whileHover={{ scale: 1.2, rotate: 10 }}
-          >
-            <AiOutlineGithub size={28} />
-          </motion.a>
-          <motion.a
-            href="mailto:haadsheikh@example.com"
-            className="hover:text-red-400 transition"
-            whileHover={{ scale: 1.2, rotate: -10 }}
-          >
-            <AiOutlineMail size={28} />
-          </motion.a>
+        {/* Social Icons */}
+        <div className="flex gap-8">
+          {socials.map((itm, id) => (
+            <SocialBtn
+              key={id}
+              path={itm.path}
+              Icon={itm.Icon}
+              styling="text-white hover:text-blue-400"
+            />
+          ))}
         </div>
 
+        {/* Button */}
         <div>
           <AnimatedBtn />
         </div>
@@ -131,6 +116,7 @@ const Home = () => {
 
       {/* Marquee Section */}
       <Marquee />
+
       {/* About Section */}
       <section className="px-8 md:px-20 bg-black text-center">
         <AboutSec
@@ -147,8 +133,33 @@ const Home = () => {
         />
       </div>
 
-      <div className="grid grid-cols-2 mx-auto">
-        <PortfolioCard name={'dffddf'} />
+      <div className="grid grid-cols-2 mx-auto p-5">
+        {projects.map((itm, id) => (
+          <div key={id} className={id % 2 === 0 ? "mt-10" : "mt-0"}>
+            <PortfolioCard name={itm.name} Img={itm.image} />
+          </div>
+        ))}
+      </div>
+
+      <AboutSec
+        title="Experienced Full-Stack Developers"
+        description="With 200+ projects delivered, we offer fast, reliable web development and
+unlimited revisions to bring your vision to life."
+      />
+      <div className=" py-16 px-8 md:px-20 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        {/* Left side */}
+        <ServicebgImg />
+
+        {/* Right side */}
+        <div className="flex flex-col gap-6">
+          {projectData.map((item, index) => (
+            <ServiceCard
+              key={index}
+              title={item.title}
+              description={item.description}
+            />
+          ))}
+        </div>
       </div>
     </>
   );
