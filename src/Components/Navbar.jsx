@@ -1,40 +1,39 @@
 import React, { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin, FaFacebook } from "react-icons/fa";
-
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [Isscrolled, setIsscrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    let detectscroll = () => {
+    let detectScroll = () => {
       if (window.scrollY > 50) {
-        setIsscrolled(true);
+        setIsScrolled(true);
       } else {
-        setIsscrolled(false);
+        setIsScrolled(false);
       }
     };
-    window.addEventListener("scroll", detectscroll);
-    detectscroll();
-    return () => window.removeEventListener("scroll", detectscroll);
+    window.addEventListener("scroll", detectScroll);
+    detectScroll();
+    return () => window.removeEventListener("scroll", detectScroll);
   }, []);
 
   const links = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Project", path: "/projects" },
+    { name: "Projects", path: "/projects" },
     { name: "Contact", path: "/contact" },
   ];
 
   return (
     <nav
-      className={`fixed top-4 left-1/2 -translate-x-1/2   px-6 py-3 shadow-lg shadow-black/40 transition-all duration-300 ${
-        Isscrolled
-          ? "fixed left-1/2 top-4 w-[70%] -translate-x-1/2 rounded-full bg-[rgba(78,78,78,0.4)] backdrop-blur-lg"
-          : "w-[90%]"
-      }`}
+      className={`fixed top-4 left-1/2 -translate-x-1/2 px-6 py-3 shadow-lg shadow-black/40 transition-all duration-300 z-50
+        ${isScrolled
+          ? "w-[50%] rounded-full bg-[rgba(78,78,78,0.4)] backdrop-blur-lg"
+          : "w-[90%] rounded-xl bg-transparent"
+        }`}
     >
       {/* Top row */}
       <div className="flex items-center justify-between">
@@ -45,11 +44,15 @@ const Navbar = () => {
 
         {/* Links for desktop */}
         <div className="hidden md:flex items-center gap-8">
-          {links.map((link, i) => 
-          <div key={i}>
-            <Link to={link.path} className="text-white">{link.name}</Link>
-          </div>
-        )}
+          {links.map((link, i) => (
+            <Link
+              key={i}
+              to={link.path}
+              className="text-gray-200 hover:text-green-400 transition-colors duration-200"
+            >
+              {link.name}
+            </Link>
+          ))}
         </div>
 
         {/* Actions */}
@@ -96,13 +99,14 @@ const Navbar = () => {
       {open && (
         <div className="absolute right-0 top-full mt-2 flex w-48 flex-col gap-4 rounded-b-xl bg-[#1f2937] p-5 shadow-lg md:hidden">
           {links.map((link, i) => (
-            <a
+            <Link
               key={i}
-              href="#"
-              className="text-gray-200 font-medium transition hover:text-indigo-400"
+              to={link.path}
+              className="text-gray-200 font-medium transition hover:text-green-400"
+              onClick={() => setOpen(false)} // menu band hote hi close ho
             >
-              {link}
-            </a>
+              {link.name}
+            </Link>
           ))}
         </div>
       )}

@@ -1,22 +1,25 @@
-import React from 'react'
+import React from "react";
 import { motion } from "framer-motion"; // Framer Motion
 
-const AboutSec = ({title,description}) => {
+const AboutSec = ({ title, description }) => {
   return (
-    <>  <motion.div
-        className="mt-20 text-center p-10"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 2.5 }}
-      >
-        <h1 className="shine-text text-xl font-sans font-bold">{title}</h1>
+    <motion.div
+      className="md:mt-20 text-center  md:px-8 lg:px-12"
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1, delay: 2.5 }}
+    >
+      {/* Title */}
+      <h1 className="shine-text text-lg sm:text-xl md:text-2xl lg:text-3xl font-sans font-bold">
+        {title}
+      </h1>
 
-        <p className="text-3xl text-white mt-5 m-10 ">
-         {description}
-        </p>
-      </motion.div>
-</>
-  )
-}
+      {/* Description */}
+      <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mt-5 md:mt-6 max-w-3xl mx-auto leading-relaxed">
+        {description}
+      </p>
+    </motion.div>
+  );
+};
 
-export default AboutSec
+export default AboutSec;

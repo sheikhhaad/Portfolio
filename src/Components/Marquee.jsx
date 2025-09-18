@@ -1,31 +1,32 @@
-import React from 'react'
-import {motion} from 'framer-motion'
+import React from "react";
+import { motion } from "framer-motion";
 
 const Marquee = () => {
   return (
     <>
-    <div className=''></div>
-       {/* Marquee Section */}
+      {/* Marquee Section */}
       <motion.div
-        className="marquee mt-20 mb-5"
+        className="relative overflow-hidden mt-16 mb-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 2 }}
+        transition={{ duration: 1, delay: 1.5 }}
       >
-        <div className="marquee-content font-semibold text-lg tracking-wide">
-          <h1>
-            Development ✧ Graphics ✧ Designing ✧ Websites ✧ Animations ✧ Mentor
-            ✧
-          </h1>
-          <h1>
-            Development ✧ Graphics ✧ Designing ✧ Websites ✧ Animations ✧ Mentor
-            ✧
-          </h1>
-        </div>
-      </motion.div>
-      <hr />
-    </>
-  )
-}
+       <div className="marquee mt-16 mb-8">
+  <div className="marquee-content">
+    <h1>
+      Development ✧ Graphics ✧ Designing ✧ Websites ✧ Animations ✧ Mentor ✧
+    </h1>
+    <h1>
+      Development ✧ Graphics ✧ Designing ✧ Websites ✧ Animations ✧ Mentor ✧
+    </h1>
+  </div>
+</div>
 
-export default Marquee
+      </motion.div>
+
+      <hr className="border-gray-700" />
+    </>
+  );
+};
+
+export default Marquee;
