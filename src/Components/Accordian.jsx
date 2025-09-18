@@ -15,7 +15,9 @@ const Accordion = ({ title, description, icon }) => {
       <div className="flex justify-between items-center px-4 sm:px-5 md:px-6 py-3 sm:py-4 text-white">
         <div className="flex items-center gap-2 sm:gap-3">
           {icon && <span className="text-lg sm:text-xl">{icon}</span>}
-          <h2 className="text-base sm:text-lg md:text-xl font-medium">{title}</h2>
+          <h2 className="text-base sm:text-lg md:text-xl font-medium">
+            {title}
+          </h2>
         </div>
         <span className="text-xl sm:text-2xl text-blue-400">
           {isOpen ? <FiMinus /> : <FiPlus />}

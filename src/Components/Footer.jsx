@@ -1,24 +1,22 @@
 import React from "react";
 import SocialBtn from "./SocialBtn";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaInstagram,
-  FaFacebook,
-} from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
 
 const socials = [
-  { path: "https://github.com/your-username", Icon: FaGithub },
-  { path: "https://linkedin.com/in/your-username", Icon: FaLinkedin },
-  { path: "https://instagram.com/your-username", Icon: FaInstagram },
-  { path: "https://facebook.com/your-username", Icon: FaFacebook },
+  { path: "https://github.com/sheikhhaad", Icon: FaGithub },
+  { path: "https://linkedin.com/in/sheikhhaad", Icon: FaLinkedin },
+  { path: "https://instagram.com/sheikhhaad_", Icon: FaInstagram },
+  {
+    path: "https://www.facebook.com/profile.php?id=61555704857977",
+    Icon: FaFacebook,
+  },
 ];
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white py-6">
+    <footer className=" text-white py-6">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Left side - Copyright */}
         <p className="text-gray-400 text-sm md:text-base text-center md:text-left">

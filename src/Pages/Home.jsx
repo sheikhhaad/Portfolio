@@ -35,10 +35,13 @@ const Home = () => {
   ];
 
   const socials = [
-    { path: "https://github.com/your-username", Icon: FaGithub },
-    { path: "https://linkedin.com/in/your-username", Icon: FaLinkedin },
-    { path: "https://instagram.com/your-username", Icon: FaInstagram },
-    { path: "https://facebook.com/your-username", Icon: FaFacebook },
+    { path: "https://github.com/sheikhhaad", Icon: FaGithub },
+    { path: "https://linkedin.com/in/sheikhhaad", Icon: FaLinkedin },
+    { path: "https://instagram.com/sheikhhaad_", Icon: FaInstagram },
+    {
+      path: "https://www.facebook.com/profile.php?id=61555704857977 ",
+      Icon: FaFacebook,
+    },
   ];
 
   const accordionItems = [
@@ -144,11 +147,15 @@ const Home = () => {
           title="Selected Projects"
           subheading="Here's a curated selection showcasing my expertise and the achieved results."
         />
-<div className="flex flex-wrap gap-6 md:gap-8 justify-center">
+        <div className="flex flex-wrap gap-6 md:gap-8 justify-center">
           {projects.map((itm, id) => (
-            <div className={id % 2 ===0 ? 'mt-10': 'mt-0'}>
-              <PortfolioCard key={id} name={itm.name} Img={itm.image} id={itm.id} />
-
+            <div className={id % 2 === 0 ? "mt-10" : "mt-0"}>
+              <PortfolioCard
+                key={id}
+                name={itm.name}
+                Img={itm.image}
+                id={itm.id}
+              />
             </div>
           ))}
         </div>

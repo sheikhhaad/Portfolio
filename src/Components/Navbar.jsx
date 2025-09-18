@@ -29,10 +29,11 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-4 left-1/2 -translate-x-1/2 px-6 py-3 shadow-lg shadow-black/40 transition-all duration-300 z-50
-        ${isScrolled
-          ? "w-[50%] rounded-full bg-[rgba(78,78,78,0.4)] backdrop-blur-lg"
-          : "w-[90%] rounded-xl bg-transparent"
+      className={`fixed top-4 left-1/2 -translate-x-1/2 px-6 py-3 transition-all duration-300 z-50
+        ${
+          isScrolled
+            ? "w-[50%] rounded-full bg-[rgba(78,78,78,0.4)] backdrop-blur-lg"
+            : "w-[90%] rounded-xl bg-transparent"
         }`}
     >
       {/* Top row */}

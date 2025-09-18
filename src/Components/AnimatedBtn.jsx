@@ -6,7 +6,7 @@ const AnimatedBtn = ({ title, sectilte }) => {
 
   return (
     <motion.div
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1 }}
       whileTap={{ scale: 1 }}
       className="inline-block"
     >

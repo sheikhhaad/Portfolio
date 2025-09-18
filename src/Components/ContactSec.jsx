@@ -1,15 +1,13 @@
 import React from "react";
 import AnimatedBtn from "./AnimatedBtn";
+import Available from "./Available";
 
 const ContactSec = () => {
   return (
     <div className="bg-[#111116] rounded-2xl sm:rounded-3xl px-6 sm:px-8 md:px-12 py-12 sm:py-16 md:py-20 text-center w-full">
       {/* Status Badge */}
       <div className="flex justify-center mb-6">
-        <p className="flex items-center gap-2 px-3 sm:px-4 py-1 rounded-full bg-green-900/40 text-green-200 text-xs sm:text-sm">
-          <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-green-500 animate-pulse"></span>
-          Available for work
-        </p>
+        <Available />
       </div>
 
       {/* Main Heading */}
