@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import ReactLogo from "../assets/react.svg";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const PortfolioCard = ({name,Img}) => {
+const PortfolioCard = ({name,Img,id}) => {
   const [Color, setColor] = useState();
+  let navigate = useNavigate()
 
   useEffect(() => {
     let colorgenretor = () => {
@@ -21,6 +23,7 @@ const PortfolioCard = ({name,Img}) => {
         whileHover={{ rotateX:30}}
         whileTap={{ scale: 0.95 }}
         className=" shadow-lg rounded-[30px] flex flex-col items-center justify-center p-6"
+        onClick={()=> navigate(`detail/${id}`)}
       >
         {/* img ke liye colored bg */}
         <div

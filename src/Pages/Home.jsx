@@ -1,5 +1,13 @@
 // Home.jsx
-import { FaGithub, FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaFacebook,
+  FaCode,
+  FaPaintBrush,
+  FaBullhorn,
+} from "react-icons/fa";
 import React from "react";
 import { motion } from "framer-motion";
 import "../style/marquee.css";
@@ -15,13 +23,18 @@ import gemini from "../assets/gemini.png";
 import SocialBtn from "../Components/SocialBtn";
 import ServicebgImg from "../Components/ServicebgImg.jsx";
 import ServiceCard from "../Components/ServiceCard.jsx";
+import Accordian from "../Components/Accordian.jsx";
+import laptop from "../assets/laptop.png";
+import ContactSec from "../Components/ContactSec.jsx";
+import Footer from "../Components/Footer.jsx";
+// import Footer from "../Components/Footer.jsx";
 
 const Home = () => {
   const projects = [
-    { name: "Nexcent", image: nexcent },
-    { name: "Admin Panel", image: adminpanel },
-    { name: "Donation Web", image: donation },
-    { name: "Google Gemini", image: gemini },
+    { name: "Nexcent", image: nexcent, id: 1 },
+    { name: "Admin Panel", image: adminpanel, id: 2 },
+    { name: "Donation Web", image: donation, id: 3 },
+    { name: "Google Gemini", image: gemini, id: 4 },
   ];
 
   const socials = [
@@ -32,19 +45,40 @@ const Home = () => {
   ];
   const projectData = [
     {
-      title: "Full-Stack Development",
+      title: "Development",
       description:
-        "We deliver complete solutions, from design to development and AI/ML, with a proven track record of creating impactful, high-performing websites.",
+        "       Building responsive websites. Providing the users an enriching experience that responds to any device and screen size.",
     },
     {
-      title: "Quick Delivery",
+      title: "UI/UX Design",
       description:
-        "With over a decade of experience, we deliver innovative, timeless designs with a focus on customer satisfaction and speed.",
+        "Designing user-centric, modern interfaces that shapes how the audience interacts with the product.",
     },
     {
-      title: "Unlimited Revisions",
+      title: "Branding",
       description:
-        "With unlimited revisions and dedicated support, we ensure your vision and website is brought to life exactly as you imagine.",
+        "Building brand identities including working on logo, typography, iconography, colour palette, visual language, and brand personality.",
+    },
+  ];
+
+  const accordionItems = [
+    {
+      title: "Development",
+      description:
+        "Building responsive websites. Providing the users an enriching experience that responds to any device and screen size.",
+      icon: <FaCode className="text-blue-400 text-2xl" />,
+    },
+    {
+      title: "UI/UX Design",
+      description:
+        "Designing user-centric, modern interfaces that shapes how the audience interacts with the product.",
+      icon: <FaPaintBrush className="text-pink-400 text-2xl" />,
+    },
+    {
+      title: "Branding",
+      description:
+        "Building brand identities including working on logo, typography, iconography, colour palette, visual language, and brand personality.",
+      icon: <FaBullhorn className="text-yellow-400 text-2xl" />,
     },
   ];
 
@@ -110,7 +144,7 @@ const Home = () => {
 
         {/* Button */}
         <div>
-          <AnimatedBtn />
+          <AnimatedBtn  title='Know Me Better' sectilte='About me'/>
         </div>
       </motion.div>
 
@@ -136,30 +170,36 @@ const Home = () => {
       <div className="grid grid-cols-2 mx-auto p-5">
         {projects.map((itm, id) => (
           <div key={id} className={id % 2 === 0 ? "mt-10" : "mt-0"}>
-            <PortfolioCard name={itm.name} Img={itm.image} />
+            <PortfolioCard name={itm.name} Img={itm.image} id={itm.id} />
           </div>
         ))}
       </div>
 
-      <AboutSec
-        title="Experienced Full-Stack Developers"
-        description="With 200+ projects delivered, we offer fast, reliable web development and
-unlimited revisions to bring your vision to life."
-      />
-      <div className=" py-16 px-8 md:px-20 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        {/* Left side */}
-        <ServicebgImg />
-
-        {/* Right side */}
-        <div className="flex flex-col gap-6">
-          {projectData.map((item, index) => (
-            <ServiceCard
-              key={index}
-              title={item.title}
-              description={item.description}
-            />
-          ))}
+      <div className="mt-10 ">
+        <LeftSec heading="Speciality" title="Areas of Expertise" />
+        <div>
+          <div className="flex justify-between mb-10 mx-10 gap-3">
+            <div>
+              {accordionItems.map((item, i) => (
+                <Accordian
+                  key={i}
+                  title={item.title}
+                  description={item.description}
+                  icon={item.icon}
+                />
+              ))}
+            </div>
+            <div className="">
+              <img src={laptop} alt="" className="rounded-2xl" />
+            </div>
+          </div>
         </div>
+      </div>
+      <div className="m-20">
+        <ContactSec  />
+      </div>
+      <div>
+        <Footer/>
       </div>
     </>
   );

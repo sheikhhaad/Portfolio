@@ -30,6 +30,10 @@ let router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
+      {
+        path: "detail/:id",
+        element: <Contact />,
+      },
     ],
   },
 ]);

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-const AnimatedBtn = () => {
+const AnimatedBtn = ({ title, sectilte }) => {
   const [hover, setHover] = useState(false);
 
   return (
@@ -20,7 +20,7 @@ const AnimatedBtn = () => {
 
         {/* Text */}
         <span className="relative z-10 transition duration-500 group-hover:text-black">
-          {hover ? "About me" : "Know me Better"}
+          {hover && sectilte ? sectilte : title}
         </span>
       </button>
     </motion.div>
