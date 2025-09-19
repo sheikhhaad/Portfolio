@@ -25,6 +25,7 @@ import Accordian from "../Components/Accordian.jsx";
 import laptop from "../assets/laptop.png";
 import ContactSec from "../Components/ContactSec.jsx";
 import Footer from "../Components/Footer.jsx";
+import SkillsMarquee from "../Components/SkillsMarquee.jsx";
 
 const Home = () => {
   const projects = [
@@ -38,7 +39,10 @@ const Home = () => {
     { path: "https://github.com/sheikhhaad", Icon: FaGithub },
     { path: "https://linkedin.com/in/sheikhhaad", Icon: FaLinkedin },
     { path: "https://instagram.com/sheikhhaad_", Icon: FaInstagram },
-    { path: "https://www.facebook.com/profile.php?id=61555704857977", Icon: FaFacebook },
+    {
+      path: "https://www.facebook.com/profile.php?id=61555704857977",
+      Icon: FaFacebook,
+    },
   ];
 
   const accordionItems = [
@@ -65,36 +69,32 @@ const Home = () => {
   return (
     <>
       {/* Intro Section */}
-      <header className="bg-black text-white px-4 sm:px-6 lg:px-16 pt-20 md:pt-24 min-h-[60vh] flex items-center">
+      <header className="bg-black text-white px-4 sm:px-6 lg:px-16 pt-20 md:pt-24 min-h-[60vh] flex items-center font-quicksand">
         <div className="w-full">
           <motion.p
-            className="text-green-400 mb-2 text-lg sm:text-xl md:text-2xl font-mono"
+            className="text-green-500 mb-2 text-lg sm:text-xl md:text-2xl"
             initial={{ opacity: 0, y: -14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            👋 Hey! It's me <span className="font-semibold">Haad Sheikh</span>,
+            👋 Hey! It's me <span className="font-bold">Haad Sheikh</span>,
           </motion.p>
 
           <motion.h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-serif mb-3 leading-snug"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 leading-snug"
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.25 }}
           >
             Crafting{" "}
-            <span className="text-[#58f960]">
+            <span className="text-[#7bf958]">
               purpose driven <br className="hidden sm:block" />
               experiences that
             </span>{" "}
             <br /> & engage.
           </motion.h1>
 
-          {/* Line + paragraph block.
-              - Line is short and responsive.
-              - On small screens the line centers above the text.
-              - On md+ screens the line sits to the left of the paragraph.
-          */}
+          {/* Line + paragraph */}
           <motion.div
             className="flex flex-col md:flex-row md:items-center gap-3 mb-4"
             initial={{ opacity: 0, x: -24 }}
@@ -105,48 +105,46 @@ const Home = () => {
               <div className="mx-auto md:mx-0 w-12 sm:w-14 md:w-16 h-1 sm:h-1.5 md:h-2 bg-red-500 rounded" />
             </div>
 
-            <p className="text-gray-400 font-sans text-base sm:text-lg md:max-w-2xl leading-relaxed">
-              I’m on a path of learning and building, creating digital experiences
-              that balance design, usability, and performance.
+            <p className="text-gray-400 font-bold text-base sm:text-lg md:max-w-2xl leading-relaxed">
+              I’m on a path of learning and building, creating digital
+              experiences that balance design, usability, and performance.
             </p>
           </motion.div>
-
-          
         </div>
       </header>
-<div className="flex justify-between m-10">
-      <motion.nav
-        className="hidden sm:flex flex-wrap justify-start gap-4 px-4 sm:px-6 lg:px-16 py-4 text-white"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1 }}
-      >
-        {socials.map((itm, id) => (
-          <SocialBtn
-            key={id}
-            path={itm.path}
-            Icon={itm.Icon}
-            styling="text-white hover:text-blue-400 text-2xl sm:text-3xl"
+
+      <div className="flex justify-between m-10 font-quicksand">
+        <motion.nav
+          className="hidden sm:flex flex-wrap justify-start gap-4 px-4 sm:px-6 lg:px-16 py-4 text-white"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1 }}
+        >
+          {socials.map((itm, id) => (
+            <SocialBtn
+              key={id}
+              path={itm.path}
+              Icon={itm.Icon}
+              styling="text-white hover:text-blue-400 text-2xl sm:text-3xl"
             />
           ))}
-      </motion.nav>
-          {/* Button */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.85 }}
-                    className="mt-2"
-                  >
-                    <AnimatedBtn title="Know Me Better" sectilte="About me" />
-                  </motion.div>
-              {/* Social Links - hidden on small screens */}
-</div>
+        </motion.nav>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.85 }}
+          className="mt-2"
+        >
+          <AnimatedBtn title="Know Me Better" sectilte="About me" />
+        </motion.div>
+      </div>
 
       {/* Marquee */}
       <Marquee />
 
       {/* About */}
-      <section className="px-4 sm:px-6 lg:px-16 py-12 bg-black text-center">
+      <section className="sm:px-6 lg:px-16 py-12 bg-black font-quicksand">
         <AboutSec
           title="✧ ABOUT ME ✧"
           description="I am Haad Sheikh, a self-taught MERN Stack Developer with a strong focus on building clean, responsive, and functional web and mobile applications. Since January 2023, I have been working on real-world projects using React, Node, Firebase, and Tailwind CSS. I enjoy solving problems through code, creating modern UIs, and continuously improving my skills to deliver efficient digital solutions."
@@ -154,7 +152,7 @@ const Home = () => {
       </section>
 
       {/* Portfolio */}
-      <section className="px-4 sm:px-6 lg:px-16 py-12 bg-black">
+      <section className="px-4 sm:px-6 lg:px-16 py-12 bg-black font-quicksand">
         <LeftSec
           heading="My Work"
           title="Selected Projects"
@@ -162,16 +160,15 @@ const Home = () => {
         />
         <div className="flex flex-wrap justify-around gap-0 md:gap-10 mt-6">
           {projects.map((itm, i) => (
-            <div className={i%2===0 ? 'mt-10':'mt-0'}>
-
-              <PortfolioCard key={i} name={itm.name} Img={itm.image} />
+            <div key={i} className={i % 2 === 0 ? "mt-10" : "mt-0"}>
+              <PortfolioCard name={itm.name} Img={itm.image} id={itm.id} />
             </div>
           ))}
         </div>
       </section>
 
       {/* Expertise */}
-      <section className="px-4 sm:px-6 lg:px-16 py-12 bg-black">
+      <section className="px-4 sm:px-6 lg:px-16 py-12 bg-black font-quicksand">
         <LeftSec heading="Speciality" title="Areas of Expertise" />
         <div className="flex flex-col lg:flex-row justify-between gap-10 mt-6">
           <div className="flex-1 space-y-4">
@@ -185,13 +182,21 @@ const Home = () => {
             ))}
           </div>
           <div className="flex-1 flex justify-center">
-            <img src={laptop} alt="Laptop" className="rounded-2xl w-full max-w-md object-cover" />
+            <img
+              src={laptop}
+              alt="Laptop"
+              className="rounded-2xl w-full max-w-md object-cover"
+            />
           </div>
         </div>
       </section>
 
+      <div className="mb-4 mt-4 font-quicksand">
+        <SkillsMarquee />
+      </div>
+
       {/* Contact */}
-      <section className="px-4 sm:px-6 lg:px-16 py-12 bg-black">
+      <section className="px-4 sm:px-6 lg:px-16 py-12 bg-black font-quicksand">
         <ContactSec />
       </section>
 

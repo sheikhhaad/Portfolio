@@ -16,10 +16,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className=" text-white py-6">
+    <footer className="text-white py-6 font-quicksand">
       <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
         {/* Left side - Copyright */}
-        <p className="text-gray-400 text-sm md:text-base text-center md:text-left">
+        <p className="text-gray-400 text-[12px] md:text-base text-center md:text-left">
           © {currentYear} Haad Sheikh. All rights reserved.
         </p>
 

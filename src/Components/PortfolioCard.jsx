@@ -1,4 +1,3 @@
-// PortfolioCard.jsx
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -19,23 +18,22 @@ const PortfolioCard = ({ name, Img, id }) => {
   }, []);
 
   return (
-   <div>
+   <div className="font-quicksand">
      <motion.div
       whileHover={{ rotateX: 30 }}
       whileTap={{ scale: 0.95 }}
       className="portfolioCard"
-      onClick={() => navigate(`detail/${id}`)}
+      onClick={() => navigate(`detailpage/${id}`)}
       style={{ backgroundColor: Color }}
     >
       {/* Image wrapper with colored background */}
       <div className="portfolio-card-img" >
         <img src={Img} alt="logo" className="portfolio-card-img-inner" />
       </div>
-
-      {/* Text */}
     </motion.div>
-      <div className="portfolio-card-text mt-6 self-start">
-        <h1>{name}</h1>
+
+      <div className="portfolio-card-text mt-3">
+        <p className="text-white font-bold text-3xl">{name}</p>
       </div>
    </div>
   );

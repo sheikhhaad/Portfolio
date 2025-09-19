@@ -10,7 +10,7 @@ const AnimatedBtn = ({ title, sectilte }) => {
       <button
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
-        className="relative group overflow-hidden border border-white w-50 px-5 py-1.5 font-bold font-mono rounded-full text-white transition duration-500"
+        className="relative group overflow-hidden border border-white w-50 px-5 py-1.5 font-bold font-quicksand rounded-full text-white transition duration-500"
       >
         {/* Background filler */}
         <span className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out rounded-full"></span>

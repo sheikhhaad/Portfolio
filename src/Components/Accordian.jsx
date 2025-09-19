@@ -8,7 +8,7 @@ const Accordion = ({ title, description, icon }) => {
     <div
       className={`border my-3 sm:my-4 md:my-5 mx-2 rounded-2xl border-gray-800 cursor-pointer transition-all duration-300 ${
         isOpen ? "bg-gray-900/20" : ""
-      }`}
+      } font-quicksand`} // font added here
       onClick={() => setIsOpen(!isOpen)}
     >
       {/* Header */}

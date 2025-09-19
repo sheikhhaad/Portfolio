@@ -21,10 +21,10 @@
   color: transparent;
   background-image: linear-gradient(
     120deg,
-    #22c55e,
+    #48e70a,
     #3b82f6,
     #a855f7,
-    #16f9f1
+    #7bf958
   );
   background-size: 200% auto;
   background-clip: text;
@@ -50,12 +50,29 @@
   }
 }
 
+.marquee-2 {
+  display: flex;
+  gap: 10px;
+  animation: marquee 45s linear infinite;
+  width: max-content;
+}
+
+@keyframes marquee-2 {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
 .shine-text {
   background: linear-gradient(
     75deg,  /* ye angle line ko tedi banata hai */
-    rgba(181,255,109,1) 0%,
+#7bf958 0%,
     white 40%,
-    rgba(181,255,109,1) 80%
+    #7bf958 80%
   );
   background-size: 200% auto;
   color: transparent;
@@ -88,3 +105,6 @@
     width: 24%; /* 4 cards per row */
   }
 }
+
+
+

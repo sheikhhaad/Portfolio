@@ -32,10 +32,10 @@ const Navbar = () => {
     <>
       {/* Top Navbar for desktop */}
       <nav
-        className={`fixed top-4 left-1/2 -translate-x-1/2 px-6 py-3 transition-all duration-300 z-50 hidden md:block
+        className={`fixed top-4 left-1/2 -translate-x-1/2 px-6 py-3 transition-all duration-300 z-50 hidden md:block font-quicksand
           ${
             isScrolled
-              ? "w-[50%] rounded-full bg-[rgba(78,78,78,0.4)] backdrop-blur-lg"
+              ? "w-[50%] rounded-full bg-[rgba(90,90,90,0.1)] backdrop-blur-lg"
               : "w-[90%] rounded-xl bg-transparent"
           }`}
       >
@@ -90,15 +90,15 @@ const Navbar = () => {
       </nav>
 
       {/* Bottom Tab Bar for mobile */}
-      <div className="fixed bottom-0 left-0 ml-6 mr-6 mb-5 right-0 rounded-full bg-[rgba(78,78,78,0.4)] backdrop-blur-lg z-50 md:hidden py-2">
+      <div className="fixed bottom-0 left-0 ml-6 mr-6 mb-5 right-0 rounded-full bg-[rgba(78,78,78,0.4)] backdrop-blur-lg z-50 md:hidden py-2 font-quicksand">
         <div className="flex justify-around items-center">
           {links.map((link, i) => (
             <Link
               key={i}
               to={link.path}
               className={`flex flex-col items-center justify-center px-3 py-1 rounded-lg transition-all duration-200 ${
-                location.pathname === link.path 
-                  ? "text-green-400 " 
+                location.pathname === link.path
+                  ? "text-green-400 "
                   : "text-gray-300"
               }`}
             >
@@ -111,7 +111,7 @@ const Navbar = () => {
 
       {/* Mobile menu for top navbar (if needed for other elements) */}
       {open && (
-        <div className="fixed right-4 top-16 flex w-48 flex-col gap-4 rounded-xl  p-5 shadow-lg md:hidden z-50">
+        <div className="fixed right-4 top-16 flex w-48 flex-col gap-4 rounded-xl p-5 shadow-lg md:hidden z-50 font-quicksand">
           {links.map((link, i) => (
             <Link
               key={i}
