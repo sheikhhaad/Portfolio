@@ -6,12 +6,12 @@ const Marquee = () => {
     <>
       {/* Marquee Section */}
       <motion.div
-        className="relative overflow-hidden mt-16 mb-6"
+        className="relative overflow-hidden mb-6"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
       >
-        <div className="marquee mt-16 mb-8">
+        <div className="marquee mb-8">
           <div className="marquee-content">
             <h1>
               Development ✧ Graphics ✧ Designing ✧ Websites ✧ Animations ✧

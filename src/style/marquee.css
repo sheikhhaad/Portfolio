@@ -66,3 +66,25 @@
 }
 
 
+.portfolio-card {
+  width: 100%;
+  margin: 10px;
+}
+
+@media (min-width: 640px) {
+  .portfolio-card {
+    width: 48%; /* 2 cards per row */
+  }
+}
+
+@media (min-width: 768px) {
+  .portfolio-card {
+    width: 32%; /* 3 cards per row */
+  }
+}
+
+@media (min-width: 1024px) {
+  .portfolio-card {
+    width: 24%; /* 4 cards per row */
+  }
+}

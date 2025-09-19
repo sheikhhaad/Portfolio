@@ -38,10 +38,7 @@ const Home = () => {
     { path: "https://github.com/sheikhhaad", Icon: FaGithub },
     { path: "https://linkedin.com/in/sheikhhaad", Icon: FaLinkedin },
     { path: "https://instagram.com/sheikhhaad_", Icon: FaInstagram },
-    {
-      path: "https://www.facebook.com/profile.php?id=61555704857977 ",
-      Icon: FaFacebook,
-    },
+    { path: "https://www.facebook.com/profile.php?id=61555704857977", Icon: FaFacebook },
   ];
 
   const accordionItems = [
@@ -68,103 +65,115 @@ const Home = () => {
   return (
     <>
       {/* Intro Section */}
-      <div className="flex flex-col justify-center bg-black text-white px-4 sm:px-6 md:px-10 lg:px-16 pt-20 md:pt-24 min-h-[60vh]">
-        <motion.p
-          className="text-green-400 mb-4 text-lg sm:text-xl md:text-2xl font-mono"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          👋 Hey! It's me <span className="font-semibold">Haad Sheikh</span>,
-        </motion.p>
+      <header className="bg-black text-white px-4 sm:px-6 lg:px-16 pt-20 md:pt-24 min-h-[60vh] flex items-center">
+        <div className="w-full">
+          <motion.p
+            className="text-green-400 mb-2 text-lg sm:text-xl md:text-2xl font-mono"
+            initial={{ opacity: 0, y: -14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            👋 Hey! It's me <span className="font-semibold">Haad Sheikh</span>,
+          </motion.p>
 
-        <motion.h1
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-serif mb-4 md:mb-6 leading-snug sm:leading-tight"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          Crafting{" "}
-          <span className="text-[#58f960]">
-            purpose driven <br className="hidden sm:block" />
-            experiences that
-          </span>{" "}
-          <br /> & engage.
-        </motion.h1>
+          <motion.h1
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold font-serif mb-3 leading-snug"
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.25 }}
+          >
+            Crafting{" "}
+            <span className="text-[#58f960]">
+              purpose driven <br className="hidden sm:block" />
+              experiences that
+            </span>{" "}
+            <br /> & engage.
+          </motion.h1>
 
-        <motion.div
-          className="flex flex-col md:flex-row items-start md:items-center gap-4"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          <div className="h-[1px] w-full  bg-red-500"></div>
-          <p className="text-gray-400 font-sans text-base sm:text-lg md:max-w-xl leading-relaxed">
-            I’m on a path of learning and building, creating digital experiences
-            that balance design, usability, and performance.
-          </p>
-        </motion.div>
-      </div>
+          {/* Line + paragraph block.
+              - Line is short and responsive.
+              - On small screens the line centers above the text.
+              - On md+ screens the line sits to the left of the paragraph.
+          */}
+          <motion.div
+            className="flex flex-col md:flex-row md:items-center gap-3 mb-4"
+            initial={{ opacity: 0, x: -24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            <div className="flex-shrink-0">
+              <div className="mx-auto md:mx-0 w-12 sm:w-14 md:w-16 h-1 sm:h-1.5 md:h-2 bg-red-500 rounded" />
+            </div>
 
-      {/* Social Links + Button */}
-      <motion.div
-        className="flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 md:px-10 lg:px-16 py-6 md:py-8 text-white gap-6"
+            <p className="text-gray-400 font-sans text-base sm:text-lg md:max-w-2xl leading-relaxed">
+              I’m on a path of learning and building, creating digital experiences
+              that balance design, usability, and performance.
+            </p>
+          </motion.div>
+
+          
+        </div>
+      </header>
+<div className="flex justify-between m-10">
+      <motion.nav
+        className="hidden sm:flex flex-wrap justify-start gap-4 px-4 sm:px-6 lg:px-16 py-4 text-white"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.9 }}
+        transition={{ duration: 0.6, delay: 1 }}
       >
-        {/* Social Icons */}
-        <div className="flex gap-5 sm:gap-6">
-          {socials.map((itm, id) => (
-            <SocialBtn
-              key={id}
-              path={itm.path}
-              Icon={itm.Icon}
-              styling="text-white hover:text-blue-400 text-2xl sm:text-3xl"
+        {socials.map((itm, id) => (
+          <SocialBtn
+            key={id}
+            path={itm.path}
+            Icon={itm.Icon}
+            styling="text-white hover:text-blue-400 text-2xl sm:text-3xl"
             />
           ))}
-        </div>
+      </motion.nav>
+          {/* Button */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.85 }}
+                    className="mt-2"
+                  >
+                    <AnimatedBtn title="Know Me Better" sectilte="About me" />
+                  </motion.div>
+              {/* Social Links - hidden on small screens */}
+</div>
 
-        {/* Button */}
-        <AnimatedBtn title="Know Me Better" sectilte="About me" />
-      </motion.div>
-
-      {/* Marquee Section */}
+      {/* Marquee */}
       <Marquee />
 
-      {/* About Section */}
-      <section className="px-4 sm:px-6 md:px-10 lg:px-16 py-10 md:py-12 bg-black text-center">
+      {/* About */}
+      <section className="px-4 sm:px-6 lg:px-16 py-12 bg-black text-center">
         <AboutSec
           title="✧ ABOUT ME ✧"
           description="I am Haad Sheikh, a self-taught MERN Stack Developer with a strong focus on building clean, responsive, and functional web and mobile applications. Since January 2023, I have been working on real-world projects using React, Node, Firebase, and Tailwind CSS. I enjoy solving problems through code, creating modern UIs, and continuously improving my skills to deliver efficient digital solutions."
         />
       </section>
 
-      {/* Portfolio Section */}
-      <section className="px-4 sm:px-6 md:px-10 lg:px-16 py-10 md:py-12 bg-black">
+      {/* Portfolio */}
+      <section className="px-4 sm:px-6 lg:px-16 py-12 bg-black">
         <LeftSec
           heading="My Work"
           title="Selected Projects"
           subheading="Here's a curated selection showcasing my expertise and the achieved results."
         />
-        <div className="flex flex-wrap gap-6 md:gap-8 justify-center">
-          {projects.map((itm, id) => (
-            <div className={id % 2 === 0 ? "mt-10" : "mt-0"}>
-              <PortfolioCard
-                key={id}
-                name={itm.name}
-                Img={itm.image}
-                id={itm.id}
-              />
+        <div className="flex flex-wrap justify-around gap-0 md:gap-10 mt-6">
+          {projects.map((itm, i) => (
+            <div className={i%2===0 ? 'mt-10':'mt-0'}>
+
+              <PortfolioCard key={i} name={itm.name} Img={itm.image} />
             </div>
           ))}
         </div>
       </section>
 
-      {/* Expertise Section */}
-      <section className="px-4 sm:px-6 md:px-10 lg:px-16 py-10 md:py-12 bg-black">
+      {/* Expertise */}
+      <section className="px-4 sm:px-6 lg:px-16 py-12 bg-black">
         <LeftSec heading="Speciality" title="Areas of Expertise" />
-        <div className="flex flex-col lg:flex-row justify-between gap-8">
+        <div className="flex flex-col lg:flex-row justify-between gap-10 mt-6">
           <div className="flex-1 space-y-4">
             {accordionItems.map((item, i) => (
               <Accordian
@@ -176,17 +185,13 @@ const Home = () => {
             ))}
           </div>
           <div className="flex-1 flex justify-center">
-            <img
-              src={laptop}
-              alt="Laptop"
-              className="rounded-2xl w-full  object-cover"
-            />
+            <img src={laptop} alt="Laptop" className="rounded-2xl w-full max-w-md object-cover" />
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section className="px-4 sm:px-6 md:px-10 lg:px-16 py-10 md:py-12">
+      {/* Contact */}
+      <section className="px-4 sm:px-6 lg:px-16 py-12 bg-black">
         <ContactSec />
       </section>
 
