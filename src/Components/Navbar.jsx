@@ -32,16 +32,16 @@ const Navbar = () => {
     <>
       {/* Top Navbar for desktop */}
       <nav
-        className={`fixed top-4 left-1/2 -translate-x-1/2 px-6 py-3 transition-all duration-300 z-50 hidden md:block font-quicksand
+        className={`fixed top-4 left-1/2 -translate-x-1/2 px-6 py-2 transition-all duration-300 z-50 hidden md:block font-quicksand
           ${
             isScrolled
-              ? "w-[50%] rounded-full bg-[rgba(90,90,90,0.1)] backdrop-blur-lg"
+              ? "w-[60%]  rounded-full bg-[rgba(90,90,90,0.1)] backdrop-blur-lg"
               : "w-[90%] rounded-xl bg-transparent"
           }`}
       >
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-2 text-white font-bold text-2xl">
+          <div className="flex items-center gap-2 text-white font-bold ">
             <Logo />
           </div>
 
@@ -51,7 +51,7 @@ const Navbar = () => {
               <Link
                 key={i}
                 to={link.path}
-                className="text-gray-200 hover:text-green-400 transition-colors duration-200"
+                className="text-gray-200 text-sm hover:text-[#2DE72c] transition-colors duration-200"
               >
                 {link.name}
               </Link>
@@ -90,7 +90,7 @@ const Navbar = () => {
       </nav>
 
       {/* Bottom Tab Bar for mobile */}
-      <div className="fixed bottom-0 left-0 ml-6 mr-6 mb-5 right-0 rounded-full bg-[rgba(78,78,78,0.4)] backdrop-blur-lg z-50 md:hidden py-2 font-quicksand">
+      <div className="fixed bottom-0 left-0 ml-6 mr-6 mb-5 right-0 rounded-full bg-[rgba(78,78,78,0.4)] backdrop-blur-lg z-50 md:hidden py-2 font-quicksand ">
         <div className="flex justify-around items-center">
           {links.map((link, i) => (
             <Link
@@ -98,7 +98,7 @@ const Navbar = () => {
               to={link.path}
               className={`flex flex-col items-center justify-center px-3 py-1 rounded-lg transition-all duration-200 ${
                 location.pathname === link.path
-                  ? "text-green-400 "
+                  ? "text-[#2DE72c] "
                   : "text-gray-300"
               }`}
             >
@@ -116,7 +116,7 @@ const Navbar = () => {
             <Link
               key={i}
               to={link.path}
-              className="text-gray-200 font-medium transition hover:text-green-400"
+              className="text-gray-200 font-medium transition hover:text-[#2DE72c]"
               onClick={() => setOpen(false)}
             >
               {link.name}

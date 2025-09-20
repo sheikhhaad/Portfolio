@@ -12,11 +12,11 @@
   animation: marquee 20s linear infinite;
 }
 
-.marquee h1 {
+.marquee p {
   display: inline-block;
   margin: 0;
   font-size: 2rem; /* responsive ke liye thoda chhota */
-  font-family: serif;
+  font-family: 'Quicksand', sans-serif; /* Quicksand font */
   padding-right: 2rem;
   color: transparent;
   background-image: linear-gradient(
@@ -24,7 +24,7 @@
     #48e70a,
     #3b82f6,
     #a855f7,
-    #7bf958
+    #2DE72c
   );
   background-size: 200% auto;
   background-clip: text;

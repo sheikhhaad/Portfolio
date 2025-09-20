@@ -15,14 +15,14 @@ const Marquee = () => {
       >
         <div className="marquee mb-2 mt-2">
           <div className="marquee-content">
-            <h1>
+            <p className="font-quicksand">
               Development ✧ Graphics ✧ Designing ✧ Websites ✧ Animations ✧
               Mentor ✧
-            </h1>
-            <h1>
+            </p>
+            <p className="font-quicksand">
               Development ✧ Graphics ✧ Designing ✧ Websites ✧ Animations ✧
               Mentor ✧
-            </h1>
+            </p>
           </div>
         </div>
       </motion.div>

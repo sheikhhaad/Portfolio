@@ -56,7 +56,7 @@ const Contact = () => {
         <LeftSec heading="Connect With Me" title="Let's start a project together" />
 
         <div className="flex items-center justify-around py-4 relative overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full max-w-7xl z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full max-w-7xl z-10 p-10">
             {/* Left Form */}
             <div className="bg-gradient-to-br from-[rgba(78,78,78,0.2)] to-[rgba(78,78,78,0.0)] rounded-3xl p-5 shadow-2xl border border-gray-800">
               <h2 className="text-2xl font-bold text-white mb-6">Get in Touch</h2>
@@ -103,7 +103,7 @@ const Contact = () => {
               <div className="mb-6 self-start"><Available /></div>
 
               <div className="relative self-start mb-6">
-                <div className="rounded-full border border-green-300 p-2">
+                <div className="rounded-full border border-[#2DE72c] p-2">
                   <img
                     src={mypic}
                     alt="profile"
@@ -112,16 +112,16 @@ const Contact = () => {
                 </div>
               </div>
 
-              <p className="text-gray-300 text-sm leading-relaxed mb-8">
+              <p className="text-gray-300 text-sm leading-relaxed font-bold  mb-8">
                 My inbox is always open. Whether you have a project or just want to say Hi. Feel free to contact me and I'll get back to you quickly.
               </p>
 
               <div className="mb-8">
                 <h3 className="text-lg font-semibold text-white mb-3">Contact Info</h3>
-                <div className="text-gray-400 text-sm space-y-2">
-                  <p>sheikhhaad6@gmail.com</p>
-                  <p>+92 332 2859 107</p>
-                  <p>Karachi, Pakistan</p>
+                <div className="text-[#2DE72c] text-sm space-y-2">
+                  <p>sheikhhaad6@gmail.com;</p>
+                  <p>+92 332 2859 107;</p>
+                  <p>Karachi, Pakistan;</p>
                 </div>
               </div>
 

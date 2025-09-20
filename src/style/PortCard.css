@@ -25,7 +25,7 @@
 /* Image wrapper */
 .portfolio-card-img {
   width: 100%;
-  height: 360px; /* bada kiya */
+  height: 300px; /* bada kiya */
   overflow: hidden;
   display: flex;
   justify-content: center;

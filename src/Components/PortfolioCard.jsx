@@ -33,7 +33,7 @@ const PortfolioCard = ({ name, Img, id }) => {
     </motion.div>
 
       <div className="portfolio-card-text mt-3">
-        <p className="text-white font-bold text-3xl">{name}</p>
+        <p className="text-white font-bold text-xl">{name}</p>
       </div>
    </div>
   );

@@ -19,7 +19,7 @@ const Accordion = ({ title, description, icon }) => {
             {title}
           </h2>
         </div>
-        <span className="text-xl sm:text-2xl text-blue-400">
+        <span className="text-xl sm:text-2xl text-[#2DE72c]">
           {isOpen ? <FiMinus /> : <FiPlus />}
         </span>
       </div>

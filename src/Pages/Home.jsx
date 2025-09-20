@@ -72,12 +72,12 @@ const Home = () => {
       <header className="bg-black text-white px-4 sm:px-6 lg:px-16 pt-20 md:pt-24 min-h-[60vh] flex items-center font-quicksand">
         <div className="w-full">
           <motion.p
-            className="text-green-500 mb-2 text-lg sm:text-xl md:text-2xl"
+            className="text-[#2DE72c] mb-2 text-lg sm:text-xl md:text-2xl"
             initial={{ opacity: 0, y: -14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7 }}
           >
-            👋 Hey! It's me <span className="font-bold">Haad Sheikh</span>,
+            👋 Hey! It's me <span className="font-bold ">Haad Sheikh</span>,
           </motion.p>
 
           <motion.h1
@@ -87,7 +87,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.25 }}
           >
             Crafting{" "}
-            <span className="text-[#7bf958]">
+            <span className="text-[#2DE72c]">
               purpose driven <br className="hidden sm:block" />
               experiences that
             </span>{" "}
@@ -102,7 +102,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <div className="flex-shrink-0">
-              <div className="mx-auto md:mx-0 w-12 sm:w-14 md:w-16 h-1 sm:h-1.5 md:h-2 bg-red-500 rounded" />
+              <div className="mx-auto md:mx-0  sm:w-14 md:w-70 h-1 sm:h-1.5 md:h-2 bg-[#2DE72c] rounded" />
             </div>
 
             <p className="text-gray-400 font-bold text-base sm:text-lg md:max-w-2xl leading-relaxed">
@@ -160,7 +160,7 @@ const Home = () => {
         />
         <div className="flex flex-wrap justify-around gap-0 md:gap-10 mt-6">
           {projects.map((itm, i) => (
-            <div key={i} className={i % 2 === 0 ? "mt-10" : "mt-0"}>
+            <div key={i} className={i % 2 === 0 ? "mt-20" : "mt-10"}>
               <PortfolioCard name={itm.name} Img={itm.image} id={itm.id} />
             </div>
           ))}
