@@ -2,7 +2,7 @@
 .portfolioCard {
   width: 100%;
   margin-top: 20px;
-  max-width: 30rem; /* thoda bada */
+  max-width:35rem; /* thoda bada */
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -84,7 +84,7 @@ const Project = () => {
           title="Creating next level digital products, brands & experiences."
         />
       </div>
-      <div className="flex flex-wrap justify-around mb-20 mt-10">
+      <div className="flex flex-wrap justify-around mb-20 mt-10 p-10">
         {projects.map((project, i) => (
           <div key={project.id} className={i % 2 === 0 ? "mt-20" : "mt-10"}>
             <PortfolioCard
