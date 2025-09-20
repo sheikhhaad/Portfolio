@@ -15,7 +15,7 @@ const Marquee = () => {
       >
         <div className="marquee mb-2 mt-2">
           <div className="marquee-content">
-            <p className="font-quicksand">
+            <p className="font-quicksand font-semibold">
               Development ✧ Graphics ✧ Designing ✧ Websites ✧ Animations ✧
               Mentor ✧
             </p>

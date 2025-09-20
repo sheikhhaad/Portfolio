@@ -80,7 +80,7 @@ const Project = () => {
     <>
       <div className="mt-20">
         <LeftSec
-          heading="My Work"
+          heading="✧ My Work"
           title="Creating next level digital products, brands & experiences."
         />
       </div>

@@ -53,7 +53,7 @@ const Contact = () => {
   return (
     <>
       <div className="min-h-screen mt-20 font-quicksand">
-        <LeftSec heading="Connect With Me" title="Let's start a project together" />
+        <LeftSec heading="✧ Connect With Me" title="Let's start a project together" />
 
         <div className="flex items-center justify-around py-4 relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full max-w-7xl z-10 p-10">
@@ -147,7 +147,7 @@ const Contact = () => {
 
         {/* FAQ Section */}
         <div className="flex flex-col lg:flex-row gap-10 mt-16 mb-20 px-6 lg:px-20">
-          <LeftSec heading="FAQ'S" title="Have Questions" />
+          <LeftSec heading="✧ FAQ'S" title="Have Questions" />
           <div className="flex-1 space-y-4">
             {question.map((itm, indx) => (
               <Accordian key={indx} title={itm.question} description={itm.answer} />
@@ -156,7 +156,6 @@ const Contact = () => {
         </div>
       </div>
 
-      <Footer />
     </>
   );
 };

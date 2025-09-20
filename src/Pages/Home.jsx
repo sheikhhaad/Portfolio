@@ -136,7 +136,11 @@ const Home = () => {
           transition={{ duration: 0.6, delay: 0.85 }}
           className="mt-2"
         >
-          <AnimatedBtn title="Know Me Better" sectilte="About me" />
+          <AnimatedBtn
+            title="Know Me Better"
+            sectilte="About me"
+            link={"/about"}
+          />
         </motion.div>
       </div>
 
@@ -154,7 +158,7 @@ const Home = () => {
       {/* Portfolio */}
       <section className="px-4 sm:px-6 lg:px-16 py-12 bg-black font-quicksand">
         <LeftSec
-          heading="My Work"
+          heading="✧ My Work"
           title="Selected Projects"
           subheading="Here's a curated selection showcasing my expertise and the achieved results."
         />
@@ -169,7 +173,7 @@ const Home = () => {
 
       {/* Expertise */}
       <section className="px-4 sm:px-6 lg:px-16 py-12 bg-black font-quicksand">
-        <LeftSec heading="Speciality" title="Areas of Expertise" />
+        <LeftSec heading="✧ Speciality" title="Areas of Expertise" />
         <div className="flex flex-col lg:flex-row justify-between gap-10 mt-6">
           <div className="flex-1 space-y-4">
             {accordionItems.map((item, i) => (
@@ -192,7 +196,10 @@ const Home = () => {
       </section>
 
       <div className="mb-4 mt-4 font-quicksand">
+        <hr className="border-gray-900" />
+
         <SkillsMarquee />
+        <hr className="border-gray-900" />
       </div>
 
       {/* Contact */}
@@ -200,8 +207,6 @@ const Home = () => {
         <ContactSec />
       </section>
 
-      {/* Footer */}
-      <Footer />
     </>
   );
 };

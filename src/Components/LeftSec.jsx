@@ -2,14 +2,14 @@ import React from "react";
 
 const LeftSec = ({ heading, title, subheading }) => {
   return (
-    <div className="px-6 sm:px-8 md:px-10 py-6 sm:py-8 md:py-10 font-quicksand">
+    <div className="px-6 sm:px-8 md:px-10 py-6 sm:py-8 md:py-10 font-quicksand font-semibold">
       {/* Heading */}
-      <p className="text-[#7bf958] text-base sm:text-lg md:text-xl font-medium mt-2 sm:mt-3">
-        ✧ {heading}
+      <p className="text-[#7bf958] text-base sm:text-lg md:text-xl  mt-2 sm:mt-3 font-semibold font-quicksand">
+         {heading}
       </p>
 
       {/* Title */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mt-3 font-bold leading-snug sm:leading-tight">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mt-3 font-[900] leading-snug sm:leading-tight">
         {title}
       </h1>
 
