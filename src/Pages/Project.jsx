@@ -10,7 +10,7 @@ import blogAppImage from "../assets/BlogApp.png";
 import diceGameImage from "../assets/dicgame.png";
 import portfolioImage from "../assets/portfolio.png";
 import disneyImage from "../assets/disney.png";
-import Soni from "../assets/soni.png";
+import Soni from "../assets/Soni.png";
 
 const Project = () => {
   const projects = [
