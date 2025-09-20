@@ -59,13 +59,13 @@ const About = () => {
         </div>
       </div>
 
-      <div className="mb-10  ">
+      <div className="mb-10 mt-3 ">
       <hr className="border-gray-900" />
      <SkillMarquee />
       <hr className="border-gray-900" />
 
       </div>
- <div className="p-10">
+ <div className="p-5">
       <ContactSec/>
 
  </div>

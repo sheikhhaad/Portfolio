@@ -52,11 +52,11 @@ const Contact = () => {
 
   return (
     <>
-      <div className="min-h-screen mt-20 font-quicksand">
+      <div className="min-h-screen mt-10 font-quicksand">
         <LeftSec heading="✧ Connect With Me" title="Let's start a project together" />
 
         <div className="flex items-center justify-around py-4 relative overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full max-w-7xl z-10 p-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full max-w-7xl z-10 p-2">
             {/* Left Form */}
             <div className="bg-gradient-to-br from-[rgba(78,78,78,0.2)] to-[rgba(78,78,78,0.0)] rounded-3xl p-5 shadow-2xl border border-gray-800">
               <h2 className="text-2xl font-bold text-white mb-6">Get in Touch</h2>
@@ -146,7 +146,7 @@ const Contact = () => {
         </div>
 
         {/* FAQ Section */}
-        <div className="flex flex-col lg:flex-row gap-10 mt-16 mb-20 px-6 lg:px-20">
+        <div className="flex flex-col lg:flex-row gap-10 mt-16 mb-20 px-2 lg:px-20">
           <LeftSec heading="✧ FAQ'S" title="Have Questions" />
           <div className="flex-1 space-y-4">
             {question.map((itm, indx) => (

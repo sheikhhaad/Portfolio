@@ -69,7 +69,7 @@ const Home = () => {
   return (
     <>
       {/* Intro Section */}
-      <header className="bg-black text-white px-4 sm:px-6 lg:px-16 pt-20 md:pt-24 min-h-[60vh] flex items-center font-quicksand">
+      <header className="bg-black text-white px-4 sm:px-6 lg:px-16 pt-20 md:pt-24 min-h-[40vh] flex items-center font-quicksand">
         <div className="w-full">
           <motion.p
             className="text-[#2DE72c] mb-2 text-lg sm:text-xl md:text-2xl"
@@ -113,7 +113,7 @@ const Home = () => {
         </div>
       </header>
 
-      <div className="flex justify-between m-10 font-quicksand">
+      <div className="flex justify-between mx-4 my-4 font-quicksand">
         <motion.nav
           className="hidden sm:flex flex-wrap justify-start gap-4 px-4 sm:px-6 lg:px-16 py-4 text-white"
           initial={{ opacity: 0 }}
@@ -134,7 +134,7 @@ const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.85 }}
-          className="mt-2"
+          className=""
         >
           <AnimatedBtn
             title="Know Me Better"
@@ -203,7 +203,7 @@ const Home = () => {
       </div>
 
       {/* Contact */}
-      <section className="px-4 sm:px-6 lg:px-16 py-12 bg-black font-quicksand">
+      <section className="px-2 sm:px-6 lg:px-16 py-10 bg-black font-quicksand">
         <ContactSec />
       </section>
 
