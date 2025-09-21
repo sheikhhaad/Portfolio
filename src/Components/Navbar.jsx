@@ -90,7 +90,7 @@ const Navbar = () => {
       </nav>
 
       {/* Bottom Tab Bar for mobile */}
-      <div className="fixed bottom-0 left-0 ml-6 mr-6 mb-5 right-0 rounded-full bg-[rgba(78,78,78,0.4)] backdrop-blur-lg z-50 md:hidden py-2 font-quicksand ">
+      <div className="fixed bottom-0 left-0 ml-10 mr-10 mb-2 right-0 rounded-full bg-[rgba(78,78,78,0.4)] backdrop-blur-[2px] z-50 md:hidden py-2 font-quicksand ">
         <div className="flex justify-around items-center">
           {links.map((link, i) => (
             <Link
@@ -102,8 +102,8 @@ const Navbar = () => {
                   : "text-gray-300"
               }`}
             >
-              <span className="text-lg">{link.icon}</span>
-              <span className="text-xs mt-1">{link.name}</span>
+              <span className="text-[16px]">{link.icon}</span>
+              <span className="text-[12px] mt-1">{link.name}</span>
             </Link>
           ))}
         </div>
