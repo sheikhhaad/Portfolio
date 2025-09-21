@@ -15,7 +15,7 @@ const AboutSec = ({ title, description }) => {
       </h1>
 
       {/* Description */}
-      <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 mt-5 md:mt-6 mx-auto leading-relaxed">
+      <p className=" font-thin sm:text-lg md:text-xl lg:text-2xl text-gray-300 mt-5 md:mt-6 mx-auto leading-relaxed">
         {description}
       </p>
     </motion.div>

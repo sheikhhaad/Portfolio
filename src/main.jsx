@@ -7,7 +7,7 @@ import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import Project from "./Pages/Project";
-import Detailpage from "./Pages/Detailpage";
+import Detailpage from "./Pages/[Detailpage]";
 
 let router = createBrowserRouter([
   {
@@ -33,6 +33,10 @@ let router = createBrowserRouter([
       },
       {
         path: "detailpage/:id",
+        element: <Detailpage />,
+      },
+      {
+        path: "/projects/detailpage/:id",
         element: <Detailpage />,
       },
     ],

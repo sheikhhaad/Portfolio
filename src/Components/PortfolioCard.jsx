@@ -7,6 +7,7 @@ const PortfolioCard = ({ name, Img, id }) => {
   const [Color, setColor] = useState();
   let navigate = useNavigate();
 
+
   useEffect(() => {
     const colorgenretor = () => {
       let r = Math.floor(Math.random() * 40);

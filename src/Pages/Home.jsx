@@ -105,7 +105,7 @@ const Home = () => {
               <div className="mx-auto md:mx-0  sm:w-14 md:w-70 h-1 sm:h-1.5 md:h-2 bg-[#2DE72c] rounded" />
             </div>
 
-            <p className="text-gray-400 font-bold text-base sm:text-lg md:max-w-2xl leading-relaxed">
+            <p className="text-gray-400 font-extralight  sm:text-lg md:max-w-2xl leading-relaxed">
               I’m on a path of learning and building, creating digital
               experiences that balance design, usability, and performance.
             </p>
