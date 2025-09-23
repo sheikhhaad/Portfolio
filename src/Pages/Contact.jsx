@@ -12,7 +12,8 @@ import AnimatedBtn from "../Components/AnimatedBtn";
 import LeftSec from "../Components/LeftSec";
 import Footer from "../Components/Footer";
 import Accordian from "../Components/Accordian";
-import mypic from '../assets/mypic.webp'
+import mypic from "../assets/mypic.webp";
+import SendBtn from "../Components/SendBtn";
 
 const Contact = () => {
   const question = [
@@ -39,30 +40,61 @@ const Contact = () => {
   ];
 
   const socials = [
-    { path: "https://github.com/sheikhhaad", Icon: FaGithub, hover: "hover:text-white" },
-    { path: "https://linkedin.com/in/sheikhhaad", Icon: FaLinkedin, hover: "hover:text-[#0077b5]" },
-    { path: "https://instagram.com/sheikhhaad_", Icon: FaInstagram, hover: "hover:text-[#E1306C]" },
-    { path: "https://www.facebook.com/profile.php?id=61555704857977", Icon: FaFacebook, hover: "hover:text-[#1877F2]" },
+    {
+      path: "https://github.com/sheikhhaad",
+      Icon: FaGithub,
+      hover: "hover:text-white",
+    },
+    {
+      path: "https://linkedin.com/in/sheikhhaad",
+      Icon: FaLinkedin,
+      hover: "hover:text-[#0077b5]",
+    },
+    {
+      path: "https://instagram.com/sheikhhaad_",
+      Icon: FaInstagram,
+      hover: "hover:text-[#E1306C]",
+    },
+    {
+      path: "https://www.facebook.com/profile.php?id=61555704857977",
+      Icon: FaFacebook,
+      hover: "hover:text-[#1877F2]",
+    },
   ];
 
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
-  const handleSubmit = (e) => { e.preventDefault(); console.log(formData); };
+  const handleChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+  };
 
   return (
     <>
       <div className="min-h-screen mt-10 font-quicksand">
-        <LeftSec heading="✧ Connect With Me" title="Let's start a project together" />
+        <LeftSec
+          heading="✧ Connect With Me"
+          title="Let's start a project together"
+        />
 
         <div className="flex items-center justify-around py-4 relative overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full max-w-7xl z-10 p-2">
             {/* Left Form */}
             <div className="bg-gradient-to-br from-[rgba(78,78,78,0.2)] to-[rgba(78,78,78,0.0)] rounded-3xl p-5 shadow-2xl border border-gray-800">
-              <h2 className="text-2xl font-bold text-white mb-6">Get in Touch</h2>
+              <h2 className="text-2xl font-bold text-white mb-6">
+                Get in Touch
+              </h2>
               <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
                 <div>
-                  <label className="block text-sm text-gray-400 mb-2">Full Name</label>
+                  <label className="block text-sm text-gray-400 mb-2">
+                    Full Name
+                  </label>
                   <input
                     type="text"
                     name="name"
@@ -73,7 +105,9 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-400 mb-2">Email</label>
+                  <label className="block text-sm text-gray-400 mb-2">
+                    Email
+                  </label>
                   <input
                     type="email"
                     name="email"
@@ -84,7 +118,9 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm text-gray-400 mb-2">Message</label>
+                  <label className="block text-sm text-gray-400 mb-2">
+                    Message
+                  </label>
                   <textarea
                     rows="4"
                     name="message"
@@ -94,13 +130,15 @@ const Contact = () => {
                     placeholder="Type your message..."
                   ></textarea>
                 </div>
-                <AnimatedBtn title="Send Message" icon={<FaPaperPlane className="ml-2" />} />
+                <SendBtn />
               </form>
             </div>
 
             {/* Right Card */}
             <div className="bg-gradient-to-br from-[rgba(78,78,78,0.2)] to-[rgba(78,78,78,0.0)] rounded-3xl p-5 flex flex-col shadow-2xl border border-gray-800">
-              <div className="mb-6 self-start"><Available /></div>
+              <div className="mb-6 self-start">
+                <Available />
+              </div>
 
               <div className="relative self-start mb-6">
                 <div className="rounded-full border border-[#2DE72c] p-2">
@@ -113,11 +151,15 @@ const Contact = () => {
               </div>
 
               <p className="text-gray-300 text-sm leading-relaxed font-bold  mb-8">
-                My inbox is always open. Whether you have a project or just want to say Hi. Feel free to contact me and I'll get back to you quickly.
+                My inbox is always open. Whether you have a project or just want
+                to say Hi. Feel free to contact me and I'll get back to you
+                quickly.
               </p>
 
               <div className="mb-8">
-                <h3 className="text-lg font-semibold text-white mb-3">Contact Info</h3>
+                <h3 className="text-lg font-semibold text-white mb-3">
+                  Contact Info
+                </h3>
                 <div className="text-[#2DE72c] text-sm space-y-2">
                   <p>sheikhhaad6@gmail.com;</p>
                   <p>+92 332 2859 107;</p>
@@ -126,7 +168,9 @@ const Contact = () => {
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-white mb-4">Follow Me</h3>
+                <h3 className="text-lg font-semibold text-white mb-4">
+                  Follow Me
+                </h3>
                 <div className="flex gap-5">
                   {socials.map(({ path, Icon, hover }, idx) => (
                     <a
@@ -150,12 +194,15 @@ const Contact = () => {
           <LeftSec heading="✧ FAQ'S" title="Have Questions" />
           <div className="flex-1 space-y-4">
             {question.map((itm, indx) => (
-              <Accordian key={indx} title={itm.question} description={itm.answer} />
+              <Accordian
+                key={indx}
+                title={itm.question}
+                description={itm.answer}
+              />
             ))}
           </div>
         </div>
       </div>
-
     </>
   );
 };
