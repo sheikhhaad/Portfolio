@@ -45,6 +45,7 @@ const Detailpage = () => {
       techStack: ["Next.js", "Tailwind CSS", "Supabase", "Framer Motion"],
       link: "https://store-admin-panel.vercel.app/",
       image: adminpanel,
+      codeLink: "https://github.com/sheikhhaad/Shafeeq-Store-Admin-Panel",
     },
     {
       id: 3,
@@ -210,7 +211,7 @@ const Detailpage = () => {
                 link={data.link}
               />
 
-              <button className="flex items-center px-5 py-3  text-blue-800 rounded-full font-semibold hover:bg-white transition-colors">
+              <button className="flex items-center px-5 py-3  text-blue-800 rounded-full font-semibold hover:bg-white transition-colors" onClick={data}>
                 <Code size={18} className="mr-2" />
                 View Code
               </button>
