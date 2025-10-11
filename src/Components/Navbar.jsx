@@ -72,7 +72,7 @@ const Navbar = () => {
             {/* Social Icons */}
             <div className="flex items-center gap-4">
               <a
-                href="https://github.com/sheikhhaad_"
+                href="https://github.com/sheikhhaad"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 text-xl hover:text-white"
