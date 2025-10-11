@@ -72,7 +72,7 @@ const Navbar = () => {
             {/* Social Icons */}
             <div className="flex items-center gap-4">
               <a
-                href="https://github.com/"
+                href="https://github.com/sheikhhaad_"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 text-xl hover:text-white"
@@ -80,7 +80,7 @@ const Navbar = () => {
                 <FaGithub />
               </a>
               <a
-                href="https://linkedin.com/"
+                href="https://linkedin.com/sheikhhaad_"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 text-xl hover:text-blue-400"
@@ -88,7 +88,7 @@ const Navbar = () => {
                 <FaLinkedin />
               </a>
               <a
-                href="https://facebook.com/"
+                href="https://www.facebook.com/profile.php?id=61555704857977"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 text-xl hover:text-blue-500"
