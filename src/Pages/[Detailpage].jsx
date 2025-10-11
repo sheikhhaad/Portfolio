@@ -64,10 +64,11 @@ const Detailpage = () => {
       techStack: ["Next.js", "Firebase", "Tailwind CSS", "Framer Motion"],
       link: "https://lifthumanity.vercel.app/",
       image: donation,
+      codeLink: "https://github.com/sheikhhaad/donation-user-web",
     },
     {
       id: 4,
-      name: "Google Gemini Clone",
+      name: "Gemini Chatbot AI",
       overview: "AI chatbot UI inspired by Gemini.",
       description:
         "This project is a front-end clone of the Gemini chatbot. It provides a chat interface where users can type messages, and includes a typing animation effect for a real-time feel.",
@@ -80,6 +81,7 @@ const Detailpage = () => {
       techStack: ["React", "Tailwind CSS", "Framer Motion", "API Integration"],
       link: "https://chat-bot-gemini-sepia.vercel.app/",
       image: gemini,
+      codeLink: "https://github.com/sheikhhaad/ChatBot-Gemini",
     },
     {
       id: 5,
@@ -98,6 +100,7 @@ const Detailpage = () => {
       techStack: ["React", "Firebase (Auth, Firestore, Storage)"],
       link: "https://chat-app-rose-theta.vercel.app/",
       image: chatAppImage,
+      codeLink: "https://github.com/sheikhhaad/Chat-App",
     },
     {
       id: 6,
@@ -120,6 +123,7 @@ const Detailpage = () => {
       ],
       link: "https://blogg-app-tech.vercel.app/",
       image: blogAppImage,
+      codeLink: "https://github.com/sheikhhaad/Blogg-App-tech",
     },
     {
       id: 8,
@@ -136,6 +140,7 @@ const Detailpage = () => {
       techStack: ["React", "Tailwind CSS", "Framer Motion"],
       link: "https://haad-portfolio-haad-sheikhs-projects.vercel.app/",
       image: portfolioImage,
+      codeLink: "https://github.com/sheikhhaad/Haad",
     },
     {
       id: 9,
@@ -147,6 +152,7 @@ const Detailpage = () => {
       techStack: ["React", "Tailwind CSS", "Framer Motion"],
       link: "https://disney-land-ten.vercel.app/",
       image: disneyImage,
+      codeLink: "https://github.com/sheikhhaad/Disney-Land",
     },
     {
       id: 10,
@@ -158,6 +164,7 @@ const Detailpage = () => {
       techStack: ["React", "Tailwind CSS"],
       link: "https://soni-auto-ui-react.vercel.app/",
       image: Soni,
+      codeLink: "https://github.com/sheikhhaad/Soni-Auto-UI-react",
     },
   ];
 
@@ -211,7 +218,10 @@ const Detailpage = () => {
                 link={data.link}
               />
 
-              <button className="flex items-center px-5 py-3  text-blue-800 rounded-full font-semibold hover:bg-white transition-colors" onClick={data}>
+              <button
+                className="flex items-center px-5 py-3  text-blue-800 rounded-full font-semibold hover:bg-white transition-colors"
+                onClick={data}
+              >
                 <Code size={18} className="mr-2" />
                 View Code
               </button>
@@ -293,10 +303,9 @@ const Detailpage = () => {
           </div>
         </div>
       </div>
-<div className="p-5">
-      <ContactSec />
-
-</div>
+      <div className="p-5">
+        <ContactSec />
+      </div>
     </>
   );
 };

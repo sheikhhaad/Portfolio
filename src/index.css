@@ -3,11 +3,20 @@
   src: url("./assets/Fonts/Quicksand-Regular.ttf") format("truetype");
   font-weight: 400;
 }
+@font-face {
+  font-family: "BBHSansBartle";
+  src: url("./assets/Fonts/BBHSansBartle-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
 
 @import "tailwindcss";
 
 @theme {
   --font-quicksand: "Quicksand", sans-serif;
+}
+
+@theme {
+  --font-bbhsansbartle: "BBHSansBartle", sans-serif;
 }
 
 body {

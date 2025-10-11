@@ -8,14 +8,14 @@ const Marquee = () => {
       <hr className="border-gray-900" />
 
       <motion.div
-        className="relative overflow-hidden mb-2 font-quicksand"
+        className="relative overflow-hidden mb-2 font-bbhsansbartle"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
       >
         <div className="marquee mb-2 mt-2">
           <div className="marquee-content">
-            <p className="font-quicksand font-semibold">
+            <p className="font-bbhsansbartle font-semibold">
               Development ✧ Graphics ✧ Designing ✧ Websites ✧ Animations ✧
               Mentor ✧
             </p>

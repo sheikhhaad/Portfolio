@@ -206,7 +206,6 @@ const Home = () => {
       <section className="px-2 sm:px-6 lg:px-16 py-10 bg-black font-quicksand">
         <ContactSec />
       </section>
-
     </>
   );
 };
