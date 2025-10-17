@@ -220,7 +220,7 @@ const Detailpage = () => {
 
               <button
                 className="flex items-center px-5 py-3  text-blue-800 rounded-full font-semibold hover:bg-white transition-colors"
-                onClick={data}
+                onClick={() => window.open(data.codeLink, "_blank")}
               >
                 <Code size={18} className="mr-2" />
                 View Code
