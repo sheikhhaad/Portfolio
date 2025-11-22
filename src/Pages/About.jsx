@@ -4,10 +4,14 @@ import mypic from "../assets/mypic.webp";
 import AnimatedBtn from "../Components/AnimatedBtn";
 import SkillMarquee from "../Components/SkillsMarquee";
 import ContactSec from "../Components/ContactSec";
+import ChingariBackground from "../Components/AnimatedBackground.jsx";
 
 const About = () => {
+
   return (
     <>
+          <ChingariBackground />
+    
       <div className="flex flex-col md:flex-row items-center min-h-screen justify-center md:justify-around px-6 sm:px-10 lg:px-20 gap-6">
         {/* Image Section */}
         <motion.div

@@ -14,6 +14,7 @@ import Footer from "../Components/Footer";
 import Accordian from "../Components/Accordian";
 import mypic from "../assets/mypic.webp";
 import SendBtn from "../Components/SendBtn";
+import ChingariBackground from "../Components/AnimatedBackground.jsx";
 
 const Contact = () => {
   const question = [
@@ -77,6 +78,8 @@ const Contact = () => {
 
   return (
     <>
+      <ChingariBackground />
+
       <div className="min-h-screen mt-10 font-quicksand">
         <LeftSec
           heading="✧ Connect With Me"

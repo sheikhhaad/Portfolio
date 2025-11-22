@@ -11,6 +11,9 @@ import diceGameImage from "../assets/dicgame.png";
 import portfolioImage from "../assets/portfolio.png";
 import disneyImage from "../assets/disney.png";
 import Soni from "../assets/Soni.png";
+import ChingariBackground from "../Components/AnimatedBackground.jsx";
+
+
 
 const Project = () => {
   const projects = [
@@ -78,6 +81,8 @@ const Project = () => {
 
   return (
     <>
+          <ChingariBackground />
+    
       <div className="mt-20">
         <LeftSec
           heading="✧ My Work"

@@ -24,8 +24,8 @@ import SocialBtn from "../Components/SocialBtn";
 import Accordian from "../Components/Accordian.jsx";
 import laptop from "../assets/laptop.png";
 import ContactSec from "../Components/ContactSec.jsx";
-import Footer from "../Components/Footer.jsx";
 import SkillsMarquee from "../Components/SkillsMarquee.jsx";
+import ChingariBackground from "../Components/AnimatedBackground.jsx";
 
 const Home = () => {
   const projects = [
@@ -68,8 +68,15 @@ const Home = () => {
 
   return (
     <>
+      {/* Animated Background */}
+      <ChingariBackground />
+      
+
+
+      {/* Dark overlay for better readability */}
+
       {/* Intro Section */}
-      <header className="bg-black text-white px-4 sm:px-6 lg:px-16 pt-20 md:pt-24 min-h-[40vh] flex items-center font-quicksand">
+      <header className="text-white px-4 sm:px-6 lg:px-16 pt-20 md:pt-24 min-h-[40vh] flex items-center font-quicksand relative z-10">
         <div className="w-full">
           <motion.p
             className="text-[#2DE72c] mb-2 text-lg sm:text-xl md:text-2xl"
@@ -102,18 +109,18 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <div className="flex-shrink-0">
-              <div className="mx-auto md:mx-0  sm:w-14 md:w-70 h-1 sm:h-1.5 md:h-2 bg-[#2DE72c] rounded" />
+              <div className="mx-auto md:mx-0 sm:w-14 md:w-70 h-1 sm:h-1.5 md:h-2 bg-[#2DE72c] rounded" />
             </div>
 
-            <p className="text-gray-400 font-extralight  sm:text-lg md:max-w-2xl leading-relaxed">
-              I’m on a path of learning and building, creating digital
+            <p className="text-gray-300 font-extralight sm:text-lg md:max-w-2xl leading-relaxed">
+              I'm on a path of learning and building, creating digital
               experiences that balance design, usability, and performance.
             </p>
           </motion.div>
         </div>
       </header>
 
-      <div className="flex justify-between mx-4 my-4 font-quicksand">
+      <div className="flex justify-between mx-4 my-4 font-quicksand relative z-10">
         <motion.nav
           className="hidden sm:flex flex-wrap justify-start gap-4 px-4 sm:px-6 lg:px-16 py-4 text-white"
           initial={{ opacity: 0 }}
@@ -125,7 +132,7 @@ const Home = () => {
               key={id}
               path={itm.path}
               Icon={itm.Icon}
-              styling="text-white hover:text-blue-400 text-2xl sm:text-3xl"
+              styling="text-white hover:text-[#2DE72c] text-2xl sm:text-3xl transition-colors duration-300"
             />
           ))}
         </motion.nav>
@@ -145,10 +152,12 @@ const Home = () => {
       </div>
 
       {/* Marquee */}
-      <Marquee />
+      <div className="relative z-10">
+        <Marquee />
+      </div>
 
       {/* About */}
-      <section className="sm:px-6 lg:px-16 py-12 bg-black font-quicksand">
+      <section className="sm:px-6 lg:px-16 py-12 font-quicksand relative z-10">
         <AboutSec
           title="✧ ABOUT ME ✧"
           description="I am Haad Sheikh, a self-taught MERN Stack Developer with a strong focus on building clean, responsive, and functional web and mobile applications. Since January 2023, I have been working on real-world projects using React, Node, Firebase, and Tailwind CSS. I enjoy solving problems through code, creating modern UIs, and continuously improving my skills to deliver efficient digital solutions."
@@ -156,7 +165,7 @@ const Home = () => {
       </section>
 
       {/* Portfolio */}
-      <section className="px-4 sm:px-6 lg:px-16 py-12 bg-black font-quicksand">
+      <section className="px-4 sm:px-6 lg:px-16 py-12 font-quicksand relative z-10">
         <LeftSec
           heading="✧ My Work"
           title="Selected Projects"
@@ -172,7 +181,7 @@ const Home = () => {
       </section>
 
       {/* Expertise */}
-      <section className="px-4 sm:px-6 lg:px-16 py-12 bg-black font-quicksand">
+      <section className="px-4 sm:px-6 lg:px-16 py-12 font-quicksand relative z-10">
         <LeftSec heading="✧ Speciality" title="Areas of Expertise" />
         <div className="flex flex-col lg:flex-row justify-between gap-10 mt-6">
           <div className="flex-1 space-y-4">
@@ -189,21 +198,20 @@ const Home = () => {
             <img
               src={laptop}
               alt="Laptop"
-              className="rounded-2xl w-full max-w-md object-cover"
+              className="rounded-2xl w-full max-w-md object-cover border border-gray-700 shadow-2xl"
             />
           </div>
         </div>
       </section>
 
-      <div className="mb-4 mt-4 font-quicksand">
-        <hr className="border-gray-900" />
-
+      <div className="mb-4 mt-4 font-quicksand relative z-10">
+        <hr className="border-gray-700" />
         <SkillsMarquee />
-        <hr className="border-gray-900" />
+        <hr className="border-gray-700" />
       </div>
 
       {/* Contact */}
-      <section className="px-2 sm:px-6 lg:px-16 py-10 bg-black font-quicksand">
+      <section className="px-2 sm:px-6 lg:px-16 py-10 font-quicksand relative z-10">
         <ContactSec />
       </section>
     </>
