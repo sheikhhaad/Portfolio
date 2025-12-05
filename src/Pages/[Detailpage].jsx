@@ -13,6 +13,8 @@ import disneyImage from "../assets/disney.png";
 import Soni from "../assets/Soni.png";
 import AnimatedBtn from "../Components/AnimatedBtn";
 import ContactSec from "../Components/ContactSec";
+import ChingariBackground from "../Components/AnimatedBackground.jsx";
+
 const Detailpage = () => {
   let { id } = useParams();
   const [data, setData] = useState(null);
@@ -175,7 +177,7 @@ const Detailpage = () => {
 
   if (!data)
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="flex items-center justify-center">
         <div className="text-center p-8 rounded-xl shadow-lg">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">
             Project not found
@@ -193,8 +195,10 @@ const Detailpage = () => {
 
   return (
     <>
+      <ChingariBackground />
+
       <div className="min-h-screen py-20">
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4">
           {/* Back Navigation */}
           <Link
             to={"/projects"}

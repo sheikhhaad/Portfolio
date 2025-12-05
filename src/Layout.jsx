@@ -3,29 +3,28 @@ import { Outlet } from 'react-router-dom'
 import Navbar from './Components/Navbar'
 import Footer from './Components/Footer'
 import Lenis from '@studio-freight/lenis'
-import Cursor from './Components/Cursor.jsx'
 
 const Layout = () => {
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => t,
-      smooth: true,
-    })
+ useEffect(() => {
+  const lenis = new Lenis({
+    smooth: true,
+    lerp: 0.08,     // smoother easing
+    wheelMultiplier: 1.2,
+    touchMultiplier: 1.2,
+  })
 
-    function raf(time) {
-      lenis.raf(time)
-      requestAnimationFrame(raf)
-    }
-
+  const raf = (time) => {
+    lenis.raf(time)
     requestAnimationFrame(raf)
+  }
 
-    return () => lenis.destroy()
-  }, [])
+  requestAnimationFrame(raf)
+
+  return () => lenis.destroy()
+}, [])
 
   return (
     <>
-    <Cursor/>
       <Navbar />
       <Outlet />
       <Footer />

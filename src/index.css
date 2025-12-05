@@ -23,3 +23,21 @@ body {
   background: #000;
   font-family: var(--font-quicksand);
 }
+
+
+html, body {
+  height: 100%;
+  overscroll-behavior: none;
+}
+
+.lenis {
+  scroll-behavior: auto;
+}
+
+.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+.lenis-stopped {
+  overflow: hidden;
+}
