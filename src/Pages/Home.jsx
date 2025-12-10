@@ -26,8 +26,15 @@ import laptop from "../assets/laptop.png";
 import ContactSec from "../Components/ContactSec.jsx";
 import SkillsMarquee from "../Components/SkillsMarquee.jsx";
 import ChingariBackground from "../Components/AnimatedBackground.jsx";
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useLayoutEffect, useRef } from "react"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const Home = () => {
+  const cardsRef = useRef([])
+
   const projects = [
     { name: "Nexcent", image: nexcent, id: 1 },
     { name: "Admin Panel", image: adminpanel, id: 2 },
@@ -66,15 +73,42 @@ const Home = () => {
     },
   ];
 
+  useLayoutEffect(() => {
+    // Simple fade in for cards
+    cardsRef.current.forEach((card, i) => {
+      if (card) {
+        gsap.from(card, {
+          opacity: 0,
+          y: 30,
+          duration: 0.6,
+          delay: i * 0.1,
+          scrollTrigger: {
+            trigger: card,
+            start: "top 85%",
+          },
+        });
+      }
+    });
+
+    // Simple section animations
+    gsap.utils.toArray('.fade-in-section').forEach(section => {
+      gsap.from(section, {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+        }
+      });
+    });
+  }, []);
+
   return (
     <>
       {/* Animated Background */}
       <ChingariBackground />
       
-
-
-      {/* Dark overlay for better readability */}
-
       {/* Intro Section */}
       <header className="text-white px-4 sm:px-6 lg:px-16 pt-20 md:pt-24 min-h-[40vh] flex items-center font-quicksand relative z-10">
         <div className="w-full">
@@ -82,31 +116,36 @@ const Home = () => {
             className="text-[#2DE72c] mb-2 text-lg sm:text-xl md:text-2xl"
             initial={{ opacity: 0, y: -14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.5 }}
           >
             👋 Hey! It's me <span className="font-bold ">Haad Sheikh</span>,
           </motion.p>
 
           <motion.h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 leading-snug"
-            initial={{ opacity: 0, scale: 0.96 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.25 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             Crafting{" "}
-            <span className="text-[#2DE72c]">
+            <motion.span 
+              className="text-[#2DE72c]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
               purpose driven <br className="hidden sm:block" />
               experiences that
-            </span>{" "}
+            </motion.span>{" "}
             <br /> & engage.
           </motion.h1>
 
           {/* Line + paragraph */}
           <motion.div
             className="flex flex-col md:flex-row md:items-center gap-3 mb-4"
-            initial={{ opacity: 0, x: -24 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
           >
             <div className="flex-shrink-0">
               <div className="mx-auto md:mx-0 sm:w-14 md:w-70 h-1 sm:h-1.5 md:h-2 bg-[#2DE72c] rounded" />
@@ -125,15 +164,20 @@ const Home = () => {
           className="hidden sm:flex flex-wrap justify-start gap-4 px-4 sm:px-6 lg:px-16 py-4 text-white"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 1 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
         >
           {socials.map((itm, id) => (
-            <SocialBtn
+            <motion.div
               key={id}
-              path={itm.path}
-              Icon={itm.Icon}
-              styling="text-white hover:text-[#2DE72c] text-2xl sm:text-3xl transition-colors duration-300"
-            />
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.2 }}
+            >
+              <SocialBtn
+                path={itm.path}
+                Icon={itm.Icon}
+                styling="text-white hover:text-[#2DE72c] text-2xl sm:text-3xl transition-colors duration-300"
+              />
+            </motion.div>
           ))}
         </motion.nav>
 
@@ -141,7 +185,8 @@ const Home = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.85 }}
-          className=""
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
           <AnimatedBtn
             title="Know Me Better"
@@ -152,12 +197,12 @@ const Home = () => {
       </div>
 
       {/* Marquee */}
-      <div className="relative z-10">
+      <div className="relative z-10 fade-in-section">
         <Marquee />
       </div>
 
       {/* About */}
-      <section className="sm:px-6 lg:px-16 py-12 font-quicksand relative z-10">
+      <section className="sm:px-6 lg:px-16 py-12 font-quicksand relative z-10 fade-in-section">
         <AboutSec
           title="✧ ABOUT ME ✧"
           description="I am Haad Sheikh, a self-taught MERN Stack Developer with a strong focus on building clean, responsive, and functional web and mobile applications. Since January 2023, I have been working on real-world projects using React, Node, Firebase, and Tailwind CSS. I enjoy solving problems through code, creating modern UIs, and continuously improving my skills to deliver efficient digital solutions."
@@ -165,54 +210,99 @@ const Home = () => {
       </section>
 
       {/* Portfolio */}
-      <section className="px-4 sm:px-6 lg:px-16 py-12 font-quicksand relative z-10">
-        <LeftSec
-          heading="✧ My Work"
-          title="Selected Projects"
-          subheading="Here's a curated selection showcasing my expertise and the achieved results."
-        />
+      <section className="px-4 sm:px-6 lg:px-16 py-12 font-quicksand relative z-10 fade-in-section">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <LeftSec
+            heading="✧ My Work"
+            title="Selected Projects"
+            subheading="Here's a curated selection showcasing my expertise and the achieved results."
+          />
+        </motion.div>
+        
         <div className="flex flex-wrap justify-around gap-0 md:gap-10 mt-6">
           {projects.map((itm, i) => (
-            <div key={i} className={i % 2 === 0 ? "mt-20" : "mt-10"}>
+            <motion.div
+              key={i}
+              ref={el => cardsRef.current[i] = el}
+              className={i % 2 === 0 ? "mt-20" : "mt-10"}
+              whileHover={{ y: -8 }}
+              transition={{ duration: 0.2 }}
+            >
               <PortfolioCard name={itm.name} Img={itm.image} id={itm.id} />
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
       {/* Expertise */}
-      <section className="px-4 sm:px-6 lg:px-16 py-12 font-quicksand relative z-10">
-        <LeftSec heading="✧ Speciality" title="Areas of Expertise" />
+      <section className="px-4 sm:px-6 lg:px-16 py-12 font-quicksand relative z-10 fade-in-section">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <LeftSec heading="✧ Speciality" title="Areas of Expertise" />
+        </motion.div>
+        
         <div className="flex flex-col lg:flex-row justify-between gap-10 mt-6">
           <div className="flex-1 space-y-4">
             {accordionItems.map((item, i) => (
-              <Accordian
+              <motion.div
                 key={i}
-                title={item.title}
-                description={item.description}
-                icon={item.icon}
-              />
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.1 }}
+              >
+                <Accordian
+                  title={item.title}
+                  description={item.description}
+                  icon={item.icon}
+                />
+              </motion.div>
             ))}
           </div>
-          <div className="flex-1 flex justify-center">
+          <motion.div
+            className="flex-1 flex justify-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.3 }}
+          >
             <img
               src={laptop}
               alt="Laptop"
               className="rounded-2xl w-full max-w-md object-cover border border-gray-700 shadow-2xl"
             />
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      <div className="mb-4 mt-4 font-quicksand relative z-10">
+      {/* Skills */}
+      <div className="mb-4 mt-4 font-quicksand relative z-10 fade-in-section">
         <hr className="border-gray-700" />
         <SkillsMarquee />
         <hr className="border-gray-700" />
       </div>
 
       {/* Contact */}
-      <section className="px-2 sm:px-6 lg:px-16 py-10 font-quicksand relative z-10">
-        <ContactSec />
+      <section className="px-2 sm:px-6 lg:px-16 py-10 font-quicksand relative z-10 fade-in-section">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <ContactSec />
+        </motion.div>
       </section>
     </>
   );

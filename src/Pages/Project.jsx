@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import LeftSec from "../Components/LeftSec";
 import PortfolioCard from "../Components/PortfolioCard";
 import nexcent from "../assets/nexcent.png";
@@ -12,8 +13,6 @@ import portfolioImage from "../assets/portfolio.png";
 import disneyImage from "../assets/disney.png";
 import Soni from "../assets/Soni.png";
 import ChingariBackground from "../Components/AnimatedBackground.jsx";
-
-
 
 const Project = () => {
   const projects = [
@@ -81,26 +80,45 @@ const Project = () => {
 
   return (
     <>
-          <ChingariBackground />
-    
-      <div className="mt-20">
+      <ChingariBackground />
+      
+      <motion.div 
+        className="mt-20"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <LeftSec
           heading="✧ My Work"
           title="Creating next level digital products, brands & experiences."
         />
-      </div>
-      <div className="flex flex-wrap justify-around mb-20 mt-10 p-10">
+      </motion.div>
+
+      <motion.div 
+        className="flex flex-wrap justify-around mb-20 mt-10 p-10"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
         {projects.map((project, i) => (
-          <div key={project.id} className={i % 2 === 0 ? "mt-20" : "mt-10"}>
+          <motion.div 
+            key={project.id} 
+            className={i % 2 === 0 ? "mt-20" : "mt-10"}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            whileHover={{ y: -10 }}
+            transition={{ duration: 0.2 }}
+          >
             <PortfolioCard
               Img={project.image}
               name={project.name}
               id={project.id}
-              link={project.link} // pass link if PortfolioCard supports it
+              link={project.link}
             />
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </>
   );
 };

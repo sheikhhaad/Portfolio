@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, ExternalLink, Code, Layout, Zap } from "lucide-react";
+import { motion } from "framer-motion";
 import nexcent from "../assets/nexcent.png";
 import adminpanel from "../assets/adminpanel.png";
 import donation from "../assets/donationweb.png";
@@ -177,7 +178,12 @@ const Detailpage = () => {
 
   if (!data)
     return (
-      <div className="flex items-center justify-center">
+      <motion.div 
+        className="flex items-center justify-center min-h-screen"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="text-center p-8 rounded-xl shadow-lg">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">
             Project not found
@@ -190,62 +196,109 @@ const Detailpage = () => {
             Back to Projects
           </Link>
         </div>
-      </div>
+      </motion.div>
     );
 
   return (
     <>
       <ChingariBackground />
 
-      <div className="min-h-screen py-20">
+      <motion.div 
+        className="min-h-screen py-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
         <div className="max-w-7xl mx-auto px-4">
           {/* Back Navigation */}
-          <Link
-            to={"/projects"}
-            className="inline-flex items-center text-[#2DE72c] hover:text-[#25c722] mb-6 font-medium transition-colors underline"
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
           >
-            <ArrowLeft size={18} className="mr-2" />
-            Back to Projects
-          </Link>
+            <Link
+              to={"/projects"}
+              className="inline-flex items-center text-[#2DE72c] hover:text-[#25c722] mb-6 font-medium transition-colors underline"
+            >
+              <ArrowLeft size={18} className="mr-2" />
+              Back to Projects
+            </Link>
+          </motion.div>
 
           {/* Project Header */}
-          <div className=" rounded-2xl shadow-sm p-6 mb-8">
-            <h1 className="text-4xl font-bold text-[#2DE72c] mb-2 ">
+          <motion.div
+            className="rounded-2xl shadow-sm p-6 mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <motion.h1 
+              className="text-4xl font-bold text-[#2DE72c] mb-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
               {data.name}
-            </h1>
-            <p className="text-xl text-gray-400 mb-6">{data.overview}</p>
+            </motion.h1>
+            <motion.p 
+              className="text-xl text-gray-400 mb-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              {data.overview}
+            </motion.p>
 
-            <div className="flex flex-wrap gap-4">
+            <motion.div 
+              className="flex flex-wrap gap-4"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
               <AnimatedBtn
                 title="Live Preview"
                 sectilte="See My Work"
                 link={data.link}
               />
 
-              <button
-                className="flex items-center px-5 py-3  text-blue-800 rounded-full font-semibold hover:bg-white transition-colors"
+              <motion.button
+                className="flex items-center px-5 py-3 text-blue-800 rounded-full font-semibold hover:bg-white transition-colors"
                 onClick={() => window.open(data.codeLink, "_blank")}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
                 <Code size={18} className="mr-2" />
                 View Code
-              </button>
-            </div>
-          </div>
+              </motion.button>
+            </motion.div>
+          </motion.div>
 
           {/* Project Image */}
-          <div className=" rounded-2xl shadow-sm p-2 mb-8 overflow-hidden">
+          <motion.div
+            className="rounded-2xl shadow-sm p-2 mb-8 overflow-hidden"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <img
               src={data.image}
               alt={data.name}
               className="w-full h-auto rounded-xl object-cover shadow-md"
             />
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8 ">
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Features Section */}
-            <div className=" rounded-2xl shadow-sm p-6 border-r border-[#2DE72c]">
+            <motion.div
+              className="rounded-2xl shadow-sm p-6 border-r border-[#2DE72c]"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.2 }}
+            >
               <div className="flex items-center mb-6">
-                <div className="p-2  rounded-lg mr-3">
+                <div className="p-2 rounded-lg mr-3">
                   <Zap size={24} className="text-blue-600" />
                 </div>
                 <h2 className="text-2xl font-bold text-[#2DE72c]">
@@ -255,20 +308,33 @@ const Detailpage = () => {
 
               <ul className="space-y-4">
                 {data.features.map((f, i) => (
-                  <li key={i} className="flex items-start">
+                  <motion.li 
+                    key={i} 
+                    className="flex items-start"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: i * 0.1 + 0.4 }}
+                  >
                     <div className="flex-shrink-0 mt-1 mr-3">
                       <div className="w-2 h-2 bg-[#2DE72c] rounded-full"></div>
                     </div>
                     <span className="text-white">{f}</span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
 
             {/* Tech Stack Section */}
-            <div className=" rounded-2xl shadow-green-600 p-6 border-l  border-[#2DE72c]">
+            <motion.div
+              className="rounded-2xl shadow-green-600 p-6 border-l border-[#2DE72c]"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.2 }}
+            >
               <div className="flex items-center mb-6">
-                <div className="p-2  rounded-lg mr-3">
+                <div className="p-2 rounded-lg mr-3">
                   <Layout size={24} className="text-purple-600" />
                 </div>
                 <h2 className="text-2xl font-bold text-[#2DE72c]">
@@ -278,19 +344,29 @@ const Detailpage = () => {
 
               <div className="flex flex-wrap gap-3">
                 {data.techStack.map((tech, i) => (
-                  <span
+                  <motion.span
                     key={i}
-                    className="px-4 py-2  bg-[rgba(78,78,78,0.2)] rounded-full text-white  font-medium"
+                    className="px-4 py-2 bg-[rgba(78,78,78,0.2)] rounded-full text-white font-medium"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.3, delay: i * 0.1 + 0.4 }}
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
                   >
                     {tech}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Project Description */}
-          <div className="rounded-2xl shadow-sm p-6 mt-8">
+          <motion.div
+            className="rounded-2xl shadow-sm p-6 mt-8"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
             <h2 className="text-2xl font-bold text-[#2DE72c] mb-4">
               Project Overview
             </h2>
@@ -304,12 +380,20 @@ const Detailpage = () => {
                 <p className="text-white leading-relaxed">{data.description}</p>
               </div>
             )}
-          </div>
+          </motion.div>
         </div>
-      </div>
-      <div className="p-5">
+      </motion.div>
+
+      {/* Contact Section */}
+      <motion.div 
+        className="p-5"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <ContactSec />
-      </div>
+      </motion.div>
     </>
   );
 };

@@ -7,6 +7,7 @@ import {
   FaPaperPlane,
   FaFacebook,
 } from "react-icons/fa";
+import { motion } from "framer-motion";
 import Available from "../Components/Available";
 import AnimatedBtn from "../Components/AnimatedBtn";
 import LeftSec from "../Components/LeftSec";
@@ -76,25 +77,65 @@ const Contact = () => {
     console.log(formData);
   };
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1
+    }
+  };
+
   return (
     <>
       <ChingariBackground />
 
       <div className="min-h-screen mt-10 font-quicksand">
-        <LeftSec
-          heading="✧ Connect With Me"
-          title="Let's start a project together"
-        />
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <LeftSec
+            heading="✧ Connect With Me"
+            title="Let's start a project together"
+          />
+        </motion.div>
 
-        <div className="flex items-center justify-around py-4 relative overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full max-w-7xl z-10 p-2">
+        <motion.div 
+          className="flex items-center justify-around py-4 relative overflow-hidden"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full max-w-7xl z-10 p-2"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
             {/* Left Form */}
-            <div className="bg-gradient-to-br from-[rgba(78,78,78,0.2)] to-[rgba(78,78,78,0.0)] rounded-3xl p-5 shadow-2xl border border-gray-800">
+            <motion.div 
+              variants={itemVariants}
+              className="bg-gradient-to-br from-[rgba(78,78,78,0.2)] to-[rgba(78,78,78,0.0)] rounded-3xl p-5 shadow-2xl border border-gray-800"
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.3 }}
+            >
               <h2 className="text-2xl font-bold text-white mb-6">
                 Get in Touch
               </h2>
               <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
-                <div>
+                <motion.div variants={itemVariants}>
                   <label className="block text-sm text-gray-400 mb-2">
                     Full Name
                   </label>
@@ -106,8 +147,8 @@ const Contact = () => {
                     className="w-full p-3 rounded-xl bg-[#0f0f11] border border-gray-800 text-white outline-none focus:border-purple-500 transition-all duration-300"
                     placeholder="Enter your name"
                   />
-                </div>
-                <div>
+                </motion.div>
+                <motion.div variants={itemVariants}>
                   <label className="block text-sm text-gray-400 mb-2">
                     Email
                   </label>
@@ -119,8 +160,8 @@ const Contact = () => {
                     className="w-full p-3 rounded-xl bg-[#0f0f11] border border-gray-800 text-white outline-none focus:border-purple-500 transition-all duration-300"
                     placeholder="Enter your email"
                   />
-                </div>
-                <div>
+                </motion.div>
+                <motion.div variants={itemVariants}>
                   <label className="block text-sm text-gray-400 mb-2">
                     Message
                   </label>
@@ -132,18 +173,30 @@ const Contact = () => {
                     className="w-full p-3 rounded-xl bg-[#0f0f11] border border-gray-800 text-white outline-none focus:border-purple-500 transition-all duration-300 resize-none"
                     placeholder="Type your message..."
                   ></textarea>
-                </div>
-                <SendBtn />
+                </motion.div>
+                <motion.div variants={itemVariants}>
+                  <SendBtn />
+                </motion.div>
               </form>
-            </div>
+            </motion.div>
 
             {/* Right Card */}
-            <div className="bg-gradient-to-br from-[rgba(78,78,78,0.2)] to-[rgba(78,78,78,0.0)] rounded-3xl p-5 flex flex-col shadow-2xl border border-gray-800">
+            <motion.div 
+              variants={itemVariants}
+              className="bg-gradient-to-br from-[rgba(78,78,78,0.2)] to-[rgba(78,78,78,0.0)] rounded-3xl p-5 flex flex-col shadow-2xl border border-gray-800"
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.3 }}
+            >
               <div className="mb-6 self-start">
                 <Available />
               </div>
 
-              <div className="relative self-start mb-6">
+              <motion.div 
+                className="relative self-start mb-6"
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
                 <div className="rounded-full border border-[#2DE72c] p-2">
                   <img
                     src={mypic}
@@ -151,15 +204,25 @@ const Contact = () => {
                     className="w-28 h-28 rounded-full border-2 border-blue-800"
                   />
                 </div>
-              </div>
+              </motion.div>
 
-              <p className="text-gray-300 text-sm leading-relaxed font-bold  mb-8">
+              <motion.p 
+                className="text-gray-300 text-sm leading-relaxed font-bold mb-8"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
                 My inbox is always open. Whether you have a project or just want
                 to say Hi. Feel free to contact me and I'll get back to you
                 quickly.
-              </p>
+              </motion.p>
 
-              <div className="mb-8">
+              <motion.div 
+                className="mb-8"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.6 }}
+              >
                 <h3 className="text-lg font-semibold text-white mb-3">
                   Contact Info
                 </h3>
@@ -168,43 +231,71 @@ const Contact = () => {
                   <p>+92 332 2859 107;</p>
                   <p>Karachi, Pakistan;</p>
                 </div>
-              </div>
+              </motion.div>
 
-              <div>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+              >
                 <h3 className="text-lg font-semibold text-white mb-4">
                   Follow Me
                 </h3>
                 <div className="flex gap-5">
                   {socials.map(({ path, Icon, hover }, idx) => (
-                    <a
+                    <motion.a
                       key={idx}
                       href={path}
                       target="_blank"
                       rel="noreferrer"
                       className={`text-gray-400 ${hover} transition-colors duration-300 p-3 bg-[#0f0f11] rounded-lg hover:scale-110 transform`}
+                      whileHover={{ scale: 1.1, y: -3 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
                     >
                       <Icon className="text-xl" />
-                    </a>
+                    </motion.a>
                   ))}
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        </motion.div>
 
         {/* FAQ Section */}
-        <div className="flex flex-col lg:flex-row gap-10 mt-16 mb-20 px-2 lg:px-20">
-          <LeftSec heading="✧ FAQ'S" title="Have Questions" />
+        <motion.div 
+          className="flex flex-col lg:flex-row gap-10 mt-16 mb-20 px-2 lg:px-20"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <LeftSec heading="✧ FAQ'S" title="Have Questions" />
+          </motion.div>
+          
           <div className="flex-1 space-y-4">
             {question.map((itm, indx) => (
-              <Accordian
+              <motion.div
                 key={indx}
-                title={itm.question}
-                description={itm.answer}
-              />
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: indx * 0.1 }}
+              >
+                <Accordian
+                  title={itm.question}
+                  description={itm.answer}
+                />
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </>
   );
