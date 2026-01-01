@@ -36,8 +36,6 @@ const Home = () => {
   const cardsRef = useRef([])
 
   const projects = [
-    { name: "Nexcent", image: nexcent, id: 1 },
-    { name: "Admin Panel", image: adminpanel, id: 2 },
     { name: "Donation Web", image: donation, id: 3 },
     { name: "Google Gemini", image: gemini, id: 4 },
   ];

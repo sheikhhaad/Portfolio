@@ -22,35 +22,6 @@ const Detailpage = () => {
 
   const work = [
     {
-      id: 1,
-      name: "Nexcent",
-      overview: "Business-focused responsive web template.",
-      description:
-        "Nexcent is a simple and modern business template with a clean layout and responsive design. It was built as a static project for practice.",
-      features: ["Responsive layout", "Modern UI sections", "Easy navigation"],
-      techStack: ["HTML", "CSS"],
-      link: "https://store-admin-panel.vercel.app/",
-      image: nexcent,
-    },
-    {
-      id: 2,
-      name: "Admin Panel",
-      overview: "Dashboard for managing store products and data.",
-      description:
-        "The Admin Panel is a store management system where admins can manage products and categories. It also includes analytics and an authentication system.",
-      features: [
-        "Product/category management",
-        "Analytics dashboard",
-        "User authentication",
-        "Real-time data updates",
-        "Responsive design",
-      ],
-      techStack: ["Next.js", "Tailwind CSS", "Supabase", "Framer Motion"],
-      link: "https://store-admin-panel.vercel.app/",
-      image: adminpanel,
-      codeLink: "https://github.com/sheikhhaad/Shafeeq-Store-Admin-Panel",
-    },
-    {
       id: 3,
       name: "Donation Web",
       overview: "Online donation platform with real-time tracking.",
@@ -145,18 +116,7 @@ const Detailpage = () => {
       image: portfolioImage,
       codeLink: "https://github.com/sheikhhaad/Haad",
     },
-    {
-      id: 9,
-      name: "AL-Tayer Holidays",
-      overview: "Travel and holiday concept website.",
-      description:
-        "This is a travel and tourism concept website showcasing destinations and holiday packages. It focuses on attractive UI and engaging animations.",
-      features: ["Destination showcase", "Animated sections", "Attractive UI"],
-      techStack: ["React", "Tailwind CSS", "Framer Motion"],
-      link: "https://disney-land-ten.vercel.app/",
-      image: disneyImage,
-      codeLink: "https://github.com/sheikhhaad/Disney-Land",
-    },
+
     {
       id: 10,
       name: "Soni UI",
@@ -178,7 +138,7 @@ const Detailpage = () => {
 
   if (!data)
     return (
-      <motion.div 
+      <motion.div
         className="flex items-center justify-center min-h-screen"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -203,7 +163,7 @@ const Detailpage = () => {
     <>
       <ChingariBackground />
 
-      <motion.div 
+      <motion.div
         className="min-h-screen py-20"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -232,7 +192,7 @@ const Detailpage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <motion.h1 
+            <motion.h1
               className="text-4xl font-bold text-[#2DE72c] mb-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -240,7 +200,7 @@ const Detailpage = () => {
             >
               {data.name}
             </motion.h1>
-            <motion.p 
+            <motion.p
               className="text-xl text-gray-400 mb-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -249,7 +209,7 @@ const Detailpage = () => {
               {data.overview}
             </motion.p>
 
-            <motion.div 
+            <motion.div
               className="flex flex-wrap gap-4"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -308,8 +268,8 @@ const Detailpage = () => {
 
               <ul className="space-y-4">
                 {data.features.map((f, i) => (
-                  <motion.li 
-                    key={i} 
+                  <motion.li
+                    key={i}
                     className="flex items-start"
                     initial={{ opacity: 0, x: -10 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -385,7 +345,7 @@ const Detailpage = () => {
       </motion.div>
 
       {/* Contact Section */}
-      <motion.div 
+      <motion.div
         className="p-5"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
