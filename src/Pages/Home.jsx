@@ -42,7 +42,7 @@ const Home = () => {
 
   const socials = [
     { path: "https://github.com/sheikhhaad", Icon: FaGithub },
-    { path: "https://linkedin.com/in/sheikhhaad", Icon: FaLinkedin },
+    { path: "https://www.linkedin.com/in/sheikhhaad/", Icon: FaLinkedin },
     { path: "https://instagram.com/sheikhhaad_", Icon: FaInstagram },
     {
       path: "https://www.facebook.com/profile.php?id=61555704857977",

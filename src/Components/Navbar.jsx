@@ -80,7 +80,7 @@ const Navbar = () => {
                 <FaGithub />
               </a>
               <a
-                href="https://linkedin.com/sheikhhaad"
+                href="https://www.linkedin.com/in/sheikhhaad/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 text-xl hover:text-blue-400"
