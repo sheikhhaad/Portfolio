@@ -88,7 +88,7 @@ const Navbar = () => {
                 <FaLinkedin />
               </a>
               <a
-                href="https://www.facebook.com/profile.php?id=61555704857977"
+                href="https://www.facebook.com/sheikhhaad0"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-300 text-xl hover:text-blue-500"

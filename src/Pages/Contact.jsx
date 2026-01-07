@@ -58,7 +58,7 @@ const Contact = () => {
       hover: "hover:text-[#E1306C]",
     },
     {
-      path: "https://www.facebook.com/profile.php?id=61555704857977",
+      path: "https://www.facebook.com/sheikhhaad0",
       Icon: FaFacebook,
       hover: "hover:text-[#1877F2]",
     },
