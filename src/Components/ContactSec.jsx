@@ -17,7 +17,7 @@ const ContactSec = () => {
 
       {/* Button */}
       <div className="mt-8 sm:mt-10">
-        <AnimatedBtn title="Contact Me" />
+        <AnimatedBtn title="Contact Me" link={"/contact"} />
       </div>
     </div>
   );

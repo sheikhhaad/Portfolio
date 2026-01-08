@@ -16,6 +16,7 @@ import Accordian from "../Components/Accordian";
 import mypic from "../assets/mypic.webp";
 import SendBtn from "../Components/SendBtn";
 import ChingariBackground from "../Components/AnimatedBackground.jsx";
+import axios from "axios";
 
 const Contact = () => {
   const question = [
@@ -70,11 +71,25 @@ const Contact = () => {
     message: "",
   });
 
+  const [openIndex, setopenIndex] = useState(null);
+
+  const handleToggle = (index) => {
+    setopenIndex(openIndex === index ? null : index);
+  };
+
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    const d = {
+      access_key: "3c210d8f-e94f-44dd-8cac-7cf4acfe4d59",
+      from_name: formData.name,
+      reply_to: formData.email,
+      message: formData.message,
+    };
+    await axios.post("https://api.web3forms.com/submit", d);
+    setFormData({ name: "", email: "", msg: "" });
   };
 
   // Animation variants
@@ -83,24 +98,24 @@ const Contact = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1
-      }
-    }
+        staggerChildren: 0.1,
+      },
+    },
   };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
-      opacity: 1
-    }
+      opacity: 1,
+    },
   };
 
   return (
     <>
       <ChingariBackground />
 
-      <div className="min-h-screen mt-10 font-quicksand">
+      <div className="min-h-screen mt-20 font-quicksand">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -112,20 +127,20 @@ const Contact = () => {
           />
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="flex items-center justify-around py-4 relative overflow-hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full max-w-7xl z-10 p-2"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
             {/* Left Form */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="bg-gradient-to-br from-[rgba(78,78,78,0.2)] to-[rgba(78,78,78,0.0)] rounded-3xl p-5 shadow-2xl border border-gray-800"
               whileHover={{ y: -5 }}
@@ -144,7 +159,7 @@ const Contact = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full p-3 rounded-xl bg-[#0f0f11] border border-gray-800 text-white outline-none focus:border-purple-500 transition-all duration-300"
+                    className="w-full p-3 rounded-full bg-[#0f0f11] border border-gray-800 text-white outline-none focus:border-purple-500 transition-all duration-300"
                     placeholder="Enter your name"
                   />
                 </motion.div>
@@ -157,7 +172,7 @@ const Contact = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full p-3 rounded-xl bg-[#0f0f11] border border-gray-800 text-white outline-none focus:border-purple-500 transition-all duration-300"
+                    className="w-full p-3 rounded-full bg-[#0f0f11] border border-gray-800 text-white outline-none focus:border-purple-500 transition-all duration-300"
                     placeholder="Enter your email"
                   />
                 </motion.div>
@@ -181,7 +196,7 @@ const Contact = () => {
             </motion.div>
 
             {/* Right Card */}
-            <motion.div 
+            <motion.div
               variants={itemVariants}
               className="bg-gradient-to-br from-[rgba(78,78,78,0.2)] to-[rgba(78,78,78,0.0)] rounded-3xl p-5 flex flex-col shadow-2xl border border-gray-800"
               whileHover={{ y: -5 }}
@@ -191,7 +206,7 @@ const Contact = () => {
                 <Available />
               </div>
 
-              <motion.div 
+              <motion.div
                 className="relative self-start mb-6"
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -206,7 +221,7 @@ const Contact = () => {
                 </div>
               </motion.div>
 
-              <motion.p 
+              <motion.p
                 className="text-gray-300 text-sm leading-relaxed font-bold mb-8"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -217,7 +232,7 @@ const Contact = () => {
                 quickly.
               </motion.p>
 
-              <motion.div 
+              <motion.div
                 className="mb-8"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -263,7 +278,7 @@ const Contact = () => {
         </motion.div>
 
         {/* FAQ Section */}
-        <motion.div 
+        <motion.div
           className="flex flex-col lg:flex-row gap-10 mt-16 mb-20 px-2 lg:px-20"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -278,7 +293,7 @@ const Contact = () => {
           >
             <LeftSec heading="✧ FAQ'S" title="Have Questions" />
           </motion.div>
-          
+
           <div className="flex-1 space-y-4">
             {question.map((itm, indx) => (
               <motion.div
@@ -291,6 +306,8 @@ const Contact = () => {
                 <Accordian
                   title={itm.question}
                   description={itm.answer}
+                  isOpen={openIndex === indx}
+                  onToggle={() => handleToggle(indx)}
                 />
               </motion.div>
             ))}

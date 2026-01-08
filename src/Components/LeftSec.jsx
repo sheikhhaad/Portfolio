@@ -2,21 +2,27 @@ import React from "react";
 
 const LeftSec = ({ heading, title, subheading }) => {
   return (
-    <div className="px-6 sm:px-8 md:px-10 py-6 sm:py-8 md:py-10 font-quicksand font-semibold">
+    <div className="px-6 sm:px-8 md:px-10 py-4 font-quicksand">
       {/* Heading */}
-      <p className="text-[#7bf958] text-base sm:text-lg md:text-xl  mt-2 sm:mt-3 font-semibold font-quicksand">
-         {heading}
-      </p>
+      {heading && (
+        <p className="text-base sm:text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#7bf958] to-green-400 mb-2">
+          {heading}
+        </p>
+      )}
 
       {/* Title */}
-      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mt-3 font-[900] leading-snug sm:leading-tight">
-        {title}
-      </h1>
+      {title && (
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#7bf958] to-cyan-400 mb-3">
+          {title}
+        </h1>
+      )}
 
       {/* Subheading */}
-      <p className="text-white text-base sm:text-lg md:text-xl mt-3 max-w-2xl">
-        {subheading}
-      </p>
+      {subheading && (
+        <p className="text-base sm:text-lg font-medium text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-green-100">
+          {subheading}
+        </p>
+      )}
     </div>
   );
 };

@@ -1,18 +1,17 @@
-import React, { useState } from "react";
-import { FiPlus, FiMinus } from "react-icons/fi"; // modern icons
+import React from "react";
+import { FiPlus, FiMinus } from "react-icons/fi";
+import { motion } from "framer-motion";
 
-const Accordion = ({ title, description, icon }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const Accordion = ({ title, description, icon, isOpen, onToggle }) => {
   return (
     <div
-      className={`border my-3 sm:my-4 md:my-5 mx-2 rounded-2xl border-gray-800 cursor-pointer transition-all duration-300 ${
-        isOpen ? "bg-gray-900/20" : ""
-      } font-quicksand`} // font added here
-      onClick={() => setIsOpen(!isOpen)}
+      className={`border my-3 sm:my-4 md:my-0 mx-2 rounded-2xl border-gray-800 cursor-pointer font-quicksand`}
     >
       {/* Header */}
-      <div className="flex justify-between items-center px-4 sm:px-5 md:px-6 py-3 sm:py-4 text-white">
+      <div
+        className="flex justify-between items-center  sm:px-5 md:px-6  sm:py-4 text-white"
+        onClick={onToggle}
+      >
         <div className="flex items-center gap-2 sm:gap-3">
           {icon && <span className="text-lg sm:text-xl">{icon}</span>}
           <h2 className="text-base sm:text-lg md:text-xl font-medium">
@@ -25,15 +24,15 @@ const Accordion = ({ title, description, icon }) => {
       </div>
 
       {/* Content */}
-      <div
-        className={`overflow-hidden transition-all duration-500 px-4 sm:px-5 md:px-6 ${
-          isOpen ? "max-h-60 opacity-100 py-2 sm:py-3" : "max-h-0 opacity-0"
-        }`}
+      <motion.div
+        animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+        transition={{ duration: 0.3 }}
+        className="overflow-hidden px-4 sm:px-5 md:px-6"
       >
-        <p className="text-sm sm:text-base text-gray-200 leading-relaxed">
+        <p className="text-sm sm:text-base text-gray-200 leading-relaxed py-2 sm:py-3">
           {description}
         </p>
-      </div>
+      </motion.div>
     </div>
   );
 };

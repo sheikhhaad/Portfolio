@@ -8,7 +8,7 @@ import {
   FaPaintBrush,
   FaBullhorn,
 } from "react-icons/fa";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import "../style/marquee.css";
 import AboutSec from "../Components/AboutSec";
@@ -22,18 +22,23 @@ import donation from "../assets/donationweb.png";
 import gemini from "../assets/gemini.png";
 import SocialBtn from "../Components/SocialBtn";
 import Accordian from "../Components/Accordian.jsx";
-import laptop from "../assets/laptop.png";
 import ContactSec from "../Components/ContactSec.jsx";
 import SkillsMarquee from "../Components/SkillsMarquee.jsx";
 import ChingariBackground from "../Components/AnimatedBackground.jsx";
-import gsap from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { useLayoutEffect, useRef } from "react"
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLayoutEffect, useRef } from "react";
+import ExpertiseSec from "../Components/ExpertiseSec.jsx";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
-  const cardsRef = useRef([])
+  const cardsRef = useRef([]);
+  const [openIndex, setopenIndex] = useState(null);
+
+  const handleToggle = (index) => {
+    setopenIndex(openIndex === index ? null : index);
+  };
 
   const projects = [
     { name: "Donation Web", image: donation, id: 3 },
@@ -89,7 +94,7 @@ const Home = () => {
     });
 
     // Simple section animations
-    gsap.utils.toArray('.fade-in-section').forEach(section => {
+    gsap.utils.toArray(".fade-in-section").forEach((section) => {
       gsap.from(section, {
         opacity: 0,
         y: 40,
@@ -97,7 +102,7 @@ const Home = () => {
         scrollTrigger: {
           trigger: section,
           start: "top 80%",
-        }
+        },
       });
     });
   }, []);
@@ -106,7 +111,7 @@ const Home = () => {
     <>
       {/* Animated Background */}
       <ChingariBackground />
-      
+
       {/* Intro Section */}
       <header className="text-white px-4 sm:px-6 lg:px-16 pt-20 md:pt-24 min-h-[40vh] flex items-center font-quicksand relative z-10">
         <div className="w-full">
@@ -126,7 +131,7 @@ const Home = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             Crafting{" "}
-            <motion.span 
+            <motion.span
               className="text-[#2DE72c]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -221,12 +226,12 @@ const Home = () => {
             subheading="Here's a curated selection showcasing my expertise and the achieved results."
           />
         </motion.div>
-        
+
         <div className="flex flex-wrap justify-around gap-0 md:gap-10 mt-6">
           {projects.map((itm, i) => (
             <motion.div
               key={i}
-              ref={el => cardsRef.current[i] = el}
+              ref={(el) => (cardsRef.current[i] = el)}
               className={i % 2 === 0 ? "mt-20" : "mt-10"}
               whileHover={{ y: -8 }}
               transition={{ duration: 0.2 }}
@@ -244,44 +249,8 @@ const Home = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-        >
-          <LeftSec heading="✧ Speciality" title="Areas of Expertise" />
-        </motion.div>
-        
-        <div className="flex flex-col lg:flex-row justify-between gap-10 mt-6">
-          <div className="flex-1 space-y-4">
-            {accordionItems.map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-              >
-                <Accordian
-                  title={item.title}
-                  description={item.description}
-                  icon={item.icon}
-                />
-              </motion.div>
-            ))}
-          </div>
-          <motion.div
-            className="flex-1 flex justify-center"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            whileHover={{ scale: 1.02 }}
-            transition={{ duration: 0.3 }}
-          >
-            <img
-              src={laptop}
-              alt="Laptop"
-              className="rounded-2xl w-full max-w-md object-cover border border-gray-700 shadow-2xl"
-            />
-          </motion.div>
-        </div>
+        ></motion.div>
+        <ExpertiseSec />
       </section>
 
       {/* Skills */}
