@@ -1,18 +1,20 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@100..800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-geist: "Geist", sans-serif;
+  --font-sans: "Outfit", "Inter", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
-  --color-bg-dark: #030712;
+  --color-bg-dark: #000000;
+  --color-card-dark: #0f172a;
   --color-neon-blue: #3b82f6;
   --color-neon-emerald: #10b981;
 }
 
+/* ====================== BASE ====================== */
 body {
   background-color: var(--color-bg-dark);
   color: #ffffff;
-  font-family: var(--font-geist);
+  font-family: var(--font-sans);
   overflow-x: hidden;
 }
 
@@ -21,21 +23,45 @@ html, body {
   overscroll-behavior: none;
 }
 
-.lenis {
-  scroll-behavior: auto;
-}
+.lenis { scroll-behavior: auto; }
+.lenis-smooth { scroll-behavior: auto; }
+.lenis-stopped { overflow: hidden; }
 
-.lenis-smooth {
-  scroll-behavior: auto;
-}
-
-.lenis-stopped {
-  overflow: hidden;
-}
-
+/* ====================== GLASS ====================== */
 .glass {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ====================== GREEN NEON EFFECTS ====================== */
+.neon-text {
+  color: var(--color-neon-emerald);
+  text-shadow: 0 0 20px var(--color-neon-emerald),
+               0 0 40px var(--color-neon-emerald);
+}
+
+.section-title {
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 70px;
+  height: 4px;
+  background: var(--color-neon-emerald);
+  border-radius: 9999px;
+}
+
+/* ====================== EXTRA POLISH ====================== */
+.hero-bg {
+  background: linear-gradient(135deg, #030712 0%, #0a0f1c 100%);
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
 }

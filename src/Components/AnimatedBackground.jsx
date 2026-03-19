@@ -55,7 +55,7 @@ function FloatingParticles(props) {
       <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>
         <PointMaterial
           transparent
-          color="#ffffff"
+          color="#10b981"
           size={0.003}
           sizeAttenuation={true}
           depthWrite={false}

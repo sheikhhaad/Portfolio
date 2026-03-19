@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FiCode, FiLayout, FiDatabase, FiSearch, FiPenTool, FiTool, FiSend } from "react-icons/fi";
-import coding from "../assets/coding.mp4";
 import AnimatedBtn from "./AnimatedBtn";
 import LeftSec from "./LeftSec";
 
@@ -40,12 +39,7 @@ const ExpertiseSec = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4 py-16 md:py-24 rounded-2xl w-full">
       {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        <video autoPlay loop muted playsInline className="w-full h-full object-cover">
-          <source src={coding} type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-br from-[#030712]/90 via-[#030712]/80 to-[#030712]/90" />
-      </div>
+      
 
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         <motion.div
@@ -128,7 +122,7 @@ const ExpertiseSec = () => {
           transition={{ delay: 0.5 }}
           className="text-center mt-24"
         >
-          <AnimatedBtn title={"Let's Build Together"} link="/contact" />
+          <AnimatedBtn title={"Build Together"} link="/contact"  />
         </motion.div>
       </div>
     </section>
