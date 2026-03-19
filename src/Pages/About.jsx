@@ -2,117 +2,116 @@ import React from "react";
 import { motion } from "framer-motion";
 import mypic from "../assets/mypic.webp";
 import AnimatedBtn from "../Components/AnimatedBtn";
-import SkillMarquee from "../Components/SkillsMarquee";
 import ContactSec from "../Components/ContactSec";
 import ChingariBackground from "../Components/AnimatedBackground.jsx";
 
 const About = () => {
-
   return (
     <>
       <ChingariBackground />
       
-      <div className="flex flex-col md:flex-row items-center min-h-screen justify-center md:justify-around px-6 sm:px-10 lg:px-20 gap-6">
-        {/* Image Section */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="rounded-b-full overflow-hidden shadow-lg border-[0.5px] border-[#7eee2e] w-full max-w-[240px] sm:max-w-[280px] md:max-w-[300px] lg:max-w-[340px]"
-          whileHover={{ y: -10 }}
-          transition={{ duration: 0.3 }}
-        >
-          <motion.img
-            src={mypic}
-            alt="Haad Sheikh"
-            className="w-full h-[420px] object-cover rounded-b-3xl shadow-lg"
-            initial={{ scale: 1.1 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1.2, delay: 0.2 }}
-          />
-        </motion.div>
-
-        {/* Text Section */}
+      <div className="pt-32 pb-12 px-6 sm:px-10 lg:px-20 max-w-7xl mx-auto relative z-10">
         <motion.div 
-          className="text-center md:text-left max-w-2xl"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20 items-start"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
-          <motion.h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-snug text-white"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            A{" "}
-            <motion.span 
-              className="bg-[#2DE72c] text-black px-2"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+          {/* Left: 60% Narrative */}
+          <div className="lg:col-span-3 space-y-8">
+            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
+              Humanizing the <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#10b981]">
+                Digital Experience.
+              </span>
+            </h1>
+            
+            <div className="space-y-6 text-gray-300 font-sans text-lg leading-relaxed">
+              <p>
+                My journey didn't start with a traditional computer science degree. I began in 2023, driven by pure curiosity and a desire to build things that live on the internet. Being self-taught has made me resourceful, adaptable, and relentlessly focused on providing real value rather than just writing code.
+              </p>
+              <p>
+                Since October 2025, I have been working as a Front-End Developer at SmW Global (Private) Limited in Karachi, building modern, responsive web interfaces and collaborating with cross-functional teams on international-standard digital projects.
+              </p>
+              <p>
+                As a Front-End Developer at SmW Global, I play a key role in building high-performance, visually compelling, and user-centric web interfaces. I collaborate with the design, product, and engineering teams to deliver seamless digital experiences aligned with international development standards.
+              </p>
+            </div>
+
+            {/* Timeline */}
+            <div className="mt-16 relative">
+               <h2 className="text-2xl font-bold text-white mb-8">My Journey</h2>
+               <div className="pl-6 border-l-2 border-white/10 space-y-12">
+                  <div className="relative">
+                     <div className="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-[#10b981] shadow-[0_0_10px_rgba(16,185,129,0.8)] border-4 border-[#030712]"></div>
+                     <span className="text-[#10b981] font-mono text-xs tracking-widest font-semibold uppercase mb-2 block">Jan 2023</span>
+                     <h3 className="text-xl font-bold text-white">Wrote my first "Hello World."</h3>
+                  </div>
+                  <div className="relative">
+                     <div className="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-[#3b82f6] shadow-[0_0_10px_rgba(59,130,246,0.8)] border-4 border-[#030712]"></div>
+                     <span className="text-[#3b82f6] font-mono text-xs tracking-widest font-semibold uppercase mb-2 block">June 2023</span>
+                     <h3 className="text-xl font-bold text-white">Mastered the MERN stack.</h3>
+                  </div>
+                  <div className="relative">
+                     <div className="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-[#10b981] shadow-[0_0_10px_rgba(16,185,129,0.8)] border-4 border-[#030712]"></div>
+                     <span className="text-white font-mono text-xs tracking-widest font-semibold uppercase mb-2 block">2024 - Present</span>
+                     <h3 className="text-xl font-bold text-white">Building production-ready apps.</h3>
+                  </div>
+               </div>
+            </div>
+            
+          </div>
+
+          {/* Right: 40% Photo & Tools */}
+          <div className="lg:col-span-2 space-y-16 lg:sticky lg:top-32">
+            <motion.div
+              className="relative rounded-3xl overflow-hidden glass p-2 w-full max-w-[400px] mx-auto"
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.4 }}
             >
-              creative developer
-            </motion.span>
-            <br /> & digital designer
-          </motion.h1>
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#3b82f6]/40 to-[#10b981]/40 blur-3xl -z-10"></div>
+              <img
+                src={mypic}
+                alt="Haad Sheikh"
+                className="w-full object-cover rounded-2xl h-[450px]"
+              />
+            </motion.div>
 
-          <motion.p
-            className="text-gray-400 mt-6 text-sm sm:text-base md:text-lg leading-relaxed"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            I work with brands globally to design and build websites that
-            deliver results, align with business goals, and create meaningful
-            digital experiences.
-          </motion.p>
+            {/* Tools List */}
+            <div className="space-y-6">
+              <h2 className="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-4">What I Use</h2>
+              
+              <div className="space-y-4">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between items-start sm:items-center p-4 rounded-xl glass hover:bg-white/10 transition-colors cursor-default">
+                  <span className="text-[#3b82f6] font-mono font-bold tracking-widest text-sm w-24">FRONTEND</span>
+                  <span className="text-gray-300 flex-1 sm:text-right font-sans">React, Tailwind, Framer</span>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between items-start sm:items-center p-4 rounded-xl glass hover:bg-white/10 transition-colors cursor-default">
+                  <span className="text-[#10b981] font-mono font-bold tracking-widest text-sm w-24">BACKEND</span>
+                  <span className="text-gray-300 flex-1 sm:text-right font-sans">Node, Express, MongoDB</span>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between items-start sm:items-center p-4 rounded-xl glass hover:bg-white/10 transition-colors cursor-default">
+                  <span className="text-white font-mono font-bold tracking-widest text-sm w-24">WORKFLOW</span>
+                  <span className="text-gray-300 flex-1 sm:text-right font-sans">Git, Postman, Figma</span>
+                </div>
+              </div>
 
-          {/* Button */}
-          <motion.div 
-            className="mt-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <AnimatedBtn
-              title="My Resume"
-              link="https://drive.google.com/file/d/1CSV4LJ3vHIZTlyxhlOH9FRtIvjKXYqJD/view?usp=drive_link"
-            />
-          </motion.div>
+              <div className="mt-8 flex justify-center">
+                <AnimatedBtn
+                  title="My Resume"
+                  link="https://drive.google.com/file/d/1CSV4LJ3vHIZTlyxhlOH9FRtIvjKXYqJD/view?usp=drive_link"
+                />
+              </div>
+            </div>
+          </div>
         </motion.div>
       </div>
 
-      {/* Skills Section */}
-      <motion.div 
-        className="mb-10 mt-3"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <motion.hr
-          className="border-gray-900"
-          initial={{ width: 0 }}
-          whileInView={{ width: "100%" }}
-          viewport={{ once: true }}
-          transition={{ duration: 1 }}
-        />
-        <SkillMarquee />
-        <motion.hr
-          className="border-gray-900"
-          initial={{ width: 0 }}
-          whileInView={{ width: "100%" }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.3 }}
-        />
-      </motion.div>
-
       {/* Contact Section */}
       <motion.div 
-        className="p-5"
+        className="p-5 mt-20 relative z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}

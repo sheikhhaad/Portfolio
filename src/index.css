@@ -1,29 +1,20 @@
-@font-face {
-  font-family: "Quicksand";
-  src: url("./assets/Fonts/Quicksand-Regular.ttf") format("truetype");
-  font-weight: 400;
-}
-@font-face {
-  font-family: "BBHSansBartle";
-  src: url("./assets/Fonts/BBHSansBartle-Regular.ttf") format("truetype");
-  font-weight: 400;
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=JetBrains+Mono:wght@100..800&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --font-quicksand: "Quicksand", sans-serif;
-}
-
-@theme {
-  --font-bbhsansbartle: "BBHSansBartle", sans-serif;
+  --font-geist: "Geist", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --color-bg-dark: #030712;
+  --color-neon-blue: #3b82f6;
+  --color-neon-emerald: #10b981;
 }
 
 body {
-  background: #000;
-  font-family: var(--font-quicksand);
+  background-color: var(--color-bg-dark);
+  color: #ffffff;
+  font-family: var(--font-geist);
+  overflow-x: hidden;
 }
-
 
 html, body {
   height: 100%;
@@ -40,4 +31,11 @@ html, body {
 
 .lenis-stopped {
   overflow: hidden;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }

@@ -1,318 +1,216 @@
-// ContactSection.jsx
 import React, { useState } from "react";
-import {
-  FaLinkedin,
-  FaGithub,
-  FaInstagram,
-  FaPaperPlane,
-  FaFacebook,
-} from "react-icons/fa";
-import { motion } from "framer-motion";
+import { FaLinkedin, FaGithub, FaInstagram, FaFacebook, FaPaperPlane } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
 import Available from "../Components/Available";
-import AnimatedBtn from "../Components/AnimatedBtn";
 import LeftSec from "../Components/LeftSec";
-import Footer from "../Components/Footer";
 import Accordian from "../Components/Accordian";
 import mypic from "../assets/mypic.webp";
-import SendBtn from "../Components/SendBtn";
 import ChingariBackground from "../Components/AnimatedBackground.jsx";
 import axios from "axios";
 
 const Contact = () => {
-  const question = [
-    {
-      question: "What is your current role?",
-      answer:
-        "I work as a full-stack developer, mainly focused on frontend, UI/UX, and clean performance-driven web apps.",
-    },
-    {
-      question: "How much does it cost for a high performing website?",
-      answer:
-        "Cost depends on features, design, and complexity. Simple sites are more affordable, while advanced custom builds cost more. I usually discuss requirements first, then share a clear estimate.",
-    },
-    {
-      question: "How long will the work take from start to finish?",
-      answer:
-        "Timelines vary by project scope. A basic site can take 1–2 weeks, while larger projects may take a month or more. After requirements, I provide a proper delivery plan.",
-    },
-    {
-      question: "Are you available to join as full time?",
-      answer:
-        "I am open to discussing full-time opportunities, depending on the role and project requirements.",
-    },
-  ];
-
-  const socials = [
-    {
-      path: "https://github.com/sheikhhaad",
-      Icon: FaGithub,
-      hover: "hover:text-white",
-    },
-    {
-      path: "https://linkedin.com/in/sheikhhaad",
-      Icon: FaLinkedin,
-      hover: "hover:text-[#0077b5]",
-    },
-    {
-      path: "https://instagram.com/sheikhhaad_",
-      Icon: FaInstagram,
-      hover: "hover:text-[#E1306C]",
-    },
-    {
-      path: "https://www.facebook.com/sheikhhaad0",
-      Icon: FaFacebook,
-      hover: "hover:text-[#1877F2]",
-    },
-  ];
-
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [isSent, setIsSent] = useState(false);
+  const [isSending, setIsSending] = useState(false);
   const [openIndex, setopenIndex] = useState(null);
 
-  const handleToggle = (index) => {
-    setopenIndex(openIndex === index ? null : index);
-  };
+  const question = [
+    { question: "What is your current role?", answer: "I work as a full-stack developer, mainly focused on frontend, UI/UX, and clean performance-driven web apps." },
+    { question: "How much does it cost for a high performing website?", answer: "Cost depends on features, design, and complexity. Simple sites are more affordable, while advanced custom builds cost more. I usually discuss requirements first, then share a clear estimate." },
+    { question: "How long will the work take from start to finish?", answer: "Timelines vary by project scope. A basic site can take 1–2 weeks, while larger projects may take a month or more. After requirements, I provide a proper delivery plan." },
+    { question: "Are you available to join as full time?", answer: "I am open to discussing full-time opportunities, depending on the role and project requirements." },
+  ];
 
-  const handleChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleToggle = (index) => setopenIndex(openIndex === index ? null : index);
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsSending(true);
     const d = {
       access_key: "3c210d8f-e94f-44dd-8cac-7cf4acfe4d59",
       from_name: formData.name,
       reply_to: formData.email,
       message: formData.message,
     };
-    await axios.post("https://api.web3forms.com/submit", d);
-    setFormData({ name: "", email: "", msg: "" });
-  };
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
+    try {
+      await axios.post("https://api.web3forms.com/submit", d);
+      setIsSent(true);
+      setFormData({ name: "", email: "", message: "" });
+      setTimeout(() => { setIsSent(false); }, 4000);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
     <>
       <ChingariBackground />
 
-      <div className="min-h-screen mt-20 font-quicksand">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <LeftSec
-            heading="✧ Connect With Me"
-            title="Let's start a project together"
-          />
-        </motion.div>
-
-        <motion.div
-          className="flex items-center justify-around py-4 relative overflow-hidden"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 gap-10 w-full max-w-7xl z-10 p-2"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
+      <div className="min-h-screen pt-32 pb-20 px-6 sm:px-10 lg:px-20 max-w-7xl mx-auto relative z-10 w-full overflow-hidden">
+        
+        {/* Split Layout */}
+        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 mb-32 w-full">
+          
+          {/* Left Column */}
+          <motion.div 
+            className="w-full lg:w-1/2 flex flex-col justify-center space-y-8"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
           >
-            {/* Left Form */}
-            <motion.div
-              variants={itemVariants}
-              className="bg-gradient-to-br from-[rgba(78,78,78,0.2)] to-[rgba(78,78,78,0.0)] rounded-3xl p-5 shadow-2xl border border-gray-800"
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.3 }}
-            >
-              <h2 className="text-2xl font-bold text-white mb-6">
-                Get in Touch
-              </h2>
-              <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
-                <motion.div variants={itemVariants}>
-                  <label className="block text-sm text-gray-400 mb-2">
-                    Full Name
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full p-3 rounded-full bg-[#0f0f11] border border-gray-800 text-white outline-none focus:border-purple-500 transition-all duration-300"
-                    placeholder="Enter your name"
-                  />
-                </motion.div>
-                <motion.div variants={itemVariants}>
-                  <label className="block text-sm text-gray-400 mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full p-3 rounded-full bg-[#0f0f11] border border-gray-800 text-white outline-none focus:border-purple-500 transition-all duration-300"
-                    placeholder="Enter your email"
-                  />
-                </motion.div>
-                <motion.div variants={itemVariants}>
-                  <label className="block text-sm text-gray-400 mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    rows="4"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full p-3 rounded-xl bg-[#0f0f11] border border-gray-800 text-white outline-none focus:border-purple-500 transition-all duration-300 resize-none"
-                    placeholder="Type your message..."
-                  ></textarea>
-                </motion.div>
-                <motion.div variants={itemVariants}>
-                  <SendBtn />
-                </motion.div>
-              </form>
-            </motion.div>
-
-            {/* Right Card */}
-            <motion.div
-              variants={itemVariants}
-              className="bg-gradient-to-br from-[rgba(78,78,78,0.2)] to-[rgba(78,78,78,0.0)] rounded-3xl p-5 flex flex-col shadow-2xl border border-gray-800"
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="mb-6 self-start">
-                <Available />
+            <div className="mb-4">
+               <Available />
+            </div>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+              Let's grab a <br/>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#10b981]">
+                digital coffee.
+              </span>
+            </h1>
+            <p className="text-gray-400 text-lg md:text-xl font-sans max-w-md leading-relaxed">
+              My inbox is always open. Whether you have a project, an idea, or just want to say hi, I'll get back to you quickly.
+            </p>
+            
+            <div className="pt-4 space-y-6">
+              <div>
+                <span className="block text-[#10b981] font-mono text-sm tracking-widest mb-1">EMAIL</span>
+                <a href="mailto:sheikhhaad6@gmail.com" className="text-white text-xl md:text-2xl font-semibold hover:text-[#3b82f6] transition-colors">sheikhhaad6@gmail.com</a>
               </div>
-
-              <motion.div
-                className="relative self-start mb-6"
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
-                <div className="rounded-full border border-[#2DE72c] p-2">
-                  <img
-                    src={mypic}
-                    alt="profile"
-                    className="w-28 h-28 rounded-full border-2 border-blue-800"
-                  />
+              <div>
+                <span className="block text-[#10b981] font-mono text-sm tracking-widest mb-1">CALENDLY</span>
+                <a href="#" className="text-white text-xl md:text-2xl font-semibold hover:text-[#3b82f6] transition-colors underline decoration-white/30 underline-offset-4">Book a 15-min chat</a>
+              </div>
+              <div className="pt-6">
+                <span className="block text-[#10b981] font-mono text-sm tracking-widest mb-4">SOCIALS</span>
+                <div className="flex gap-4">
+                  <a href="https://linkedin.com/in/sheikhhaad" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-white hover:bg-[#3b82f6] hover:scale-110 transition-all duration-300">
+                    <FaLinkedin className="text-xl" />
+                  </a>
+                  <a href="https://github.com/sheikhhaad" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all duration-300">
+                    <FaGithub className="text-xl" />
+                  </a>
+                  <a href="https://instagram.com/sheikhhaad_" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-white hover:bg-[#E1306C] hover:scale-110 transition-all duration-300">
+                    <FaInstagram className="text-xl" />
+                  </a>
                 </div>
-              </motion.div>
-
-              <motion.p
-                className="text-gray-300 text-sm leading-relaxed font-bold mb-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-              >
-                My inbox is always open. Whether you have a project or just want
-                to say Hi. Feel free to contact me and I'll get back to you
-                quickly.
-              </motion.p>
-
-              <motion.div
-                className="mb-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-              >
-                <h3 className="text-lg font-semibold text-white mb-3">
-                  Contact Info
-                </h3>
-                <div className="text-[#2DE72c] text-sm space-y-2">
-                  <p>sheikhhaad6@gmail.com;</p>
-                  <p>+92 332 2859 107;</p>
-                  <p>Karachi, Pakistan;</p>
-                </div>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 0.7 }}
-              >
-                <h3 className="text-lg font-semibold text-white mb-4">
-                  Follow Me
-                </h3>
-                <div className="flex gap-5">
-                  {socials.map(({ path, Icon, hover }, idx) => (
-                    <motion.a
-                      key={idx}
-                      href={path}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={`text-gray-400 ${hover} transition-colors duration-300 p-3 bg-[#0f0f11] rounded-lg hover:scale-110 transform`}
-                      whileHover={{ scale: 1.1, y: -3 }}
-                      whileTap={{ scale: 0.95 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <Icon className="text-xl" />
-                    </motion.a>
-                  ))}
-                </div>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           </motion.div>
-        </motion.div>
+
+          {/* Right Column: Contact Form */}
+          <motion.div 
+            className="w-full lg:w-1/2"
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <div className="glass rounded-3xl p-8 md:p-12 relative overflow-hidden border border-white/10 w-full">
+               {/* Success State Overlay */}
+               <AnimatePresence>
+                 {isSent && (
+                   <motion.div 
+                     initial={{ opacity: 0 }} 
+                     animate={{ opacity: 1 }} 
+                     exit={{ opacity: 0 }}
+                     className="absolute inset-0 z-20 bg-[#030712]/95 backdrop-blur-md flex flex-col items-center justify-center"
+                   >
+                     <motion.div
+                       initial={{ x: -100, y: 100, scale: 0 }}
+                       animate={{ x: [0, 50, 200, 500], y: [0, -50, -200, -500], scale: [1, 1.2, 0.8, 0] }}
+                       transition={{ duration: 2, ease: "easeInOut" }}
+                       className="text-6xl text-[#3b82f6]"
+                     >
+                        <FaPaperPlane />
+                     </motion.div>
+                     <motion.div
+                       initial={{ opacity: 0, y: 20 }}
+                       animate={{ opacity: 1, y: 0 }}
+                       transition={{ delay: 0.5, duration: 0.5 }}
+                       className="text-center mt-8 absolute"
+                     >
+                       <h3 className="text-3xl font-bold text-white mb-2">Message Sent!</h3>
+                       <p className="text-[#10b981] font-mono">I'll be in touch shortly.</p>
+                     </motion.div>
+                   </motion.div>
+                 )}
+               </AnimatePresence>
+
+               <form className="flex flex-col gap-8 relative z-10 w-full" onSubmit={handleSubmit}>
+                 <div>
+                   <label className="block text-xs font-mono tracking-widest text-[#10b981] mb-3 uppercase">01. What's your name?</label>
+                   <input
+                     type="text"
+                     name="name"
+                     required
+                     value={formData.name}
+                     onChange={handleChange}
+                     className="w-full bg-transparent border-b border-white/20 pb-3 text-white text-xl outline-none focus:border-[#3b82f6] transition-colors placeholder:text-white/20 font-sans"
+                     placeholder="John Doe"
+                   />
+                 </div>
+                 <div>
+                   <label className="block text-xs font-mono tracking-widest text-[#10b981] mb-3 uppercase">02. What's your email?</label>
+                   <input
+                     type="email"
+                     name="email"
+                     required
+                     value={formData.email}
+                     onChange={handleChange}
+                     className="w-full bg-transparent border-b border-white/20 pb-3 text-white text-xl outline-none focus:border-[#3b82f6] transition-colors placeholder:text-white/20 font-sans"
+                     placeholder="john@example.com"
+                   />
+                 </div>
+                 <div>
+                   <label className="block text-xs font-mono tracking-widest text-[#10b981] mb-3 uppercase">03. What are we building?</label>
+                   <textarea
+                     rows="4"
+                     name="message"
+                     required
+                     value={formData.message}
+                     onChange={handleChange}
+                     className="w-full bg-transparent border-b border-white/20 pb-3 text-white text-xl outline-none focus:border-[#3b82f6] transition-colors placeholder:text-white/20 resize-none font-sans"
+                     placeholder="Tell me about your project..."
+                   ></textarea>
+                 </div>
+                 <button 
+                   type="submit" 
+                   disabled={isSending || isSent}
+                   className="mt-4 self-start flex items-center gap-3 bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-[#3b82f6] hover:text-white transition-all duration-300 disabled:opacity-50 group hover:scale-105"
+                 >
+                   {isSending ? "Sending..." : "Send Message"}
+                   <FaPaperPlane className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
+                 </button>
+               </form>
+            </div>
+          </motion.div>
+
+        </div>
 
         {/* FAQ Section */}
         <motion.div
-          className="flex flex-col lg:flex-row gap-10 mt-16 mb-20 px-2 lg:px-20"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+           className="max-w-4xl mx-auto"
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.8 }}
         >
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <LeftSec heading="✧ FAQ'S" title="Have Questions" />
-          </motion.div>
-
-          <div className="flex-1 space-y-4">
-            {question.map((itm, indx) => (
-              <motion.div
-                key={indx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: indx * 0.1 }}
-              >
-                <Accordian
-                  title={itm.question}
-                  description={itm.answer}
-                  isOpen={openIndex === indx}
-                  onToggle={() => handleToggle(indx)}
-                />
-              </motion.div>
-            ))}
-          </div>
+           <h2 className="text-3xl md:text-5xl font-bold text-white text-center mb-12">Frequently Asked Questions</h2>
+           <div className="space-y-4">
+             {question.map((itm, indx) => (
+               <Accordian
+                 key={indx}
+                 title={itm.question}
+                 description={itm.answer}
+                 isOpen={openIndex === indx}
+                 onToggle={() => handleToggle(indx)}
+               />
+             ))}
+           </div>
         </motion.div>
+        
       </div>
     </>
   );

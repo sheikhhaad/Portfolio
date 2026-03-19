@@ -40,6 +40,10 @@ function FloatingParticles(props) {
     if (ref.current) {
       ref.current.rotation.x -= delta / 8;
       ref.current.rotation.y -= delta / 10;
+      
+      // Make particles react to mouse movement slightly
+      ref.current.rotation.x += state.mouse.y * 0.02;
+      ref.current.rotation.y += state.mouse.x * 0.02;
     }
   });
 

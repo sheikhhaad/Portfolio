@@ -115,48 +115,28 @@ const Home = () => {
       {/* Intro Section */}
       <header className="text-white px-4 sm:px-6 lg:px-16 pt-20 md:pt-24 min-h-[40vh] flex items-center font-quicksand relative z-10">
         <div className="w-full">
-          <motion.p
-            className="text-[#2DE72c] mb-2 text-lg sm:text-xl md:text-2xl"
-            initial={{ opacity: 0, y: -14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            👋 Hey! It's me <span className="font-bold ">Haad Sheikh</span>,
-          </motion.p>
-
           <motion.h1
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 leading-snug"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight tracking-tight mt-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Crafting{" "}
-            <motion.span
-              className="text-[#2DE72c]"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-            >
-              purpose driven <br className="hidden sm:block" />
-              experiences that
-            </motion.span>{" "}
-            <br /> & engage.
+            Architecting <br className="hidden md:block"/>
+            <span className="text-[#3b82f6] bg-clip-text text-transparent bg-gradient-to-r from-[#3b82f6] to-[#10b981]">
+              Scalable Web Ecosystems.
+            </span>
           </motion.h1>
 
-          {/* Line + paragraph */}
+          {/* Subtext */}
           <motion.div
-            className="flex flex-col md:flex-row md:items-center gap-3 mb-4"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            className="flex flex-col md:flex-row md:items-center gap-4 mb-8 mt-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="flex-shrink-0">
-              <div className="mx-auto md:mx-0 sm:w-14 md:w-70 h-1 sm:h-1.5 md:h-2 bg-[#2DE72c] rounded" />
-            </div>
-
-            <p className="text-gray-300 font-extralight sm:text-lg md:max-w-2xl leading-relaxed">
-              I'm on a path of learning and building, creating digital
-              experiences that balance design, usability, and performance.
+            <div className="hidden md:block w-12 h-[2px] bg-[#10b981] rounded"></div>
+            <p className="text-gray-300 font-mono text-lg md:text-xl max-w-2xl leading-relaxed">
+              Haad Sheikh — MERN Developer transforming complex ideas into high-performance digital products.
             </p>
           </motion.div>
         </div>
@@ -213,33 +193,33 @@ const Home = () => {
       </section>
 
       {/* Portfolio */}
-      <section className="px-4 sm:px-6 lg:px-16 py-12 font-quicksand relative z-10 fade-in-section">
+      {/* Featured Project */}
+      <section className="px-4 sm:px-6 lg:px-16 py-12 relative z-10 fade-in-section">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          className="w-full flex flex-col md:flex-row items-center bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl overflow-hidden shadow-2xl glass"
         >
-          <LeftSec
-            heading="✧ My Work"
-            title="Selected Projects"
-            subheading="Here's a curated selection showcasing my expertise and the achieved results."
-          />
+          <div className="p-8 md:p-12 md:w-1/2 flex flex-col justify-center">
+            <h3 className="text-[#10b981] font-mono tracking-widest text-sm mb-4">CASE STUDY</h3>
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Donation Web Platform</h2>
+            <p className="text-gray-400 text-lg mb-8">
+              A scalable, high-performance platform transforming how people contribute and track charitable donations worldwide.
+            </p>
+            <div>
+              <AnimatedBtn
+                title="View Case Study"
+                sectilte="See Details"
+                link={"/projects/detailpage/3"}
+              />
+            </div>
+          </div>
+          <div className="md:w-1/2 h-full min-h-[300px] md:min-h-[400px] overflow-hidden relative">
+            <img src={donation} alt="Donation Site" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-in-out" />
+          </div>
         </motion.div>
-
-        <div className="flex flex-wrap justify-around gap-0 md:gap-10 mt-6">
-          {projects.map((itm, i) => (
-            <motion.div
-              key={i}
-              ref={(el) => (cardsRef.current[i] = el)}
-              className={i % 2 === 0 ? "mt-20" : "mt-10"}
-              whileHover={{ y: -8 }}
-              transition={{ duration: 0.2 }}
-            >
-              <PortfolioCard name={itm.name} Img={itm.image} id={itm.id} />
-            </motion.div>
-          ))}
-        </div>
       </section>
 
       {/* Expertise */}

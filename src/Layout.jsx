@@ -4,6 +4,7 @@ import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Lenis from "@studio-freight/lenis";
 import ScrollTop from "./Components/ScrollTop";
+import CustomCursor from "./Components/CustomCursor";
 
 const Layout = () => {
   useEffect(() => {
@@ -26,6 +27,7 @@ const Layout = () => {
 
   return (
     <>
+      <CustomCursor />
       <ScrollTop />
       <Navbar />
       <Outlet />
