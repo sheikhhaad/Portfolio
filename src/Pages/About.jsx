@@ -9,9 +9,9 @@ const About = () => {
   return (
     <>
       <ChingariBackground />
-      
+
       <div className="pt-32 pb-12 px-6 sm:px-10 lg:px-20 max-w-7xl mx-auto relative z-10">
-        <motion.div 
+        <motion.div
           className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20 items-start"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -20,26 +20,38 @@ const About = () => {
           {/* Left: 60% Narrative */}
           <div className="lg:col-span-3 space-y-8">
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              Humanizing the <br/>
+              Humanizing the <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#10b981]">
                 Digital Experience.
               </span>
             </h1>
-            
+
             <div className="space-y-6 text-gray-300 font-sans text-lg leading-relaxed">
               <p>
-                My journey didn't start with a traditional computer science degree. I began in 2023, driven by pure curiosity and a desire to build things that live on the internet. Being self-taught has made me resourceful, adaptable, and relentlessly focused on providing real value rather than just writing code.
+                My journey began with a traditional Computer Science degree in
+                2023. Driven by pure curiosity and a passion for building things
+                that live on the internet, I embraced a self-taught approach
+                that has made me resourceful, adaptable, and deeply focused on
+                delivering real value through code.
               </p>
               <p>
-                Since October 2025, I have been working as a Front-End Developer at SmW Global (Private) Limited in Karachi, building modern, responsive web interfaces and collaborating with cross-functional teams on international-standard digital projects.
+                In 2024, I completed a certified Modern Web & App Development
+                course from SMIT (Saylani Mass IT Training). Since October 2025,
+                I have been working as a Front-End Developer at SmW Global
+                (Private) Limited in Karachi, where I build modern, responsive
+                web interfaces and collaborate with cross-functional teams on
+                real-world projects.
               </p>
               <p>
-                As a Front-End Developer at SmW Global, I play a key role in building high-performance, visually compelling, and user-centric web interfaces. I collaborate with the design, product, and engineering teams to deliver seamless digital experiences aligned with international development standards.
+                As a Front-End Developer at SmW Global, I play a key role in
+                creating high-performance, visually compelling, and user-centric
+                web applications. I work closely with design, product, and
+                engineering teams to deliver seamless digital experiences that
+                meet international development standards.
               </p>
             </div>
-
             {/* Timeline */}
-            <div className="mt-16 relative">
+            {/* <div className="mt-16 relative">
                <h2 className="text-2xl font-bold text-white mb-8">My Journey</h2>
                <div className="pl-6 border-l-2 border-white/10 space-y-12">
                   <div className="relative">
@@ -58,8 +70,7 @@ const About = () => {
                      <h3 className="text-xl font-bold text-white">Building production-ready apps.</h3>
                   </div>
                </div>
-            </div>
-            
+            </div> */}
           </div>
 
           {/* Right: 40% Photo & Tools */}
@@ -79,22 +90,39 @@ const About = () => {
 
             {/* Tools List */}
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-4">What I Use</h2>
-              
+              <h2 className="text-2xl font-bold text-white mb-6 border-b border-white/10 pb-4">
+                What I Use
+              </h2>
+
               <div className="space-y-4">
+                {/* Frontend */}
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between items-start sm:items-center p-4 rounded-xl glass hover:bg-white/10 transition-colors cursor-default">
-                  <span className="text-[#3b82f6] font-mono font-bold tracking-widest text-sm w-24">FRONTEND</span>
-                  <span className="text-gray-300 flex-1 sm:text-right font-sans">React, Tailwind, Framer</span>
+                  <span className="text-[#3b82f6] font-mono font-bold tracking-widest text-sm w-24">
+                    FRONTEND
+                  </span>
+                  <span className="text-gray-300 flex-1 sm:text-right font-sans">
+                    React, Next.js, React Native, Tailwind CSS, Framer Motion
+                  </span>
                 </div>
-                
+
+                {/* Backend */}
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between items-start sm:items-center p-4 rounded-xl glass hover:bg-white/10 transition-colors cursor-default">
-                  <span className="text-[#10b981] font-mono font-bold tracking-widest text-sm w-24">BACKEND</span>
-                  <span className="text-gray-300 flex-1 sm:text-right font-sans">Node, Express, MongoDB</span>
+                  <span className="text-[#10b981] font-mono font-bold tracking-widest text-sm w-24">
+                    BACKEND
+                  </span>
+                  <span className="text-gray-300 flex-1 sm:text-right font-sans">
+                    Node.js, Express.js, MongoDB, REST APIs, JWT Auth
+                  </span>
                 </div>
-                
+
+                {/* Workflow */}
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between items-start sm:items-center p-4 rounded-xl glass hover:bg-white/10 transition-colors cursor-default">
-                  <span className="text-white font-mono font-bold tracking-widest text-sm w-24">WORKFLOW</span>
-                  <span className="text-gray-300 flex-1 sm:text-right font-sans">Git, Postman, Figma</span>
+                  <span className="text-white font-mono font-bold tracking-widest text-sm w-24">
+                    WORKFLOW
+                  </span>
+                  <span className="text-gray-300 flex-1 sm:text-right font-sans">
+                    Git, GitHub, Postman, Figma, Vercel
+                  </span>
                 </div>
               </div>
 
@@ -110,7 +138,7 @@ const About = () => {
       </div>
 
       {/* Contact Section */}
-      <motion.div 
+      <motion.div
         className="p-5 mt-20 relative z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
