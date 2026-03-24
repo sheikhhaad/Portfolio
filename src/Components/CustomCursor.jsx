@@ -9,11 +9,9 @@ const CustomCursor = () => {
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
 
-  // Dot follows cursor tightly
   const dotX = useSpring(rawX, { stiffness: 800, damping: 60 });
   const dotY = useSpring(rawY, { stiffness: 800, damping: 60 });
 
-  // Glow + spotlight lag behind
   const glowX = useSpring(rawX, { stiffness: 120, damping: 28 });
   const glowY = useSpring(rawY, { stiffness: 120, damping: 28 });
 
@@ -25,45 +23,50 @@ const CustomCursor = () => {
       rawY.set(e.clientY);
     };
 
-    const handleMouseOver = (e) => {
+    const handleHover = (e) => {
       const el = e.target;
-      setIsHovered(
-        el.tagName === "BUTTON" || el.tagName === "A" ||
-        !!el.closest("button") || !!el.closest("a")
+      const interactive = el.closest(
+        "a, button, input, textarea, select, [role='button']"
       );
+      setIsHovered(!!interactive);
     };
 
     window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("mouseover", handleMouseOver);
+    window.addEventListener("mouseover", handleHover);
+
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("mouseover", handleMouseOver);
+      window.removeEventListener("mouseover", handleHover);
     };
   }, []);
 
-  // Draw spotlight mask on canvas
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    const ctx = canvas.getContext("2d");
+
+    const ctx = canvas.getContext("3d");
 
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };
+
     resize();
     window.addEventListener("resize", resize);
 
-    let animId;
+    let raf;
+
     const draw = () => {
       const x = glowX.get();
       const y = glowY.get();
+      const radius = Math.min(window.innerWidth, window.innerHeight) * 0.12;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+
       ctx.fillStyle = "rgba(10,10,15,0.82)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      const grad = ctx.createRadialGradient(x, y, 0, x, y, 130);
+      const grad = ctx.createRadialGradient(x, y, 0, x, y, radius);
       grad.addColorStop(0, "rgba(0,0,0,1)");
       grad.addColorStop(0.5, "rgba(0,0,0,0.6)");
       grad.addColorStop(1, "rgba(0,0,0,0)");
@@ -71,34 +74,34 @@ const CustomCursor = () => {
       ctx.globalCompositeOperation = "destination-out";
       ctx.fillStyle = grad;
       ctx.beginPath();
-      ctx.arc(x, y, 130, 0, Math.PI * 2);
+      ctx.arc(x, y, radius, 0, Math.PI * 2);
       ctx.fill();
       ctx.globalCompositeOperation = "source-over";
 
-      animId = requestAnimationFrame(draw);
+      raf = requestAnimationFrame(draw);
     };
+
     draw();
 
     return () => {
-      cancelAnimationFrame(animId);
+      cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
     };
   }, [glowX, glowY]);
 
-  if (!mounted) return null;
+  if (!mounted || typeof window === "undefined") return null;
 
   return (
     <>
-      <style>{`body { cursor: none; } a, button { cursor: none; }`}</style>
+      <style>{`body { cursor: none; }`}</style>
 
-      {/* Spotlight mask */}
       <canvas
         ref={canvasRef}
         className="fixed inset-0 pointer-events-none"
         style={{ zIndex: 9997 }}
       />
 
-      {/* Ambient glow halo */}
+      {/* Glow */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none rounded-full"
         style={{
@@ -114,7 +117,7 @@ const CustomCursor = () => {
         }}
       />
 
-      {/* Inner dot */}
+      {/* Dot */}
       <motion.div
         className="fixed top-0 left-0 pointer-events-none rounded-full"
         style={{
@@ -122,24 +125,17 @@ const CustomCursor = () => {
           y: dotY,
           translateX: "-50%",
           translateY: "-50%",
+          backgroundColor: "#facc15",
           zIndex: 9999,
         }}
         animate={{
           width: isHovered ? 14 : 8,
           height: isHovered ? 14 : 8,
           boxShadow: isHovered
-            ? "0 0 14px 6px rgba(250,204,21,1), 0 0 40px 14px rgba(250,204,21,0.5), 0 0 80px 30px rgba(250,204,21,0.2)"
-            : "0 0 8px 3px rgba(250,204,21,0.9), 0 0 20px 6px rgba(250,204,21,0.4)",
+            ? "0 0 14px 6px rgba(250,204,21,1), 0 0 40px 14px rgba(250,204,21,0.5)"
+            : "0 0 8px 3px rgba(250,204,21,0.9)",
         }}
         transition={{ duration: 0.15 }}
-        style={{
-          backgroundColor: "#facc15",
-          x: dotX,
-          y: dotY,
-          translateX: "-50%",
-          translateY: "-50%",
-          zIndex: 9999,
-        }}
       />
     </>
   );
