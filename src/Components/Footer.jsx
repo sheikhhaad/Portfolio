@@ -25,23 +25,25 @@ const links = [
 
 const Footer = () => {
   return (
-    <footer className="relative border-t border-white/10 bg-[#0a0a0a] pt-16 pb-24 md:pb-8 overflow-hidden font-quicksand z-20">
+    <footer className="relative border-t border-white/10 bg-bg pt-16 pb-24 md:pb-8 overflow-hidden font-sans z-20">
       {/* Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[250px] pointer-events-none opacity-20 bg-gradient-to-b from-[#3b82f6] to-transparent blur-[120px]" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[250px] pointer-events-none opacity-20 bg-gradient-to-b from-accent to-transparent blur-[120px]" />
 
       <div className="container mx-auto px-6 sm:px-10 lg:px-20 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           {/* Brand & Intro */}
           <div className="lg:col-span-2 space-y-6 md:pr-10">
-            <Link
+           <h1 className="font-display text-white tracking-tight hover:opacity-80 transition-opacity">
+             <Link
               to="/"
-              className="inline-block text-3xl font-bold text-white tracking-tight hover:opacity-80 transition-opacity"
+              className="inline-block text-3xl font-display text-white tracking-tight hover:opacity-80 transition-opacity"
             >
               Haad
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#10b981]">
+              <span className="text-accent">
                 .
               </span>
             </Link>
+           </h1>
             <p className="text-gray-400 leading-relaxed text-sm sm:text-base max-w-md">
               Crafting visually stunning, high-performance web experiences.
               Focused on modern design, responsive layouts, and clean code.
@@ -51,7 +53,7 @@ const Footer = () => {
                 href="mailto:sheikhhaad1@gmail.com"
                 className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group text-sm sm:text-base"
               >
-                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-[#3b82f6]/20 group-hover:text-[#3b82f6] transition-all border border-white/5 group-hover:border-[#3b82f6]/30">
+                <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-accent/20 group-hover:text-accent transition-all border border-white/5 group-hover:border-accent/30">
                   <FaEnvelope size={14} />
                 </div>
                 <span>sheikhhaad1@gmail.com</span>
@@ -69,7 +71,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.path}
-                    className="text-gray-400 text-sm sm:text-base hover:text-[#10b981] hover:translate-x-1 transition-all inline-block"
+                    className="text-gray-400 text-sm sm:text-base hover:text-accent hover:translate-x-1 transition-all inline-block"
                   >
                     {link.name}
                   </Link>

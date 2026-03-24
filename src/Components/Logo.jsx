@@ -12,19 +12,17 @@ const Logo = ({ isScrolled }) => {
       <img
         src={logoImg}
         alt="logo"
-        className={`${
-          isScrolled
-            ? 'w-8 h-8 rounded-full border border-amber-50'
-            : 'w-10 h-10 rounded-full border border-amber-50'
-        } object-cover`}
+        className={`${isScrolled
+            ? 'w-8 h-8 rounded-full'
+            : 'w-10 h-10 rounded-full'
+          } object-cover`}
       />
 
       <h1
-        className={`${
-          isScrolled
+        className={`${isScrolled
             ? 'border-r border-amber-50 pr-3 text-[1.2rem] text-white font-display font-[900]'
             : 'font-display font-[900] text-2xl text-white'
-        }`}
+          }`}
       >
         {isScrolled ? 'HS' : 'Haad Sheikh'}
       </h1>

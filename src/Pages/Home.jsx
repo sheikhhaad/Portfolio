@@ -116,14 +116,14 @@ const Home = () => {
       <header className="text-white px-4 sm:px-6 lg:px-16 pt-20 md:pt-24 min-h-[40vh] flex items-center font-sans relative z-10">
         <div className="w-full">
           <motion.h1
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight tracking-tight mt-10"
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight tracking-tight mt-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             Architecting <br className="hidden md:block"/>
             <span className="text-gradient">
-              Scalable Web Ecosystems.
+              Scalable Web Ecosystems<span className="text-accent">.</span>
             </span>
           </motion.h1>
 
