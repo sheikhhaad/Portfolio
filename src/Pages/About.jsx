@@ -97,14 +97,22 @@ const About = () => {
               <div className="space-y-4">
                 {/* Frontend */}
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between items-start sm:items-center p-4 rounded-xl glass hover:bg-white/10 transition-colors cursor-default">
-                  <span className="text-[#3b82f6] font-mono font-bold tracking-widest text-sm w-24">FRONTEND</span>
-                  <span className="text-gray-300 flex-1 sm:text-right font-sans">React, Tailwind, Framer</span>
+                  <span className="text-[#3b82f6] font-mono font-bold tracking-widest text-sm w-24">
+                    FRONTEND
+                  </span>
+                  <span className="text-gray-300 flex-1 sm:text-right font-sans">
+                    React, Next.js, React Native, Tailwind CSS, Framer Motion
+                  </span>
                 </div>
 
                 {/* Backend */}
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between items-start sm:items-center p-4 rounded-xl glass hover:bg-white/10 transition-colors cursor-default">
-                  <span className="text-[#10b981] font-mono font-bold tracking-widest text-sm w-24">BACKEND</span>
-                  <span className="text-gray-300 flex-1 sm:text-right font-sans">Node, Express, MongoDB</span>
+                  <span className="text-[#10b981] font-mono font-bold tracking-widest text-sm w-24">
+                    BACKEND
+                  </span>
+                  <span className="text-gray-300 flex-1 sm:text-right font-sans">
+                    Node.js, Express.js, MongoDB, REST APIs, JWT Auth
+                  </span>
                 </div>
 
                 {/* Workflow */}
