@@ -66,7 +66,7 @@ const Contact = () => {
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
               Let's grab a <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#10b981]">
+              <span className="text-gradient">
                 digital coffee.
               </span>
             </h1>
@@ -76,17 +76,17 @@ const Contact = () => {
             
             <div className="pt-4 space-y-6">
               <div>
-                <span className="block text-[#10b981] font-mono text-sm tracking-widest mb-1">EMAIL</span>
-                <a href="mailto:sheikhhaad6@gmail.com" className="text-white text-xl md:text-2xl font-semibold hover:text-[#3b82f6] transition-colors">sheikhhaad6@gmail.com</a>
+                <span className="block text-accent font-mono text-sm tracking-widest mb-1">EMAIL</span>
+                <a href="mailto:sheikhhaad6@gmail.com" className="text-white text-xl md:text-2xl font-semibold hover:text-accent transition-colors">sheikhhaad6@gmail.com</a>
               </div>
               <div>
-                <span className="block text-[#10b981] font-mono text-sm tracking-widest mb-1">CALENDLY</span>
-                <a href="#" className="text-white text-xl md:text-2xl font-semibold hover:text-[#3b82f6] transition-colors underline decoration-white/30 underline-offset-4">Book a 15-min chat</a>
+                <span className="block text-accent font-mono text-sm tracking-widest mb-1">CALENDLY</span>
+                <a href="#" className="text-white text-xl md:text-2xl font-semibold hover:text-accent transition-colors underline decoration-white/30 underline-offset-4">Book a 15-min chat</a>
               </div>
               <div className="pt-6">
-                <span className="block text-[#10b981] font-mono text-sm tracking-widest mb-4">SOCIALS</span>
+                <span className="block text-accent font-mono text-sm tracking-widest mb-4">SOCIALS</span>
                 <div className="flex gap-4">
-                  <a href="https://linkedin.com/in/sheikhhaad" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-white hover:bg-[#3b82f6] hover:scale-110 transition-all duration-300">
+                  <a href="https://linkedin.com/in/sheikhhaad" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-white hover:bg-accent hover:text-black hover:scale-110 transition-all duration-300">
                     <FaLinkedin className="text-xl" />
                   </a>
                   <a href="https://github.com/sheikhhaad" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all duration-300">
@@ -115,13 +115,13 @@ const Contact = () => {
                      initial={{ opacity: 0 }} 
                      animate={{ opacity: 1 }} 
                      exit={{ opacity: 0 }}
-                     className="absolute inset-0 z-20 bg-[#030712]/95 backdrop-blur-md flex flex-col items-center justify-center"
+                     className="absolute inset-0 z-20 bg-bg/95 backdrop-blur-md flex flex-col items-center justify-center"
                    >
                      <motion.div
                        initial={{ x: -100, y: 100, scale: 0 }}
                        animate={{ x: [0, 50, 200, 500], y: [0, -50, -200, -500], scale: [1, 1.2, 0.8, 0] }}
                        transition={{ duration: 2, ease: "easeInOut" }}
-                       className="text-6xl text-[#3b82f6]"
+                       className="text-6xl text-accent"
                      >
                         <FaPaperPlane />
                      </motion.div>
@@ -132,7 +132,7 @@ const Contact = () => {
                        className="text-center mt-8 absolute"
                      >
                        <h3 className="text-3xl font-bold text-white mb-2">Message Sent!</h3>
-                       <p className="text-[#10b981] font-mono">I'll be in touch shortly.</p>
+                       <p className="text-accent font-mono">I'll be in touch shortly.</p>
                      </motion.div>
                    </motion.div>
                  )}
@@ -140,45 +140,45 @@ const Contact = () => {
 
                <form className="flex flex-col gap-8 relative z-10 w-full" onSubmit={handleSubmit}>
                  <div>
-                   <label className="block text-xs font-mono tracking-widest text-[#10b981] mb-3 uppercase">01. What's your name?</label>
+                   <label className="block text-xs font-mono tracking-widest text-accent mb-3 uppercase">01. What's your name?</label>
                    <input
                      type="text"
                      name="name"
                      required
                      value={formData.name}
                      onChange={handleChange}
-                     className="w-full bg-transparent border-b border-white/20 pb-3 text-white text-xl outline-none focus:border-[#3b82f6] transition-colors placeholder:text-white/20 font-sans"
+                     className="w-full bg-transparent border-b border-white/20 pb-3 text-white text-xl outline-none focus:border-accent transition-colors placeholder:text-white/20 font-sans"
                      placeholder="John Doe"
                    />
                  </div>
                  <div>
-                   <label className="block text-xs font-mono tracking-widest text-[#10b981] mb-3 uppercase">02. What's your email?</label>
+                   <label className="block text-xs font-mono tracking-widest text-accent mb-3 uppercase">02. What's your email?</label>
                    <input
                      type="email"
                      name="email"
                      required
                      value={formData.email}
                      onChange={handleChange}
-                     className="w-full bg-transparent border-b border-white/20 pb-3 text-white text-xl outline-none focus:border-[#3b82f6] transition-colors placeholder:text-white/20 font-sans"
+                     className="w-full bg-transparent border-b border-white/20 pb-3 text-white text-xl outline-none focus:border-accent transition-colors placeholder:text-white/20 font-sans"
                      placeholder="john@example.com"
                    />
                  </div>
                  <div>
-                   <label className="block text-xs font-mono tracking-widest text-[#10b981] mb-3 uppercase">03. What are we building?</label>
+                   <label className="block text-xs font-mono tracking-widest text-accent mb-3 uppercase">03. What are we building?</label>
                    <textarea
                      rows="4"
                      name="message"
                      required
                      value={formData.message}
                      onChange={handleChange}
-                     className="w-full bg-transparent border-b border-white/20 pb-3 text-white text-xl outline-none focus:border-[#3b82f6] transition-colors placeholder:text-white/20 resize-none font-sans"
+                     className="w-full bg-transparent border-b border-white/20 pb-3 text-white text-xl outline-none focus:border-accent transition-colors placeholder:text-white/20 resize-none font-sans"
                      placeholder="Tell me about your project..."
                    ></textarea>
                  </div>
                  <button 
                    type="submit" 
                    disabled={isSending || isSent}
-                   className="mt-4 self-start flex items-center gap-3 bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-[#3b82f6] hover:text-white transition-all duration-300 disabled:opacity-50 group hover:scale-105"
+                   className="mt-4 self-start flex items-center gap-3 bg-white text-black px-8 py-4 rounded-full font-bold hover:bg-accent transition-all duration-300 disabled:opacity-50 group hover:scale-105"
                  >
                    {isSending ? "Sending..." : "Send Message"}
                    <FaPaperPlane className="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />

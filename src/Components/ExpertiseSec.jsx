@@ -10,22 +10,22 @@ const ExpertiseSec = () => {
       id: 1,
       title: "Web App Development",
       description: "Focusing on extreme scalability and ironclad security. I build full-stack architecture that grows with your business needs.",
-      icon: <FiCode className="text-3xl text-[#3b82f6]" />,
-      glowColor: "group-hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]",
+      icon: <FiCode className="text-3xl text-accent" />,
+      glowColor: "group-hover:shadow-[0_0_30px_rgba(0,255,0,0.3)]",
     },
     {
       id: 2,
       title: "UI/UX Implementation",
       description: "Turning Figma designs into pixel-perfect, interactive code. Every animation and micro-interaction is carefully crafted.",
-      icon: <FiLayout className="text-3xl text-[#10b981]" />,
-      glowColor: "group-hover:shadow-[0_0_30px_rgba(16,185,129,0.3)]",
+      icon: <FiLayout className="text-3xl text-accent" />,
+      glowColor: "group-hover:shadow-[0_0_30px_rgba(0,255,0,0.3)]",
     },
     {
       id: 3,
       title: "API Architecture",
       description: "Building robust, RESTful and GraphQL backends that don't break. Optimized for fast data delivery and seamless front-end integration.",
-      icon: <FiDatabase className="text-3xl text-[#3b82f6]" />,
-      glowColor: "group-hover:shadow-[0_0_30px_rgba(59,130,246,0.3)]",
+      icon: <FiDatabase className="text-3xl text-accent" />,
+      glowColor: "group-hover:shadow-[0_0_30px_rgba(0,255,0,0.3)]",
     },
   ];
 
@@ -87,12 +87,12 @@ const ExpertiseSec = () => {
         >
            <div className="text-center mb-16">
              <h2 className="text-3xl md:text-4xl font-bold text-white">The Workflow</h2>
-             <div className="w-20 h-1 bg-[#10b981] mx-auto mt-4 rounded-full"></div>
+             <div className="w-20 h-1 bg-accent mx-auto mt-4 rounded-full"></div>
            </div>
            
            <div className="grid grid-cols-1 sm:grid-cols-2 justify-between lg:grid-cols-4 gap-8 relative">
               {/* Connector Line (Desktop) */}
-              <div className="hidden lg:block absolute top-[40px] left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-[#3b82f6]/30 via-[#10b981]/50 to-[#3b82f6]/30 -z-10"></div>
+              <div className="hidden lg:block absolute top-[40px] left-[15%] right-[15%] h-[2px] bg-gradient-to-r from-accent/30 via-accent/50 to-accent/30 -z-10"></div>
               
               {processSteps.map((step, idx) => (
                  <motion.div 
@@ -103,9 +103,9 @@ const ExpertiseSec = () => {
                    transition={{ delay: idx * 0.2 }}
                    className="flex flex-col items-center text-center relative"
                  >
-                    <div className="w-20 h-20 rounded-full glass border border-white/20 flex items-center text-3xl text-white justify-center shadow-lg bg-[#030712] mb-6 relative group transform hover:scale-110 transition-transform duration-300 cursor-default">
+                    <div className="w-20 h-20 rounded-full glass border border-white/20 flex items-center text-3xl text-white justify-center shadow-lg bg-card mb-6 relative group transform hover:scale-110 transition-transform duration-300 cursor-default">
                       {step.icon}
-                      <span className="absolute -top-2 -right-2 text-xs font-mono font-bold bg-[#3b82f6] text-white w-6 h-6 rounded-full flex items-center justify-center border border-[#030712]">{step.num}</span>
+                      <span className="absolute -top-2 -right-2 text-xs font-mono font-bold bg-accent text-white w-6 h-6 rounded-full flex items-center justify-center border border-card">{step.num}</span>
                     </div>
                     <h3 className="text-xl font-bold text-white mb-3 tracking-widest uppercase text-sm md:text-lg">{step.title}</h3>
                     <p className="text-gray-400 text-sm max-w-[200px]">{step.desc}</p>

@@ -4,7 +4,7 @@ import Available from "./Available";
 
 const ContactSec = () => {
   return (
-    <div className="bg-[rgba(78,78,78,0.1)] rounded-2xl px-5 sm:rounded-3xl border border-gray-900 sm:px-8 md:px-12 py-8 sm:py-16 md:py-20 text-center w-full font-quicksand">
+    <div className="bg-card/30 rounded-2xl px-5 sm:rounded-3xl border border-white/5 sm:px-8 md:px-12 py-8 sm:py-16 md:py-20 text-center w-full font-sans">
       {/* Status Badge */}
       <div className="flex justify-center mb-6">
         <Available />

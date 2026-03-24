@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const Accordion = ({ title, description, icon, isOpen, onToggle }) => {
   return (
     <div
-      className={`border my-3 sm:my-4 md:my-0 mx-2 rounded-2xl border-gray-800 cursor-pointer font-quicksand`}
+      className={`border my-3 sm:my-4 md:my-0 mx-2 rounded-2xl border-white/5 cursor-pointer font-sans bg-card/10`}
     >
       {/* Header */}
       <div
@@ -18,7 +18,7 @@ const Accordion = ({ title, description, icon, isOpen, onToggle }) => {
             {title}
           </h2>
         </div>
-        <span className="text-xl sm:text-2xl text-[#2DE72c]">
+        <span className="text-xl sm:text-2xl text-accent">
           {isOpen ? <FiMinus /> : <FiPlus />}
         </span>
       </div>

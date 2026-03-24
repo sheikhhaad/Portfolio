@@ -20,13 +20,13 @@ import {
 const SkillItem = ({ SkillIcon, SkillName }) => {
   return (
    <div
-      className="flex items-center bg-[rgba(90,90,90,0.2)] gap-1 px-2 py-2 rounded-full 
-       backdrop-blur-md text-white font-quicksand
+      className="flex items-center bg-white/5 gap-1 px-2 py-2 rounded-full 
+       backdrop-blur-md text-white font-sans
        sm:min-w-[100px] md:min-w-[120px] lg:min-w-[140px]
        justify-center hover"
     >
       <span className="text-lg sm:text-xl">{SkillIcon}</span>
-      <span className="text-[10px] sm:text-xs font-medium truncate font-quicksand">
+      <span className="text-[10px] sm:text-xs font-medium truncate font-sans">
         {SkillName}
       </span>
     </div>
@@ -52,7 +52,7 @@ const skills = [
 // Parent marquee component
 const SkillMarquee = () => {
   return (
-    <div className="marquee-wrapper overflow-hidden w-full bg-transparent py-4 font-quicksand">
+    <div className="marquee-wrapper overflow-hidden w-full bg-transparent py-4 font-sans">
       <div className="marquee-2 flex gap-6">
         {skills.concat(skills).map((skill, index) => (
           <SkillItem key={index} SkillIcon={skill.icon} SkillName={skill.name} />

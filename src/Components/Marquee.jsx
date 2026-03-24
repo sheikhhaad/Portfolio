@@ -15,10 +15,10 @@ const Marquee = () => {
       >
         <div className="marquee mb-2 mt-2">
           <div className="marquee-content flex gap-4 items-center">
-            <p className="font-geist font-semibold text-xl tracking-widest text-[#3b82f6]">
+            <p className="font-sans font-semibold text-xl tracking-widest text-accent">
               React ✧ Node.js ✧ MongoDB ✧ Express ✧ Next.js ✧ TailwindCSS ✧ Framer Motion ✧ Three.js ✧
             </p>
-            <p className="font-geist font-semibold text-xl tracking-widest text-[#10b981]">
+            <p className="font-sans font-semibold text-xl tracking-widest text-accent">
               React ✧ Node.js ✧ MongoDB ✧ Express ✧ Next.js ✧ TailwindCSS ✧ Framer Motion ✧ Three.js ✧
             </p>
           </div>

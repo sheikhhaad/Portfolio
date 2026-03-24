@@ -43,7 +43,7 @@ const Navbar = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className={`fixed top-4 left-1/2 -translate-x-1/2 px-6 py-3 transition-all duration-300 z-50 hidden md:block font-quicksand
+          className={`fixed top-4 left-1/2 -translate-x-1/2 px-6 py-3 transition-all duration-300 z-50 hidden md:block font-sans
             ${
               isScrolled
                 ? "w-[60%] rounded-full backdrop-blur-lg shadow-lg border border-white/5"
@@ -60,8 +60,8 @@ const Navbar = () => {
                 <Link
                   key={i}
                   to={link.path}
-                  className={`text-gray-300 text-sm hover:text-[#10b981] transition-colors duration-200 ${
-                    location.pathname === link.path ? "text-[#10b981] font-semibold" : ""
+                  className={`text-gray-300 text-sm hover:text-accent transition-colors duration-200 ${
+                    location.pathname === link.path ? "text-accent font-semibold" : ""
                   }`}
                 >
                   {link.name}
@@ -105,7 +105,7 @@ const Navbar = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: "easeOut" }}
-        className="fixed bottom-0 left-0 ml-10 mr-10 mb-2 right-0 rounded-full glass backdrop-blur-[4px] z-50 md:hidden py-2 font-quicksand shadow-lg"
+        className="fixed bottom-0 left-0 ml-10 mr-10 mb-2 right-0 rounded-full glass backdrop-blur-[4px] z-50 md:hidden py-2 font-sans shadow-lg"
       >
         <div className="flex justify-around items-center">
           {links.map((link, i) => (
@@ -114,7 +114,7 @@ const Navbar = () => {
               to={link.path}
               className={`flex flex-col items-center justify-center px-3 py-1 rounded-lg transition-all duration-200 ${
                 location.pathname === link.path
-                  ? "text-[#10b981] text-shadow-sm scale-110"
+                  ? "text-accent text-shadow-sm scale-110"
                   : "text-gray-400 hover:text-white"
               }`}
             >

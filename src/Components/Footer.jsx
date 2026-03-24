@@ -11,7 +11,7 @@ const socials = [
 
 const Footer = () => {
   return (
-    <footer className="text-white py-2 font-quicksand">
+    <footer className="text-white py-2 font-sans">
       <div className="container mx-auto flex flex-col border-b md:flex-row items-center justify-between gap-4 pb-2">
         <p className="text-gray-400 text-[12px] md:text-base text-center md:text-left">
           Haad Sheikh.

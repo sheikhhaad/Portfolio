@@ -22,8 +22,8 @@ const Logo = ({ isScrolled }) => {
       <h1
         className={`${
           isScrolled
-            ? 'border-r border-amber-50 pr-3 text-[1.2rem] text-white font-quicksand font-[900]'
-            : 'font-quicksand font-[900] text-2xl text-white'
+            ? 'border-r border-amber-50 pr-3 text-[1.2rem] text-white font-display font-[900]'
+            : 'font-display font-[900] text-2xl text-white'
         }`}
       >
         {isScrolled ? 'HS' : 'Haad Sheikh'}

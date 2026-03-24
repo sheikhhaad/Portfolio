@@ -113,7 +113,7 @@ const Home = () => {
       <ChingariBackground />
 
       {/* Intro Section */}
-      <header className="text-white px-4 sm:px-6 lg:px-16 pt-20 md:pt-24 min-h-[40vh] flex items-center font-quicksand relative z-10">
+      <header className="text-white px-4 sm:px-6 lg:px-16 pt-20 md:pt-24 min-h-[40vh] flex items-center font-sans relative z-10">
         <div className="w-full">
           <motion.h1
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-tight tracking-tight mt-10"
@@ -122,7 +122,7 @@ const Home = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             Architecting <br className="hidden md:block"/>
-            <span className="text-[#3b82f6] bg-clip-text text-transparent bg-gradient-to-r from-[#3b82f6] to-[#10b981]">
+            <span className="text-gradient">
               Scalable Web Ecosystems.
             </span>
           </motion.h1>
@@ -134,7 +134,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <div className="hidden md:block w-12 h-[2px] bg-[#10b981] rounded"></div>
+            <div className="hidden md:block w-12 h-[2px] bg-accent rounded"></div>
             <p className="text-gray-300 font-mono text-lg md:text-xl max-w-2xl leading-relaxed">
               Haad Sheikh — MERN Developer transforming complex ideas into high-performance digital products.
             </p>
@@ -142,7 +142,7 @@ const Home = () => {
         </div>
       </header>
 
-      <div className="flex justify-between mx-4 my-4 font-quicksand relative z-10">
+      <div className="flex justify-between mx-4 my-4 font-sans relative z-10">
         <motion.nav
           className="hidden sm:flex flex-wrap justify-start gap-4 px-4 sm:px-6 lg:px-16 py-4 text-white"
           initial={{ opacity: 0 }}
@@ -158,7 +158,7 @@ const Home = () => {
               <SocialBtn
                 path={itm.path}
                 Icon={itm.Icon}
-                styling="text-white hover:text-[#2DE72c] text-2xl sm:text-3xl transition-colors duration-300"
+                styling="text-white hover:text-accent text-2xl sm:text-3xl transition-colors duration-300"
               />
             </motion.div>
           ))}
@@ -185,7 +185,7 @@ const Home = () => {
       </div>
 
       {/* About */}
-      <section className="sm:px-6 lg:px-16 py-12 font-quicksand relative z-10 fade-in-section">
+      <section className="sm:px-6 lg:px-16 py-12 font-sans relative z-10 fade-in-section">
         <AboutSec
           title="✧ ABOUT ME ✧"
           description="I am Haad Sheikh, a self-taught MERN Stack Developer with a strong focus on building clean, responsive, and functional web and mobile applications. Since January 2023, I have been working on real-world projects using React, Node, Firebase, and Tailwind CSS. I enjoy solving problems through code, creating modern UIs, and continuously improving my skills to deliver efficient digital solutions."
@@ -203,7 +203,7 @@ const Home = () => {
           className="w-full flex flex-col md:flex-row items-center bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl overflow-hidden shadow-2xl glass"
         >
           <div className="p-8 md:p-12 md:w-1/2 flex flex-col justify-center">
-            <h3 className="text-[#10b981] font-mono tracking-widest text-sm mb-4">CASE STUDY</h3>
+            <h3 className="text-accent font-mono tracking-widest text-sm mb-4">CASE STUDY</h3>
             <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Donation Web Platform</h2>
             <p className="text-gray-400 text-lg mb-8">
               A scalable, high-performance platform transforming how people contribute and track charitable donations worldwide.
@@ -223,7 +223,7 @@ const Home = () => {
       </section>
 
       {/* Expertise */}
-      <section className="px-4 sm:px-6 lg:px-16 py-12 font-quicksand relative z-10 fade-in-section">
+      <section className="px-4 sm:px-6 lg:px-16 py-12 font-sans relative z-10 fade-in-section">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -234,14 +234,14 @@ const Home = () => {
       </section>
 
       {/* Skills */}
-      <div className="mb-4 mt-4 font-quicksand relative z-10 fade-in-section">
+      <div className="mb-4 mt-4 font-sans relative z-10 fade-in-section">
         <hr className="border-gray-700" />
         <SkillsMarquee />
         <hr className="border-gray-700" />
       </div>
 
       {/* Contact */}
-      <section className="px-2 sm:px-6 lg:px-16 py-10 font-quicksand relative z-10 fade-in-section">
+      <section className="px-2 sm:px-6 lg:px-16 py-10 font-sans relative z-10 fade-in-section">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

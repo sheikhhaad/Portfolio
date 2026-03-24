@@ -6,13 +6,13 @@ const PortfolioCard = ({ name, Img, id, category, problem, outcome, spanClass })
 
   return (
     <motion.div
-      className={`relative group rounded-2xl overflow-hidden glass cursor-pointer border border-white/10 flex flex-col h-full bg-[#0a0f1d] ${spanClass || "col-span-1"}`}
+      className={`relative group rounded-2xl overflow-hidden glass cursor-pointer border border-white/10 flex flex-col h-full bg-card ${spanClass || "col-span-1"}`}
       onClick={() => navigate(`detailpage/${id}`)}
       whileHover={{ y: -5 }}
       transition={{ duration: 0.3 }}
     >
       {/* Browser Mockup Header */}
-      <div className="bg-[#1a1f2e] px-4 py-3 flex items-center gap-2 border-b border-white/5">
+      <div className="bg-card px-4 py-3 flex items-center gap-2 border-b border-white/5">
         <div className="flex gap-1.5">
           <div className="w-3 h-3 rounded-full bg-red-400"></div>
           <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
@@ -29,18 +29,18 @@ const PortfolioCard = ({ name, Img, id, category, problem, outcome, spanClass })
         
         {/* Hover Overlay */}
         <div className="absolute inset-0 bg-black/80 flex flex-col justify-center p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <h3 className="text-[#3b82f6] font-mono text-sm mb-2 tracking-widest">PROBLEM</h3>
+          <h3 className="text-accent font-mono text-sm mb-2 tracking-widest">PROBLEM</h3>
           <p className="text-gray-300 text-sm mb-4 leading-relaxed font-sans">{problem || "Complex workflow hindering user conversions and retention."}</p>
           
-          <h3 className="text-[#10b981] font-mono text-sm mb-2 tracking-widest">OUTCOME</h3>
+          <h3 className="text-accent font-mono text-sm mb-2 tracking-widest">OUTCOME</h3>
           <p className="text-white font-semibold text-sm leading-relaxed font-sans">{outcome || "Increased user engagement by 40% with a streamlined UI."}</p>
         </div>
       </div>
       
       {/* Footer Info */}
-      <div className="p-4 bg-[#0F172A] border-t border-white/5 flex justify-between items-center shrink-0">
+      <div className="p-4 bg-card border-t border-white/5 flex justify-between items-center shrink-0">
         <h4 className="text-white font-semibold font-sans">{name}</h4>
-        <span className="text-xs bg-[#3b82f6]/10 text-[#3b82f6] px-3 py-1 rounded-full font-mono">{category || "Web App"}</span>
+        <span className="text-xs bg-accent/10 text-accent px-3 py-1 rounded-full font-mono">{category || "Web App"}</span>
       </div>
     </motion.div>
   );

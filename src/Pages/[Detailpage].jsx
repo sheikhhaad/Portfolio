@@ -150,7 +150,7 @@ const Detailpage = () => {
           </h2>
           <Link
             to="/"
-            className="inline-flex items-center px-4 py-2 bg-[#2DE72c] text-white rounded-lg hover:bg-[#25c722] transition-colors"
+            className="inline-flex items-center px-4 py-2 bg-accent text-black rounded-lg hover:bg-white transition-colors"
           >
             <ArrowLeft size={16} className="mr-2" />
             Back to Projects
@@ -178,7 +178,7 @@ const Detailpage = () => {
           >
             <Link
               to={"/projects"}
-              className="inline-flex items-center text-[#2DE72c] hover:text-[#25c722] mb-6 font-medium transition-colors underline"
+              className="inline-flex items-center text-accent hover:text-white mb-6 font-medium transition-colors underline"
             >
               <ArrowLeft size={18} className="mr-2" />
               Back to Projects
@@ -193,7 +193,7 @@ const Detailpage = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <motion.h1
-              className="text-4xl font-bold text-[#2DE72c] mb-2"
+              className="text-4xl font-bold text-accent mb-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -250,18 +250,17 @@ const Detailpage = () => {
           <div className="grid md:grid-cols-2 gap-8">
             {/* Features Section */}
             <motion.div
-              className="rounded-2xl shadow-sm p-6 border-r border-[#2DE72c]"
+              className="rounded-2xl shadow-sm p-6 border-r border-accent"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               whileHover={{ y: -5 }}
-              transition={{ duration: 0.2 }}
             >
               <div className="flex items-center mb-6">
                 <div className="p-2 rounded-lg mr-3">
                   <Zap size={24} className="text-blue-600" />
                 </div>
-                <h2 className="text-2xl font-bold text-[#2DE72c]">
+                <h2 className="text-2xl font-bold text-accent">
                   Key Features
                 </h2>
               </div>
@@ -276,7 +275,7 @@ const Detailpage = () => {
                     transition={{ duration: 0.3, delay: i * 0.1 + 0.4 }}
                   >
                     <div className="flex-shrink-0 mt-1 mr-3">
-                      <div className="w-2 h-2 bg-[#2DE72c] rounded-full"></div>
+                      <div className="w-2 h-2 bg-accent rounded-full"></div>
                     </div>
                     <span className="text-white">{f}</span>
                   </motion.li>
@@ -286,18 +285,17 @@ const Detailpage = () => {
 
             {/* Tech Stack Section */}
             <motion.div
-              className="rounded-2xl shadow-green-600 p-6 border-l border-[#2DE72c]"
+              className="rounded-2xl shadow-green-600 p-6 border-l border-accent"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
               whileHover={{ y: -5 }}
-              transition={{ duration: 0.2 }}
             >
               <div className="flex items-center mb-6">
                 <div className="p-2 rounded-lg mr-3">
                   <Layout size={24} className="text-purple-600" />
                 </div>
-                <h2 className="text-2xl font-bold text-[#2DE72c]">
+                <h2 className="text-2xl font-bold text-accent">
                   Tech Stack
                 </h2>
               </div>
@@ -306,12 +304,10 @@ const Detailpage = () => {
                 {data.techStack.map((tech, i) => (
                   <motion.span
                     key={i}
-                    className="px-4 py-2 bg-[rgba(78,78,78,0.2)] rounded-full text-white font-medium"
+                    className="px-4 py-2 bg-white/5 rounded-full text-white font-medium"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3, delay: i * 0.1 + 0.4 }}
-                    whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.2 }}
                   >
                     {tech}
                   </motion.span>
@@ -327,14 +323,14 @@ const Detailpage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <h2 className="text-2xl font-bold text-[#2DE72c] mb-4">
+            <h2 className="text-2xl font-bold text-accent mb-4">
               Project Overview
             </h2>
             <p className="text-white leading-relaxed">{data.overview}</p>
 
             {data.description && (
               <div className="mt-6 pt-6 border-t border-gray-100">
-                <h3 className="text-lg font-semibold text-[#2DE72c] mb-3">
+                <h3 className="text-lg font-semibold text-accent mb-3">
                   Description
                 </h3>
                 <p className="text-white leading-relaxed">{data.description}</p>

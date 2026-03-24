@@ -21,7 +21,7 @@ const About = () => {
           <div className="lg:col-span-3 space-y-8">
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
               Humanizing the <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3b82f6] to-[#10b981]">
+              <span className="text-gradient">
                 Digital Experience.
               </span>
             </h1>
@@ -41,19 +41,19 @@ const About = () => {
             {/* Timeline */}
             <div className="mt-16 relative">
                <h2 className="text-2xl font-bold text-white mb-8">My Journey</h2>
-               <div className="pl-6 border-l-2 border-white/10 space-y-12">
+                <div className="pl-6 border-l-2 border-white/10 space-y-12">
                   <div className="relative">
-                     <div className="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-[#10b981] shadow-[0_0_10px_rgba(16,185,129,0.8)] border-4 border-[#030712]"></div>
-                     <span className="text-[#10b981] font-mono text-xs tracking-widest font-semibold uppercase mb-2 block">Jan 2023</span>
+                     <div className="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-accent shadow-[0_0_10px_rgba(0,255,0,0.8)] border-4 border-bg"></div>
+                     <span className="text-accent font-mono text-xs tracking-widest font-semibold uppercase mb-2 block">Jan 2023</span>
                      <h3 className="text-xl font-bold text-white">Wrote my first "Hello World."</h3>
                   </div>
                   <div className="relative">
-                     <div className="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-[#3b82f6] shadow-[0_0_10px_rgba(59,130,246,0.8)] border-4 border-[#030712]"></div>
-                     <span className="text-[#3b82f6] font-mono text-xs tracking-widest font-semibold uppercase mb-2 block">June 2023</span>
+                     <div className="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-accent shadow-[0_0_10px_rgba(0,255,0,0.8)] border-4 border-bg"></div>
+                     <span className="text-accent font-mono text-xs tracking-widest font-semibold uppercase mb-2 block">June 2023</span>
                      <h3 className="text-xl font-bold text-white">Mastered the MERN stack.</h3>
                   </div>
                   <div className="relative">
-                     <div className="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-[#10b981] shadow-[0_0_10px_rgba(16,185,129,0.8)] border-4 border-[#030712]"></div>
+                     <div className="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-accent shadow-[0_0_10px_rgba(0,255,0,0.8)] border-4 border-bg"></div>
                      <span className="text-white font-mono text-xs tracking-widest font-semibold uppercase mb-2 block">2024 - Present</span>
                      <h3 className="text-xl font-bold text-white">Building production-ready apps.</h3>
                   </div>
@@ -69,7 +69,7 @@ const About = () => {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.4 }}
             >
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#3b82f6]/40 to-[#10b981]/40 blur-3xl -z-10"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-accent/20 to-accent/40 blur-3xl -z-10"></div>
               <img
                 src={mypic}
                 alt="Haad Sheikh"
@@ -83,12 +83,12 @@ const About = () => {
               
               <div className="space-y-4">
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between items-start sm:items-center p-4 rounded-xl glass hover:bg-white/10 transition-colors cursor-default">
-                  <span className="text-[#3b82f6] font-mono font-bold tracking-widest text-sm w-24">FRONTEND</span>
+                  <span className="text-accent font-mono font-bold tracking-widest text-sm w-24">FRONTEND</span>
                   <span className="text-gray-300 flex-1 sm:text-right font-sans">React, Tailwind, Framer</span>
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between items-start sm:items-center p-4 rounded-xl glass hover:bg-white/10 transition-colors cursor-default">
-                  <span className="text-[#10b981] font-mono font-bold tracking-widest text-sm w-24">BACKEND</span>
+                  <span className="text-accent font-mono font-bold tracking-widest text-sm w-24">BACKEND</span>
                   <span className="text-gray-300 flex-1 sm:text-right font-sans">Node, Express, MongoDB</span>
                 </div>
                 
