@@ -22,7 +22,8 @@ const About = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
               Humanizing the <br />
               <span className="text-gradient">
-                Digital Experience.
+                Digital <span className="bg-accent text-black">Experience</span>
+                .
               </span>
             </h1>
 
@@ -35,19 +36,34 @@ const About = () => {
                 delivering real value through code.
               </p>
               <p>
-                In 2024, I completed a certified Modern Web & App Development
-                course from SMIT (Saylani Mass IT Training). Since October 2025,
-                I have been working as a Front-End Developer at SmW Global
+                In 2024, I completed a{" "}
+                <span className="bg-accent text-black">
+                  Certified Modern Web & App Development
+                </span>
+                course from{" "}
+                <span className="bg-accent text-black">
+                  SMIT (Saylani Mass IT Training)
+                </span>
+                . Since October 2025, I have been working as a{" "}
+                <span className="bg-accent text-black">
+                  Front-End Developer
+                </span>{" "}
+                at <span className="bg-accent text-black">SmW Global</span>
                 (Private) Limited in Karachi, where I build modern, responsive
                 web interfaces and collaborate with cross-functional teams on
                 real-world projects.
               </p>
               <p>
-                As a Front-End Developer at SmW Global, I play a key role in
-                creating high-performance, visually compelling, and user-centric
-                web applications. I work closely with design, product, and
-                engineering teams to deliver seamless digital experiences that
-                meet international development standards.
+                As a{" "}
+                <span className="bg-accent text-black">
+                  Front-End Developer
+                </span>{" "}
+                at <span className="bg-accent text-black">SmW Global</span>, I
+                play a key role in creating high-performance, visually
+                compelling, and user-centric web applications. I work closely
+                with design, product, and engineering teams to deliver seamless
+                digital experiences that meet international development
+                standards.
               </p>
             </div>
             {/* Timeline */}
