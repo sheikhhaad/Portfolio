@@ -10,12 +10,12 @@ const AboutSec = ({ title, description }) => {
       transition={{ duration: 1, delay: 2.5 }}
     >
       {/* Title */}
-      <h1 className="shine-text text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
+      <h1 className="font-display text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
         {title}
       </h1>
 
       {/* Description */}
-      <p className=" font-thin sm:text-lg md:text-xl lg:text-2xl text-gray-300 mt-5 md:mt-6 mx-auto leading-relaxed">
+      <p className=" font-mono sm:text-lg md:text-xl lg:text-2xl text-gray-300 mt-5 md:mt-6 mx-auto leading-relaxed">
         {description}
       </p>
     </motion.div>

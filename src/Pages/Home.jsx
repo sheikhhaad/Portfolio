@@ -121,7 +121,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Architecting <br className="hidden md:block"/>
+            Architecting <br className="hidden md:block" />
             <span className="text-gradient">
               Scalable Web Ecosystems<span className="text-accent">.</span>
             </span>
@@ -188,7 +188,7 @@ const Home = () => {
       <section className="sm:px-6 lg:px-16 py-12 font-sans relative z-10 fade-in-section">
         <AboutSec
           title="✧ ABOUT ME ✧"
-          description="I am Haad Sheikh, a self-taught MERN Stack Developer with a strong focus on building clean, responsive, and functional web and mobile applications. Since January 2023, I have been working on real-world projects using React, Node, Firebase, and Tailwind CSS. I enjoy solving problems through code, creating modern UIs, and continuously improving my skills to deliver efficient digital solutions."
+          description="I am Haad Sheikh, a self-taught MERN Stack Developer with a strong focus on building clean, responsive, and functional web and mobile applications. Since 2024, I have been working on real-world projects using React, Node, Firebase,Supabase, and Tailwind CSS. I enjoy solving problems through code, creating modern UIs, and continuously improving my skills to deliver efficient digital solutions."
         />
       </section>
 

@@ -25,7 +25,7 @@ const links = [
 
 const Footer = () => {
   return (
-    <footer className="relative border-t border-white/10 bg-bg pt-16 pb-24 md:pb-8 overflow-hidden font-sans z-20">
+    <footer className="relative  pt-16 pb-24 md:pb-8 overflow-hidden font-sans z-20">
       {/* Background Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-[250px] pointer-events-none opacity-20 bg-gradient-to-b from-accent to-transparent blur-[120px]" />
 
@@ -56,7 +56,7 @@ const Footer = () => {
                 <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-accent/20 group-hover:text-accent transition-all border border-white/5 group-hover:border-accent/30">
                   <FaEnvelope size={14} />
                 </div>
-                <span>sheikhhaad1@gmail.com</span>
+                <span>sheikhhaad6@gmail.com</span>
               </a>
             </div>
           </div>

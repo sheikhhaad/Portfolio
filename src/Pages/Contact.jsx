@@ -79,21 +79,25 @@ const Contact = () => {
                 <span className="block text-accent font-mono text-sm tracking-widest mb-1">EMAIL</span>
                 <a href="mailto:sheikhhaad6@gmail.com" className="text-white text-xl md:text-2xl font-semibold hover:text-accent transition-colors">sheikhhaad6@gmail.com</a>
               </div>
-              <div>
-                <span className="block text-accent font-mono text-sm tracking-widest mb-1">CALENDLY</span>
-                <a href="#" className="text-white text-xl md:text-2xl font-semibold hover:text-accent transition-colors underline decoration-white/30 underline-offset-4">Book a 15-min chat</a>
+               <div>
+                <span className="block text-accent font-mono text-sm tracking-widest mb-1">PHONE NUMBER</span>
+                <a href="" className="text-white text-xl md:text-2xl font-semibold hover:text-accent transition-colors">+92 3322 859107</a>
               </div>
+             
               <div className="pt-6">
                 <span className="block text-accent font-mono text-sm tracking-widest mb-4">SOCIALS</span>
                 <div className="flex gap-4">
-                  <a href="https://linkedin.com/in/sheikhhaad" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-white hover:bg-accent hover:text-black hover:scale-110 transition-all duration-300">
-                    <FaLinkedin className="text-xl" />
+                  <a href="https://linkedin.com/in/sheikhhaad" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:bg-accent hover:text-black hover:scale-110 transition-all duration-300">
+                    <FaLinkedin className="text-2xl" />
                   </a>
-                  <a href="https://github.com/sheikhhaad" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all duration-300">
-                    <FaGithub className="text-xl" />
+                  <a href="https://github.com/sheikhhaad" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:bg-white/20 hover:scale-110 transition-all duration-300">
+                    <FaGithub className="text-2xl" />
                   </a>
-                  <a href="https://instagram.com/sheikhhaad_" target="_blank" rel="noreferrer" className="w-12 h-12 rounded-full glass flex items-center justify-center text-white hover:bg-[#E1306C] hover:scale-110 transition-all duration-300">
-                    <FaInstagram className="text-xl" />
+                  <a href="https://instagram.com/sheikhhaad_" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:bg-[#E1306C] hover:scale-110 transition-all duration-300">
+                    <FaInstagram className="text-2xl" />
+                  </a>
+                   <a href="https://instagram.com/sheikhhaad0" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:bg-blue-600 hover:scale-110 transition-all duration-300">
+                    <FaFacebook className="text-2xl" />
                   </a>
                 </div>
               </div>
