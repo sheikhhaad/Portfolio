@@ -145,7 +145,7 @@ const About = () => {
               <div className="mt-8 flex justify-center">
                 <AnimatedBtn  
                   title="My Resume"
-                  link="https://drive.google.com/file/d/1-_Y28KE5wgUUl5cX90gBVtq4Tb5s65_B/view?usp=sharing"
+                  link="https://drive.google.com/file/d/1E-SfG-VO57Bcrz_ogVFUshhHDqa-Ak3B/view?usp=sharing"
                 />
               </div>
             </div>
