@@ -18,6 +18,10 @@ import blogAppImage from "../assets/BlogApp.png";
 import portfolioImage from "../assets/portfolio.png";
 import Soni from "../assets/Soni.png";
 import smw from "../assets/smw.png";
+import expenseTracker from "../assets/expenseTracker.png";
+import studentPortal1 from "../assets/StudentPortal1.png";
+import studentPortal2 from "../assets/StudentPortal2.png";
+import studentPortal3 from "../assets/StudentPortal3.png";
 import ContactSec from "../Components/ContactSec";
 import ChingariBackground from "../Components/AnimatedBackground.jsx";
 
@@ -235,16 +239,93 @@ const work = [
     year: "2024",
     category: "UI Design",
   },
- 
+  {
+    id: 10,
+    name: "Expense Tracker Application",
+    overview:
+      "Developed a modern Expense Tracker mobile application using React Native and Expo with a clean, responsive user interface and secure authentication.",
+    description:
+      "This application helps users manage their personal finances by tracking income, recording daily expenses, monitoring their current balance, and viewing monthly financial analytics through an intuitive and user-friendly interface.",
+    features: [
+      "User registration and login with JWT authentication",
+      "User profile and account management",
+      "Add income and expense transactions",
+      "Categorize transactions (Salary, Food, Fuel, Shopping, Bills, etc.)",
+      "Real-time balance calculation",
+      "Monthly income and expense tracking",
+      "Analytics dashboard with category-wise expense summary",
+      "Transaction history",
+      "Secure backend built with Node.js, Express.js, and MongoDB",
+      "RESTful API integration using Axios",
+      "Context API for state management",
+      "Cross-platform support for Android and iOS",
+    ],
+    techStack: [
+      "React Native (Expo)",
+      "JavaScript",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT Authentication",
+      "Context API",
+      "Axios",
+      "REST APIs",
+    ],
+    link: "https://github.com/sheikhhaad",
+    codeLink: "https://github.com/sheikhhaad",
+    image: expenseTracker,
+    year: "2024",
+    category: "Full-Stack",
+  },
+  {
+    id: 11,
+    name: "Student Query Management System",
+    overview:
+      "Developed a full-stack Student Query Management System designed to improve communication between students and teachers through a centralized platform.",
+    description:
+      "This platform streamlines communication between students and teachers by providing real-time messaging, query management, online class scheduling, and instant notifications in a secure and user-friendly environment.",
+    features: [
+      "Secure authentication for students and teachers",
+      "Separate dashboards based on user roles",
+      "Student query submission and teacher response system",
+      "Real-time one-to-one chat",
+      "Real-time notifications using Socket.IO",
+      "Online class and session management",
+      "Notice board for announcements",
+      "Course and enrollment management",
+      "Profile management",
+      "Responsive web interface",
+      "RESTful API integration",
+    ],
+    techStack: [
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Socket.IO",
+      "JWT Authentication",
+      "Context API",
+      "Axios",
+    ],
+    link: "https://github.com/sheikhhaad",
+    codeLink: "https://github.com/sheikhhaad",
+    image: studentPortal1,
+    images: [studentPortal1, studentPortal2, studentPortal3],
+    year: "2024",
+    category: "Next.js",
+  },
 ];
 
 /* ─── Page ─── */
 const Detailpage = () => {
   const { id } = useParams();
   const [data, setData] = useState(null);
+  const [activeImg, setActiveImg] = useState(null);
 
   useEffect(() => {
-    setData(work.find((itm) => itm.id == id) ?? null);
+    const found = work.find((itm) => itm.id == id) ?? null;
+    setData(found);
+    setActiveImg(found?.image || null);
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [id]);
 
@@ -456,9 +537,9 @@ const Detailpage = () => {
             <StatPill label="Status" value="Live" delay={0.3} />
           </div>
 
-          {/* ── Image — plain img, no parallax (fixes mobile scroll jank) ── */}
+          {/* ── Image Display ── */}
           <Reveal delay={0.15}>
-            <div className="dp-img-wrap mb-12 sm:mb-14">
+            <div className="dp-img-wrap mb-6 sm:mb-8">
               {/* fake browser chrome */}
               <div className="flex items-center gap-1.5 px-4 py-2.5 bg-white/5 border-b border-white/10">
                 {["#ff5f57", "#febc2e", "#28c840"].map((c) => (
@@ -475,8 +556,38 @@ const Detailpage = () => {
                   {data.link}
                 </span>
               </div>
-              <img src={data.image} alt={data.name} />
+              <img
+                src={activeImg || data.image}
+                alt={data.name}
+                className="w-full object-cover transition-all duration-300"
+              />
             </div>
+
+            {/* Multiple Image Gallery Thumbnails */}
+            {data.images && data.images.length > 1 && (
+              <div className="flex flex-wrap gap-3 mb-12 sm:mb-14 justify-center">
+                {data.images.map((imgSrc, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveImg(imgSrc)}
+                    className={`relative rounded-xl overflow-hidden border-2 transition-all duration-300 ${
+                      activeImg === imgSrc
+                        ? "border-accent scale-105 shadow-[0_0_15px_rgba(0,255,0,0.4)]"
+                        : "border-white/10 opacity-60 hover:opacity-100 hover:border-white/30"
+                    }`}
+                  >
+                    <img
+                      src={imgSrc}
+                      alt={`${data.name} preview ${idx + 1}`}
+                      className="w-24 h-16 sm:w-36 sm:h-24 object-cover"
+                    />
+                    <span className="absolute bottom-1 right-1 bg-black/70 text-[9px] font-mono px-1.5 py-0.5 rounded text-white">
+                      View {idx + 1}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
           </Reveal>
 
           <div className="dp-divider mb-12 sm:mb-14" />

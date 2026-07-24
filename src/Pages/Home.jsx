@@ -121,9 +121,11 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Architecting <br className="hidden md:block" />
+            Engineering Mobile Solutions &
+            <br className="hidden md:block" />
             <span className="text-gradient">
-              Scalable Web Ecosystems<span className="text-accent">.</span>
+              Enterprise Web Platforms
+              <span className="text-accent">.</span>
             </span>
           </motion.h1>
 

@@ -13,6 +13,10 @@ import portfolioImage from "../assets/portfolio.png";
 import disneyImage from "../assets/disney.png";
 import smw from "../assets/smw.png";
 import Soni from "../assets/Soni.png";
+import expenseTracker from "../assets/expenseTracker.png";
+import studentPortal1 from "../assets/StudentPortal1.png";
+import studentPortal2 from "../assets/StudentPortal2.png";
+import studentPortal3 from "../assets/StudentPortal3.png";
 import ChingariBackground from "../Components/AnimatedBackground.jsx";
 
 const Project = () => {
@@ -101,6 +105,30 @@ const Project = () => {
       problem:
         "This project is a modern, single-page application (SPA) built using React.js",
       spanClass: "md:col-span-1 md:row-span-1",
+    },
+    {
+      name: "Expense Tracker Application",
+      image: expenseTracker,
+      id: 10,
+      link: "https://github.com/sheikhhaad",
+      category: "Full-Stack",
+      problem:
+        "Tracking daily transactions and monthly financial balances accurately across platforms.",
+      outcome:
+        "Developed a mobile app with React Native, Expo & Node.js featuring real-time calculations and JWT auth.",
+      spanClass: "md:col-span-1 md:row-span-1",
+    },
+    {
+      name: "Student Query Management System",
+      image: studentPortal1,
+      id: 11,
+      link: "https://github.com/sheikhhaad",
+      category: "Next.js",
+      problem:
+        "Fragmented communication and delayed query resolutions between students and teachers.",
+      outcome:
+        "Built a full-stack platform with real-time Socket.IO chat, role-based dashboards, and instant notifications.",
+      spanClass: "md:col-span-2 md:row-span-1",
     },
   ];
 
