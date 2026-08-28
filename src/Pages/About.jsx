@@ -4,6 +4,7 @@ import mypic from "../assets/mypic.webp";
 import AnimatedBtn from "../Components/AnimatedBtn";
 import ContactSec from "../Components/ContactSec";
 import ChingariBackground from "../Components/AnimatedBackground.jsx";
+import Timeline from "../Components/Timeline.jsx";
 
 const About = () => {
   return (
@@ -11,86 +12,100 @@ const About = () => {
       <ChingariBackground />
 
       <div className="pt-32 pb-12 px-6 sm:px-10 lg:px-20 max-w-7xl mx-auto relative z-10">
+        {/* Top Hero / Narrative Section */}
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-20 items-start"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Left: 60% Narrative */}
+          {/* Left: Narrative */}
           <div className="lg:col-span-3 space-y-8">
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight">
-              Humanizing the <br />
-              <span className="text-gradient">
-                Digital <span className="bg-accent text-black">Experience</span>
-                .
+            <div>
+              <span className="text-accent font-mono text-sm tracking-widest uppercase font-semibold block mb-2">
+                About Me
               </span>
-            </h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight font-display">
+                Building Modern Web Experiences with{" "}
+                <span className="text-gradient">
+                  Purpose & <span className="bg-accent text-black px-1.5 rounded">Precision</span>.
+                </span>
+              </h1>
+            </div>
 
             <div className="space-y-6 text-gray-300 font-sans text-lg leading-relaxed">
               <p>
-                My journey began with a traditional Computer Science degree in
-                2023. Driven by pure curiosity and a passion for building things
-                that live on the internet, I embraced a self-taught approach
-                that has made me resourceful, adaptable, and deeply focused on
-                delivering real value through code.
-              </p>
-              <p>
-                In 2024, I completed a{" "}
-                <span className="bg-accent text-black">
+                My professional web development journey started in{" "}
+                <span className="text-white font-semibold">2024</span> when I
+                enrolled in the{" "}
+                <span className="bg-accent text-black px-1 rounded font-medium">
                   Certified Modern Web & App Development
-                </span>
-                course from{" "}
-                <span className="bg-accent text-black">
+                </span>{" "}
+                program at{" "}
+                <span className="text-white font-medium">
                   SMIT (Saylani Mass IT Training)
                 </span>
-                . Since October 2025, I have been working as a{" "}
-                <span className="bg-accent text-black">
-                  Front-End Developer
-                </span>{" "}
-                at <span className="bg-accent text-black">SmW Global</span>
-                (Private) Limited in Karachi, where I build modern, responsive
-                web interfaces and collaborate with cross-functional teams on
-                real-world projects.
+                . That intensive training provided the foundational cornerstone
+                for my career, focusing on modern web standards, component-driven
+                architecture, and practical software engineering.
               </p>
+
               <p>
-                As a{" "}
-                <span className="bg-accent text-black">
+                My academic path began with Matriculation from{" "}
+                <span className="text-white font-medium">
+                  Muslim Secondary School
+                </span>{" "}
+                in 2023 (64%), followed by Intermediate from{" "}
+                <span className="text-white font-medium">
+                  SR. Public School & College
+                </span>
+                , where I achieved 81%. To continue expanding my knowledge, I am
+                also pursuing my university studies at the{" "}
+                <span className="text-white font-medium">
+                  Virtual University of Pakistan
+                </span>
+                .
+              </p>
+
+              <p>
+                Following my initial training, I gained valuable hands-on
+                experience as a{" "}
+                <span className="text-white font-medium">
+                  React Native Intern
+                </span>{" "}
+                at{" "}
+                <span className="text-white font-medium">
+                  Hybrid Innovations
+                </span>{" "}
+                in July 2025. From October 2025 to July 2026, I worked as a{" "}
+                <span className="bg-accent text-black px-1 rounded font-medium">
+                  MERN Stack Developer
+                </span>{" "}
+                at{" "}
+                <span className="text-white font-medium">
+                  SmW Global (Private) Limited
+                </span>
+                , developing full-stack web applications with React.js, Next.js,
+                Node.js, Express.js, MongoDB, and secure RESTful services.
+              </p>
+
+              <p>
+                Currently, since August 2026, I work as a{" "}
+                <span className="bg-accent text-black px-1 rounded font-medium">
                   Front-End Developer
                 </span>{" "}
-                at <span className="bg-accent text-black">SmW Global</span>, I
-                play a key role in creating high-performance, visually
-                compelling, and user-centric web applications. I work closely
-                with design, product, and engineering teams to deliver seamless
-                digital experiences that meet international development
-                standards.
+                at{" "}
+                <span className="text-white font-medium">
+                  Digitano (Private) Limited
+                </span>
+                , where I concentrate on building clean, high-performance, and
+                responsive web interfaces.
               </p>
             </div>
-            {/* Timeline */}
-            {/* <div className="mt-16 relative">
-               <h2 className="text-2xl font-bold text-white mb-8">My Journey</h2>
-                <div className="pl-6 border-l-2 border-white/10 space-y-12">
-                  <div className="relative">
-                     <div className="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-accent shadow-[0_0_10px_rgba(0,255,0,0.8)] border-4 border-bg"></div>
-                     <span className="text-accent font-mono text-xs tracking-widest font-semibold uppercase mb-2 block">Jan 2023</span>
-                     <h3 className="text-xl font-bold text-white">Wrote my first "Hello World."</h3>
-                  </div>
-                  <div className="relative">
-                     <div className="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-accent shadow-[0_0_10px_rgba(0,255,0,0.8)] border-4 border-bg"></div>
-                     <span className="text-accent font-mono text-xs tracking-widest font-semibold uppercase mb-2 block">June 2023</span>
-                     <h3 className="text-xl font-bold text-white">Mastered the MERN stack.</h3>
-                  </div>
-                  <div className="relative">
-                     <div className="absolute -left-[33px] top-1 w-4 h-4 rounded-full bg-accent shadow-[0_0_10px_rgba(0,255,0,0.8)] border-4 border-bg"></div>
-                     <span className="text-white font-mono text-xs tracking-widest font-semibold uppercase mb-2 block">2024 - Present</span>
-                     <h3 className="text-xl font-bold text-white">Building production-ready apps.</h3>
-                  </div>
-               </div>
-            </div> */}
           </div>
 
-          {/* Right: 40% Photo & Tools */}
-          <div className="lg:col-span-2 space-y-16 lg:sticky lg:top-32">
+          {/* Right: Photo & Tools */}
+          <div className="lg:col-span-2 space-y-12 lg:sticky lg:top-32">
             <motion.div
               className="relative rounded-3xl overflow-hidden glass p-2 w-full max-w-[400px] mx-auto"
               whileHover={{ scale: 1.02 }}
@@ -117,17 +132,27 @@ const About = () => {
                     FRONTEND
                   </span>
                   <span className="text-gray-300 flex-1 sm:text-right font-sans">
-                    React, Next.js, React Native, Tailwind CSS, Framer Motion
+                    React.js, Next.js, Tailwind CSS, Framer Motion, JavaScript (ES6+)
                   </span>
                 </div>
 
-                {/* Backend */}
+                {/* Backend / Fullstack */}
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between items-start sm:items-center p-4 rounded-xl glass hover:bg-white/10 transition-colors cursor-default">
                   <span className="text-accent font-mono font-bold tracking-widest text-sm w-24">
                     BACKEND
                   </span>
                   <span className="text-gray-300 flex-1 sm:text-right font-sans">
-                    Node.js, Express.js, MongoDB, REST APIs, JWT Auth
+                    Node.js, Express.js, MongoDB, REST APIs, Authentication
+                  </span>
+                </div>
+
+                {/* Mobile */}
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between items-start sm:items-center p-4 rounded-xl glass hover:bg-white/10 transition-colors cursor-default">
+                  <span className="text-accent font-mono font-bold tracking-widest text-sm w-24">
+                    MOBILE
+                  </span>
+                  <span className="text-gray-300 flex-1 sm:text-right font-sans">
+                    React Native
                   </span>
                 </div>
 
@@ -143,7 +168,7 @@ const About = () => {
               </div>
 
               <div className="mt-8 flex justify-center">
-                <AnimatedBtn  
+                <AnimatedBtn
                   title="My Resume"
                   link="https://drive.google.com/file/d/1E-SfG-VO57Bcrz_ogVFUshhHDqa-Ak3B/view?usp=sharing"
                 />
@@ -151,11 +176,22 @@ const About = () => {
             </div>
           </div>
         </motion.div>
+
+        {/* Timeline Section */}
+        <motion.div
+          className="mt-24 pt-12 border-t border-white/10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <Timeline />
+        </motion.div>
       </div>
 
       {/* Contact Section */}
       <motion.div
-        className="p-5 mt-20 relative z-10"
+        className="p-5 mt-16 relative z-10"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}

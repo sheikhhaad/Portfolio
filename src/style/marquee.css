@@ -16,15 +16,14 @@
   display: inline-block;
   margin: 0;
   font-size: 2rem; /* responsive ke liye thoda chhota */
-  font-family: 'bbhsansbartle', sans-serif; /* Quicksand font */
+  font-family: 'poppins', sans-serif; /* Quicksand font */
   padding-right: 2rem;
   color: transparent;
   background-image: linear-gradient(
     120deg,
-    #e5ff14ff,
-    #00f41dff,
-    #ff6214,
-    #2DE72c
+    rgb(50, 218, 58),
+    rgb(0, 244, 122),
+    #00a2ff
   );
   background-size: 200% auto;
   background-clip: text;

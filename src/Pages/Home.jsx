@@ -25,6 +25,7 @@ import Accordian from "../Components/Accordian.jsx";
 import ContactSec from "../Components/ContactSec.jsx";
 import SkillsMarquee from "../Components/SkillsMarquee.jsx";
 import ChingariBackground from "../Components/AnimatedBackground.jsx";
+import Timeline from "../Components/Timeline.jsx";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
@@ -138,7 +139,7 @@ const Home = () => {
           >
             <div className="hidden md:block w-12 h-[2px] bg-accent rounded"></div>
             <p className="text-gray-300 font-mono text-lg md:text-xl max-w-2xl leading-relaxed">
-              Haad Sheikh — MERN Developer transforming complex ideas into high-performance digital products.
+              Haad Sheikh — Front-End & MERN Developer transforming complex ideas into high-performance digital products.
             </p>
           </motion.div>
         </div>
@@ -190,7 +191,7 @@ const Home = () => {
       <section className="sm:px-6 lg:px-16 py-12 font-sans relative z-10 fade-in-section">
         <AboutSec
           title="✧ ABOUT ME ✧"
-          description="I am Haad Sheikh, a self-taught MERN Stack Developer with a strong focus on building clean, responsive, and functional web and mobile applications. Since 2024, I have been working on real-world projects using React, Node, Firebase,Supabase, and Tailwind CSS. I enjoy solving problems through code, creating modern UIs, and continuously improving my skills to deliver efficient digital solutions."
+          description="I am Haad Sheikh, a Front-End & MERN Stack Developer with a strong focus on building clean, responsive, and functional web applications. Since 2024, my web development journey began through SMIT, and I have worked on real-world projects using React.js, Next.js, Node.js, Express.js, MongoDB, and Tailwind CSS. Currently working as a Front-End Developer at Digitano."
         />
       </section>
 
@@ -233,6 +234,11 @@ const Home = () => {
           transition={{ duration: 0.5 }}
         ></motion.div>
         <ExpertiseSec />
+      </section>
+
+      {/* Career & Education Timeline */}
+      <section className="px-4 sm:px-6 lg:px-16 py-12 font-sans relative z-10 fade-in-section">
+        <Timeline />
       </section>
 
       {/* Skills */}
