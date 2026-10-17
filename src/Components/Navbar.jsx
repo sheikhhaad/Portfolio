@@ -11,6 +11,7 @@ import {
 import Logo from "./Logo";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -94,6 +95,14 @@ const Navbar = () => {
                 className="text-gray-400 text-xl hover:text-[#1877F2] transition-colors"
               >
                 <FaFacebook />
+              </a>
+                <a
+                href="https://www.x.com/_sheikhhaad"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 text-xl hover:text-[#1877F2] transition-colors"
+              >
+                <FaXTwitter />
               </a>
             </div>
           </div>

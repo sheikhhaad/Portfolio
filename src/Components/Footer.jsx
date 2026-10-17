@@ -6,14 +6,19 @@ import {
   FaInstagram,
   FaFacebook,
   FaEnvelope,
+  FaYoutube,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { FaXTwitter } from "react-icons/fa6";
 
 const socials = [
   { path: "https://github.com/sheikhhaad", Icon: FaGithub },
   { path: "https://linkedin.com/in/sheikhhaad", Icon: FaLinkedin },
   { path: "https://instagram.com/sheikhhaad_", Icon: FaInstagram },
   { path: "https://facebook.com/sheikhhaad0", Icon: FaFacebook },
+  { path: "https://x.com/_sheikhhaad", Icon: FaXTwitter },
+  { path: "https://www.youtube.com/@HaadSheikh-s6y", Icon: FaYoutube },
+
 ];
 
 const links = [
@@ -33,17 +38,17 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
           {/* Brand & Intro */}
           <div className="lg:col-span-2 space-y-6 md:pr-10">
-           <h1 className="font-display text-white tracking-tight hover:opacity-80 transition-opacity">
-             <Link
-              to="/"
-              className="inline-block text-3xl font-display text-white tracking-tight hover:opacity-80 transition-opacity"
-            >
-              Haad
-              <span className="text-accent">
-                .
-              </span>
-            </Link>
-           </h1>
+            <h1 className="font-display text-white tracking-tight hover:opacity-80 transition-opacity">
+              <Link
+                to="/"
+                className="inline-block text-3xl font-display text-white tracking-tight hover:opacity-80 transition-opacity"
+              >
+                Haad
+                <span className="text-accent">
+                  .
+                </span>
+              </Link>
+            </h1>
             <p className="text-gray-400 leading-relaxed text-sm sm:text-base max-w-md">
               Crafting visually stunning, high-performance web experiences.
               Focused on modern design, responsive layouts, and clean code.

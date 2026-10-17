@@ -7,6 +7,7 @@ import Accordian from "../Components/Accordian";
 import mypic from "../assets/mypic.webp";
 import ChingariBackground from "../Components/AnimatedBackground.jsx";
 import axios from "axios";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -98,6 +99,9 @@ const Contact = () => {
                   </a>
                    <a href="https://instagram.com/sheikhhaad0" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:bg-blue-600 hover:scale-110 transition-all duration-300">
                     <FaFacebook className="text-2xl" />
+                  </a>
+                   <a href="https://www.x.com/_sheikhhaad" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:text-[#1877F2] transition-colors">
+                    <FaXTwitter className="text-2xl" />
                   </a>
                 </div>
               </div>
