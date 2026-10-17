@@ -1,263 +1,248 @@
-// Home.jsx
+// src/Pages/Home.jsx
+import React from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import {
   FaGithub,
   FaLinkedin,
   FaInstagram,
   FaFacebook,
-  FaCode,
-  FaPaintBrush,
-  FaBullhorn,
+  FaYoutube,
 } from "react-icons/fa";
-import React, { useState } from "react";
-import { motion } from "framer-motion";
-import "../style/marquee.css";
-import AboutSec from "../Components/AboutSec";
-import LeftSec from "../Components/LeftSec";
-import PortfolioCard from "../Components/PortfolioCard";
-import Marquee from "../Components/Marquee";
-import AnimatedBtn from "../Components/AnimatedBtn";
-import nexcent from "../assets/nexcent.png";
-import adminpanel from "../assets/adminpanel.png";
-import donation from "../assets/donationweb.png";
-import gemini from "../assets/gemini.png";
-import SocialBtn from "../Components/SocialBtn";
-import Accordian from "../Components/Accordian.jsx";
-import ContactSec from "../Components/ContactSec.jsx";
-import SkillsMarquee from "../Components/SkillsMarquee.jsx";
-import ChingariBackground from "../Components/AnimatedBackground.jsx";
-import Timeline from "../Components/Timeline.jsx";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useLayoutEffect, useRef } from "react";
-import ExpertiseSec from "../Components/ExpertiseSec.jsx";
+import {
+  ArrowUpRight,
+  Sparkles,
+  ChevronDown,
+  Terminal,
+  Cpu,
+} from "lucide-react";
 
-gsap.registerPlugin(ScrollTrigger);
+import AnimatedBackground from "../Components/AnimatedBackground.jsx";
+import CosmicHeroVisual from "../Components/CosmicHeroVisual.jsx";
+import Marquee from "../Components/Marquee.jsx";
+import CosmicAboutPreview from "../Components/CosmicAboutPreview.jsx";
+import CosmicProjects from "../Components/CosmicProjects.jsx";
+import CosmicSkills from "../Components/CosmicSkills.jsx";
+import ExpertiseSec from "../Components/ExpertiseSec.jsx";
+import Timeline from "../Components/Timeline.jsx";
+import ContactSec from "../Components/ContactSec.jsx";
+
+const socials = [
+  { name: "GitHub", href: "https://github.com/sheikhhaad", icon: <FaGithub /> },
+  { name: "LinkedIn", href: "https://www.linkedin.com/in/sheikhhaad/", icon: <FaLinkedin /> },
+  { name: "Instagram", href: "https://www.instagram.com/sheikhhaad_/", icon: <FaInstagram /> },
+  { name: "Facebook", href: "https://www.facebook.com/sheikhhaad0", icon: <FaFacebook /> },
+  { name: "YouTube", href: "https://www.youtube.com/channel/UC5dq3xrGBgE5-Gk-eaYqAew", icon: <FaYoutube /> },
+];
 
 const Home = () => {
-  const cardsRef = useRef([]);
-  const [openIndex, setopenIndex] = useState(null);
-
-  const handleToggle = (index) => {
-    setopenIndex(openIndex === index ? null : index);
-  };
-
-  const projects = [
-    { name: "Donation Web", image: donation, id: 3 },
-    { name: "Google Gemini", image: gemini, id: 4 },
-  ];
-
-  const socials = [
-    { path: "https://github.com/sheikhhaad", Icon: FaGithub },
-    { path: "https://www.linkedin.com/in/sheikhhaad/", Icon: FaLinkedin },
-    { path: "https://instagram.com/sheikhhaad_", Icon: FaInstagram },
-    {
-      path: "https://www.facebook.com/sheikhhaad0",
-      Icon: FaFacebook,
-    },
-  ];
-
-  const accordionItems = [
-    {
-      title: "Development",
-      description:
-        "Building responsive websites. Providing the users an enriching experience that responds to any device and screen size.",
-      icon: <FaCode className="text-blue-400 text-xl sm:text-2xl" />,
-    },
-    {
-      title: "UI/UX Design",
-      description:
-        "Designing user-centric, modern interfaces that shapes how the audience interacts with the product.",
-      icon: <FaPaintBrush className="text-pink-400 text-xl sm:text-2xl" />,
-    },
-    {
-      title: "Branding",
-      description:
-        "Building brand identities including working on logo, typography, iconography, colour palette, visual language, and brand personality.",
-      icon: <FaBullhorn className="text-yellow-400 text-xl sm:text-2xl" />,
-    },
-  ];
-
-  useLayoutEffect(() => {
-    // Simple fade in for cards
-    cardsRef.current.forEach((card, i) => {
-      if (card) {
-        gsap.from(card, {
-          opacity: 0,
-          y: 30,
-          duration: 0.6,
-          delay: i * 0.1,
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-          },
-        });
-      }
-    });
-
-    // Simple section animations
-    gsap.utils.toArray(".fade-in-section").forEach((section) => {
-      gsap.from(section, {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-        },
-      });
-    });
-  }, []);
-
   return (
     <>
-      {/* Animated Background */}
-      <ChingariBackground />
+      {/* 3D Cosmic Animated Starfield Universe */}
+      <AnimatedBackground />
 
-      {/* Intro Section */}
-      <header className="text-white px-4 sm:px-6 lg:px-16 pt-20 md:pt-24 min-h-[40vh] flex items-center font-sans relative z-10">
-        <div className="w-full">
-          <motion.h1
-            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-4 leading-tight tracking-tight mt-10"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            Engineering Mobile Solutions &
-            <br className="hidden md:block" />
-            <span className="text-gradient">
-              Enterprise Web Platforms
-              <span className="text-accent">.</span>
-            </span>
-          </motion.h1>
+      {/* ── 1. SIGNATURE HERO SECTION ── */}
+      <section className="relative min-h-[92vh] pt-32 pb-16 px-4 sm:px-6 lg:px-16 flex items-center z-10">
+        <div className="w-full max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+            
+            {/* Left Column: Personal Identity & Typography */}
+            <div className="lg:col-span-7 space-y-6">
+              
+              {/* Status Pill */}
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass border border-accent/30 text-xs font-mono text-accent"
+              >
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse shadow-[0_0_8px_#00FF00]" />
+                <span className="uppercase tracking-widest text-[11px] font-semibold">
+                  AVAILABLE FOR SELECT PROJECTS // 2026
+                </span>
+              </motion.div>
 
-          {/* Subtext */}
-          <motion.div
-            className="flex flex-col md:flex-row md:items-center gap-4 mb-8 mt-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
-            <div className="hidden md:block w-12 h-[2px] bg-accent rounded"></div>
-            <p className="text-gray-300 font-mono text-lg md:text-xl max-w-2xl leading-relaxed">
-              Haad Sheikh — Front-End & MERN Developer transforming complex ideas into high-performance digital products.
-            </p>
-          </motion.div>
-        </div>
-      </header>
+              {/* Name & Title */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="space-y-2"
+              >
+                <div className="flex items-center gap-3">
+                  <h2 className="text-sm sm:text-base font-mono uppercase tracking-[0.25em] text-accent font-semibold">
+                    HAAD SHEIKH
+                  </h2>
+                  <span className="text-gray-500 font-mono text-xs">//</span>
+                  <span className="text-xs sm:text-sm font-mono text-gray-300 uppercase tracking-widest">
+                    MERN STACK DEVELOPER
+                  </span>
+                </div>
 
-      <div className="flex justify-between mx-4 my-4 font-sans relative z-10">
-        <motion.nav
-          className="hidden sm:flex flex-wrap justify-start gap-4 px-4 sm:px-6 lg:px-16 py-4 text-white"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-        >
-          {socials.map((itm, id) => (
+                <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.08] tracking-tight font-display">
+                  Building Digital <br className="hidden sm:block" />
+                  Experiences{" "}
+                  <span className="text-chrome">Beyond The</span>{" "}
+                  <span className="text-accent relative inline-block">
+                    Ordinary.
+                    <span className="absolute bottom-1 left-0 w-full h-[3px] bg-accent/40 rounded-full" />
+                  </span>
+                </h1>
+              </motion.div>
+
+              {/* Supporting Narrative */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="text-gray-300 font-sans text-base sm:text-lg max-w-2xl leading-relaxed"
+              >
+                I build modern web applications and immersive digital experiences, combining thoughtful frontend engineering with practical full-stack development. Currently crafting high-performance interfaces at <strong className="text-white">Digitano</strong>.
+              </motion.p>
+
+              {/* Credentials / Status Pills */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex flex-wrap gap-2.5 pt-1"
+              >
+                <span className="text-xs font-mono px-3 py-1.5 rounded-lg glass border border-white/10 text-gray-300 flex items-center gap-1.5">
+                  <Terminal className="w-3.5 h-3.5 text-accent" />
+                  Front-End @ Digitano
+                </span>
+                <span className="text-xs font-mono px-3 py-1.5 rounded-lg glass border border-white/10 text-gray-300">
+                  Ex: SmW Global
+                </span>
+                <span className="text-xs font-mono px-3 py-1.5 rounded-lg glass border border-white/10 text-gray-300">
+                  MERN · Next.js · React Native
+                </span>
+              </motion.div>
+
+              {/* CTAs */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="flex flex-wrap items-center gap-4 pt-4"
+              >
+                <a
+                  href="#featured-work"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-full bg-accent text-black font-mono text-xs uppercase tracking-wider font-extrabold hover:shadow-[0_0_30px_rgba(0,255,0,0.6)] hover:scale-105 transition-all duration-300"
+                >
+                  Explore My Work
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-full glass border border-white/15 text-white font-mono text-xs uppercase tracking-wider font-semibold hover:border-accent hover:text-accent hover:bg-white/10 transition-all duration-300"
+                >
+                  Let's Connect
+                </Link>
+              </motion.div>
+
+              {/* Social Links */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="flex items-center gap-4 pt-4 text-gray-400"
+              >
+                <span className="text-xs font-mono uppercase tracking-widest text-gray-500 mr-2">
+                  SOCIALS:
+                </span>
+                {socials.map((s, idx) => (
+                  <a
+                    key={idx}
+                    href={s.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={s.name}
+                    className="text-lg hover:text-accent hover:scale-110 transition-all duration-200"
+                  >
+                    {s.icon}
+                  </a>
+                ))}
+              </motion.div>
+
+            </div>
+
+            {/* Right Column: 3D Cosmic Visual Composition */}
             <motion.div
-              key={id}
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.2 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="lg:col-span-5 flex justify-center"
             >
-              <SocialBtn
-                path={itm.path}
-                Icon={itm.Icon}
-                styling="text-white hover:text-accent text-2xl sm:text-3xl transition-colors duration-300"
-              />
+              <CosmicHeroVisual />
             </motion.div>
-          ))}
-        </motion.nav>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.85 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <AnimatedBtn
-            title="Know Me Better"
-            sectilte="About me"
-            link={"/about"}
-          />
-        </motion.div>
-      </div>
+          </div>
+        </div>
+      </section>
 
-      {/* Marquee */}
-      <div className="relative z-10 fade-in-section">
+      {/* ── 2. COSMIC MARQUEE ── */}
+      <div className="relative z-10">
         <Marquee />
       </div>
 
-      {/* About */}
-      <section className="sm:px-6 lg:px-16 py-12 font-sans relative z-10 fade-in-section">
-        <AboutSec
-          title="✧ ABOUT ME ✧"
-          description="I am Haad Sheikh, a Front-End & MERN Stack Developer with a strong focus on building clean, responsive, and functional web applications. Since 2024, my web development journey began through SMIT, and I have worked on real-world projects using React.js, Next.js, Node.js, Express.js, MongoDB, and Tailwind CSS. Currently working as a Front-End Developer at Digitano."
-        />
+      {/* ── 3. ABOUT SECTION ── */}
+      <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto">
+        <CosmicAboutPreview />
       </section>
 
-      {/* Portfolio */}
-      {/* Featured Project */}
-      <section className="px-4 sm:px-6 lg:px-16 py-12 relative z-10 fade-in-section">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="w-full flex flex-col md:flex-row items-center bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl overflow-hidden shadow-2xl glass"
-        >
-          <div className="p-8 md:p-12 md:w-1/2 flex flex-col justify-center">
-            <h3 className="text-accent font-mono tracking-widest text-sm mb-4">CASE STUDY</h3>
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Donation Web Platform</h2>
-            <p className="text-gray-400 text-lg mb-8">
-              A scalable, high-performance platform transforming how people contribute and track charitable donations worldwide.
-            </p>
-            <div>
-              <AnimatedBtn
-                title="View Case Study"
-                sectilte="See Details"
-                link={"/projects/detailpage/3"}
-              />
-            </div>
+      {/* ── 4. FEATURED PROJECTS ── */}
+      <section id="featured-work" className="relative z-10 py-24 px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto border-t border-white/10">
+        <div className="mb-16">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+            <span className="text-accent font-mono text-xs uppercase tracking-widest font-semibold">
+              // 02. PORTFOLIO SHOWCASE
+            </span>
           </div>
-          <div className="md:w-1/2 h-full min-h-[300px] md:min-h-[400px] overflow-hidden relative">
-            <img src={donation} alt="Donation Site" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700 ease-in-out" />
-          </div>
-        </motion.div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-display">
+            Featured <span className="text-chrome">Work</span> & Platforms.
+          </h2>
+          <p className="text-gray-400 font-sans text-sm sm:text-base mt-2 max-w-xl">
+            Real-world applications engineered with modern architecture, sub-second response times, and clean code.
+          </p>
+        </div>
+
+        <CosmicProjects />
       </section>
 
-      {/* Expertise */}
-      <section className="px-4 sm:px-6 lg:px-16 py-12 font-sans relative z-10 fade-in-section">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        ></motion.div>
+      {/* ── 5. TECHNICAL STACK & SKILLS ── */}
+      <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto border-t border-white/10">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full glass border border-accent/20 text-xs font-mono text-accent mb-3">
+            <Cpu className="w-3.5 h-3.5" />
+            TECHNICAL ARSENAL
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-display">
+            A Futuristic <span className="text-chrome">Technical</span> System.
+          </h2>
+          <p className="text-gray-400 font-sans text-sm sm:text-base mt-3 max-w-xl mx-auto">
+            Categorized overview of verified technologies and workflows I use to build scalable products.
+          </p>
+        </div>
+
+        <CosmicSkills />
+      </section>
+
+      {/* ── 6. VALUE ADD & SERVICES ── */}
+      <div className="relative z-10 border-t border-white/10">
         <ExpertiseSec />
-      </section>
+      </div>
 
-      {/* Career & Education Timeline */}
-      <section className="px-4 sm:px-6 lg:px-16 py-12 font-sans relative z-10 fade-in-section">
+      {/* ── 7. CAREER & EDUCATION TIMELINE ── */}
+      <section className="relative z-10 py-24 px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto border-t border-white/10">
         <Timeline />
       </section>
 
-      {/* Skills */}
-      <div className="mb-4 mt-4 font-sans relative z-10 fade-in-section">
-        <hr className="border-gray-700" />
-        <SkillsMarquee />
-        <hr className="border-gray-700" />
-      </div>
-
-      {/* Contact */}
-      <section className="px-2 sm:px-6 lg:px-16 py-10 font-sans relative z-10 fade-in-section">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <ContactSec />
-        </motion.div>
+      {/* ── 8. CINEMATIC CONTACT ENDING ── */}
+      <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-16 max-w-7xl mx-auto border-t border-white/10">
+        <ContactSec />
       </section>
     </>
   );

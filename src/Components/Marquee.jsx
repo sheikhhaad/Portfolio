@@ -2,31 +2,38 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const Marquee = () => {
+  const items = [
+    "MERN Stack Developer",
+    "Front-End Engineering",
+    "React.js & Next.js",
+    "Node.js & MongoDB",
+    "Interactive 3D UI",
+    "API Architecture",
+    "Digitano Developer",
+    "Clean Architecture",
+  ];
+
   return (
-    <>
-      {/* Marquee Section */}
-      <hr className="border-gray-900" />
-
+    <div className="py-4 border-y border-white/10 relative overflow-hidden bg-black/40 backdrop-blur-sm">
       <motion.div
-        className="relative overflow-hidden mb-2"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1.5 }}
+        className="flex whitespace-nowrap gap-8"
+        animate={{ x: [0, -1000] }}
+        transition={{
+          repeat: Infinity,
+          ease: "linear",
+          duration: 25,
+        }}
       >
-        <div className="marquee mb-2 mt-2">
-          <div className="marquee-content flex gap-4 items-center">
-            <p className="font-sans font-semibold text-xl tracking-widest text-accent">
-              Software Architect ✧ AI Engineer ✧ Mobile Developer ✧ Full-Stack Engineer ✧
-            </p>
-            <p className="font-sans font-semibold text-xl tracking-widest text-accent">
-              Software Architect ✧ AI Engineer ✧ Mobile Developer ✧ Full-Stack Engineer ✧
-            </p>
+        {[...items, ...items, ...items].map((text, i) => (
+          <div key={i} className="flex items-center gap-6">
+            <span className="font-mono text-sm sm:text-base font-semibold tracking-widest uppercase text-gray-300">
+              {text}
+            </span>
+            <span className="text-accent text-sm shadow-[0_0_8px_#00FF00]">✧</span>
           </div>
-        </div>
+        ))}
       </motion.div>
-
-      <hr className="border-gray-900" />
-    </>
+    </div>
   );
 };
 
