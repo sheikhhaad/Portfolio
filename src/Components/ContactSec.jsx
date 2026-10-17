@@ -1,20 +1,18 @@
 import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const AnimatedBtn = ({ title, link }) => {
-  const btnRef = useRef(null);
-
   return (
-    <a
-      ref={btnRef}
-      href={link}
-      className="group relative inline-flex items-center gap-2.5 px-9 py-3.5 bg-transparent border border-[#00FF00] text-[#00FF00] font-mono text-[0.85rem] tracking-[0.12em] uppercase no-underline rounded cursor-pointer transition-colors duration-[0.35s] ease-out z-10 overflow-hidden hover:text-[#050505]"
+    <Link
+      to={link}
+      className="group relative inline-flex items-center gap-2.5 px-9 py-3.5 bg-transparent border border-[#00FF00] text-[#00FF00] font-mono text-[0.85rem] tracking-[0.12em] uppercase no-underline rounded-full cursor-pointer transition-colors duration-[0.35s] ease-out z-10 overflow-hidden hover:text-[#050505]"
     >
       <span className="absolute inset-0 bg-[#00FF00] scale-x-0 origin-left transition-transform duration-[0.35s] cubic-bezier(0.76,0,0.24,1) group-hover:scale-x-100 -z-10" />
       {title}
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
         <path d="M1 7h12M7 1l6 6-6 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
-    </a>
+    </Link>
   );
 };
 

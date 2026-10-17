@@ -6,6 +6,7 @@ import {
   FaInstagram,
   FaFacebook,
   FaEnvelope,
+  FaYoutube,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -14,6 +15,7 @@ const socials = [
   { path: "https://linkedin.com/in/sheikhhaad", Icon: FaLinkedin },
   { path: "https://instagram.com/sheikhhaad_", Icon: FaInstagram },
   { path: "https://facebook.com/sheikhhaad0", Icon: FaFacebook },
+  { path: "https://www.youtube.com/channel/UC5dq3xrGBgE5-Gk-eaYqAew", Icon: FaYoutube },
 ];
 
 const links = [
@@ -50,7 +52,7 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-4 pt-2">
               <a
-                href="mailto:sheikhhaad1@gmail.com"
+                href="mailto:sheikhhaad6@gmail.com"
                 className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors group text-sm sm:text-base"
               >
                 <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-accent/20 group-hover:text-accent transition-all border border-white/5 group-hover:border-accent/30">
